@@ -7,6 +7,7 @@ class CreateCompanies < ActiveRecord::Migration
       t.text :address
       t.text :bank_details
       t.text :phone
+      t.text :email
 
       t.timestamps
     end
