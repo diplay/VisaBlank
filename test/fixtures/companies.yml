@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  paid_before: 2014-04-07
+  tin: MyText
+  address: MyText
+  bank_details: MyText
+  phone: MyText
+
+two:
+  name: MyText
+  paid_before: 2014-04-07
+  tin: MyText
+  address: MyText
+  bank_details: MyText
+  phone: MyText

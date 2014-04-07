@@ -1,0 +1,2 @@
+module CompanyClaimsHelper
+end

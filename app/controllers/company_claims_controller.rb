@@ -1,0 +1,2 @@
+class CompanyClaimsController < ApplicationController
+end
