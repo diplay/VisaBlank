@@ -1,0 +1,18 @@
+<table>
+  <thead>
+    <td>Id</td>
+    <td>Название</td>
+    <td>Email</td>
+    <td>Телефон</td>
+  </thead>
+  <tbody>
+  <% @claims.each do |claim| %>
+    <tr>
+    <%= content_tag :td, claim.id %>
+    <%= content_tag :td, claim.name %>
+    <%= content_tag :td, claim.email %>
+    <%= content_tag :td, claim.phone %>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

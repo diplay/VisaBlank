@@ -1,0 +1,10 @@
+<span>Создание заявки</span>
+<%= form_for @claim do |f| %>
+  <%= label_tag :company_claim_name, "Название" %>
+  <%= f.text_field :name %><br/>
+  <%= label_tag :company_claim_email, "E-mail" %>
+  <%= f.text_field :email %><br/>
+  <%= label_tag :company_claim_phone, "Телефон" %>
+  <%= f.text_field :phone %><br/>
+  <%= f.submit "Подать заявку" %>
+<% end %>
