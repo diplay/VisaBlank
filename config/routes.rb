@@ -10,6 +10,8 @@ Visa::Application.routes.draw do
 
   resources :company_claims
 
+  root 'application#index'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
