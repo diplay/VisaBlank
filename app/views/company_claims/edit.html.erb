@@ -1,40 +1,23 @@
 <table>
-  <%=form_for @claim do |f| %>
+  <%= render 'claim_data' %>
   <tr>
-    <td>Id заявки</td>
-    <td><%= @claim.id %></td>
+    <%= form_tag company_claim_path(@claim), method: "PUT" do %>
+    <td>
+        <%= submit_tag "Отклонить заявку",
+          onclick: "return confirm('Вы точно уверены?');" %>
+    </td>
+    <td>
+        <%= submit_tag "Принять заявку",
+          onclick: "return confirm('Вы точно уверены?');" %>
+    </td>
+    <% end %>
   </tr>
-  <tr>
-    <td>Название</td>
-    <td><%= f.text_field :name %></td>
-  </tr>
-  <tr>
-    <td>E-mail</td>
-    <td><%= f.text_field :email %></td>
-  </tr>
-  <tr>
-    <td>Телефон</td>
-    <td><%= f.text_field :phone %></td>
-  </tr>
-  <tr>
-    <td>Статус заявки</td>
-    <td><%= f.select :status, [["Ожидает рассмотрения", 0],
-                               ["Принята", 1], ["Отклонена", 2]] %></td>
-  </tr>
-  <tr>
-    <td><%= f.submit "Сохранить изменения" %><td>
-  </tr>
-  <% end %>
   <tr>
     <td>
       <%= form_tag company_claim_path(@claim), method: "DELETE" do %>
         <%= submit_tag "Удалить заявку",
           onclick: "return confirm('Вы точно уверены?');" %>
       <% end %>
-    </td>
-    <td>
-      <%= tag :input, value: "Принять заявку", type: "button",
-        onclick: "window.location.href='#{new_company_path}';" %>
     </td>
   </tr>
 </table>

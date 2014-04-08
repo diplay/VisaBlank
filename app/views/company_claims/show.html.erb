@@ -1,22 +1,3 @@
 <table>
-  <tr>
-    <td>Id заявки</td>
-    <td><%= @claim.id %></td>
-  </tr>
-  <tr>
-    <td>Название</td>
-    <td><%= @claim.name %></td>
-  </tr>
-  <tr>
-    <td>E-mail</td>
-    <td><%= @claim.email %></td>
-  </tr>
-  <tr>
-    <td>Телефон</td>
-    <td><%= @claim.phone %></td>
-  </tr>
-  <tr>
-    <td>Статус заявки</td>
-    <td><%= @claim.status_string %></td>
-  </tr>
+  <%= render 'claim_data' %>
 </table>

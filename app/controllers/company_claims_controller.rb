@@ -2,7 +2,7 @@
 class CompanyClaimsController < ApplicationController
 
   def index #просмотр списка заявок
-    @claims = CompanyClaim.all
+    @claims = CompanyClaim.find(:all, order: "status")
   end
 
   def new #форма создания новой заявки
@@ -20,7 +20,13 @@ class CompanyClaimsController < ApplicationController
 
   def update #изменение заявки(ее статуса)
     claim = CompanyClaim.find params[:id]
-    claim.update company_claim_params
+    if params[:commit] == "Принять заявку"
+      claim.status = 1
+      redirect_to new_company_path
+    else
+      claim.status = 2
+      redirect_to company_claims_path
+    end
     claim.save
   end
 
