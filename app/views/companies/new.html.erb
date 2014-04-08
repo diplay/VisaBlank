@@ -1,0 +1,10 @@
+<%= form_for @company do |f| %>
+  <%= f.hidden_field :id %>
+  <%= label_tag :company_name, "Название" %>
+  <%= f.text_field :name %><br/>
+  <%= label_tag :company_email, "E-mail" %>
+  <%= f.text_field :email %><br/>
+  <%= label_tag :company_phone, "Телефон" %>
+  <%= f.text_field :phone %><br/>
+  <%= f.submit "Создать компанию" %><br/>
+<% end %>

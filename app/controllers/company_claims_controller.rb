@@ -22,7 +22,7 @@ class CompanyClaimsController < ApplicationController
     claim = CompanyClaim.find params[:id]
     if params[:commit] == "Принять заявку"
       claim.status = 1
-      redirect_to new_company_path
+      redirect_to new_company_path claim_id: claim.id
     else
       claim.status = 2
       redirect_to company_claims_path
