@@ -1,22 +1,37 @@
 #coding: utf-8
 class CompaniesController < ApplicationController
 
-  def new
+  def new #форма создания новой компании
     claim = CompanyClaim.find params[:claim_id]
     @company = Company.new do |c|
       c.id = claim.id
       c.name = claim.name
       c.email = claim.email
       c.phone = claim.phone
+      c.paid_before = Date.today.next_month
     end
   end
 
-  def create
-    Company.create params[:company], without_protection: true
+  def create #создание компании
+    company = Company.create(company_params)
+    redirect_to company_path(company)
+  end
+
+  def index #список компаний
+    @companies = Company.all
+  end
+
+  def show #просмотр страницы компании
+  end
+
+  def edit #форма редактирования данных о компании
+  end
+
+  def update #сохранение данных о компании
   end
 
   private
   def company_params
-    params[:company].permit(:id, :name, :email, :phone)
+    params[:company].permit(:id, :name, :email, :phone, :paid_before)
   end
 end

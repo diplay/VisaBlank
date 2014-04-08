@@ -3,8 +3,10 @@
   <%= label_tag :company_name, "Название" %>
   <%= f.text_field :name %><br/>
   <%= label_tag :company_email, "E-mail" %>
-  <%= f.text_field :email %><br/>
+  <%= f.email_field :email %><br/>
   <%= label_tag :company_phone, "Телефон" %>
-  <%= f.text_field :phone %><br/>
+  <%= f.telephone_field :phone %><br/>
+  <%= label_tag :company_paid_before, "Проплачено до" %>
+  <%= f.date_field :paid_before %><br/>
   <%= f.submit "Создать компанию" %><br/>
 <% end %>

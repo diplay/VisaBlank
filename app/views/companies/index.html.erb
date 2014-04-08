@@ -1,0 +1,20 @@
+<table>
+  <thead>
+    <tr>
+      <td>Id</td>
+      <td>Название</td>
+      <td>E-mail</td>
+      <td>Телефон</td>
+      <td>Оплачено до</td>
+    </tr>
+  </thead>
+  <% @companies.each do |company| %>
+  <tr>
+    <%= content_tag :td, company.id %>
+    <%= content_tag :td, link_to(company.name, company_path(company)) %>
+    <%= content_tag :td, company.email %>
+    <%= content_tag :td, company.phone %>
+    <%= content_tag :td, company.paid_before %>
+  </tr>
+  <% end %>
+</table>
