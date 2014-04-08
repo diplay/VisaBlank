@@ -1,13 +1,14 @@
-<table>
+<h3>Заявка</h3>
+<table class="table" >
   <%= render 'claim_data' %>
   <tr>
     <%= form_tag company_claim_path(@claim), method: "PUT" do %>
     <td>
-        <%= submit_tag "Отклонить заявку",
+        <%= submit_tag "Отклонить заявку", class: "btn btn-default",
           onclick: "return confirm('Вы точно уверены?');" %>
     </td>
     <td>
-        <%= submit_tag "Принять заявку",
+        <%= submit_tag "Принять заявку", class: "btn btn-default",
           onclick: "return confirm('Вы точно уверены?');" %>
     </td>
     <% end %>
@@ -15,7 +16,7 @@
   <tr>
     <td>
       <%= form_tag company_claim_path(@claim), method: "DELETE" do %>
-        <%= submit_tag "Удалить заявку",
+        <%= submit_tag "Удалить заявку", class: "btn btn-danger",
           onclick: "return confirm('Вы точно уверены?');" %>
       <% end %>
     </td>

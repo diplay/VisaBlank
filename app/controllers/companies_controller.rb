@@ -22,6 +22,7 @@ class CompaniesController < ApplicationController
   end
 
   def show #просмотр страницы компании
+    @company = Company.find(params[:id])
   end
 
   def edit #форма редактирования данных о компании
