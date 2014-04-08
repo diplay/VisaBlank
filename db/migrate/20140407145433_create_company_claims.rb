@@ -4,6 +4,7 @@ class CreateCompanyClaims < ActiveRecord::Migration
       t.text :name
       t.text :email
       t.text :phone
+      t.integer :status
 
       t.timestamps
     end

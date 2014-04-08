@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20140407145433) do
     t.text     "name"
     t.text     "email"
     t.text     "phone"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

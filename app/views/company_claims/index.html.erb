@@ -1,15 +1,22 @@
 <table>
   <thead>
-    <td>Id</td>
-    <td>Название</td>
-    <td>Email</td>
-    <td>Телефон</td>
+    <tr>
+      <td>Id</td>
+      <td>Название</td>
+      <td>Email</td>
+      <td>Телефон</td>
+    </tr>
   </thead>
+  <tfoot>
+    <tr>
+      <td>Всего заявок: <%= @claims.length %></td>
+    </tr>
+  </tfoot>
   <tbody>
   <% @claims.each do |claim| %>
     <tr>
     <%= content_tag :td, claim.id %>
-    <%= content_tag :td, claim.name %>
+    <%= content_tag :td, link_to(claim.name, edit_company_claim_path(claim)) %>
     <%= content_tag :td, claim.email %>
     <%= content_tag :td, claim.phone %>
     </tr>
