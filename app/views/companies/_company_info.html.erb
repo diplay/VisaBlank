@@ -35,6 +35,10 @@
         <td>Банковские данные</td>
         <td><%= @company.bank_details %></td>
       </tr>
+      <tr>
+        <td>Проплачено до</td>
+        <td><%= @company.paid_before.inspect %></td>
+      </tr>
       </tbody>
     </table>
   </div>

@@ -1,0 +1,25 @@
+<div class="panel panel-info" >
+  <div class="panel-heading" >
+    <h2 class="panel-title" >Список клиентов</h2>
+  </div>
+  <div class="panel-body" >
+    <table class="table" >
+      <thead>
+        <tr>
+          <th>ФИО</td>
+          <th>Прибыль</td>
+          <th>Менеджер</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @company.clients.each do |client| %>
+      <tr>
+        <td><%= link_to client.fio, company_manager_client_path(@company, client.manager, client) %></td>
+        <td>0</td>
+        <td><%= link_to client.manager.name, company_manager_path(@company, client.manager) %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

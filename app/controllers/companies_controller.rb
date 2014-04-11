@@ -13,7 +13,7 @@ class CompaniesController < ApplicationController
   end
 
   def create #создание компании
-    company = Company.create(company_params)
+    company = Company.create(company_creation_params)
     redirect_to company_path(company)
   end
 
@@ -26,13 +26,20 @@ class CompaniesController < ApplicationController
   end
 
   def edit #форма редактирования данных о компании
+    @company = Company.find(params[:id])
   end
 
   def update #сохранение данных о компании
+    Company.find(params[:id]).update(company_params)
+    redirect_to company_path(params[:id])
   end
 
   private
   def company_params
+    params[:company].permit(:name, :email, :phone, :address, :tin, :bank_details)
+  end
+
+  def company_creation_params
     params[:company].permit(:id, :name, :email, :phone, :paid_before)
   end
 end
