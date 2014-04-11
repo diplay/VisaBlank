@@ -1,0 +1,25 @@
+<div class="panel panel-info" >
+  <div class="panel-heading" >
+    <h2 class="panel-title" >Менеджеры</h2>
+  </div>
+  <div class="panel-body" >
+    <table class="table" >
+      <thead>
+        <tr>
+          <th>ФИО</td>
+          <th>Прибыль за месяц</td>
+          <th>Клиентов</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @company.managers.each do |manager| %>
+      <tr>
+        <td><%= link_to manager.name, company_manager_path(@company, manager) %></td>
+        <td><%= manager.month_profit %></td>
+        <td><%= manager.clients.length %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
