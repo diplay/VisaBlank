@@ -16,3 +16,5 @@ company = Company.create(name: "ООО \"Рога и Копыта\"",
                         email: "lol@lol.lol")
 manager = company.managers.create(name: "Иванов Иван")
 manager.clients.create(fio: "Лолка Ваня")
+User.create(login: 'admin', password: 'admin', password_confirmation: 'admin',
+            role: 'admin')

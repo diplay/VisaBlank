@@ -12,6 +12,9 @@ Visa::Application.routes.draw do
 
   root 'application#index'
 
+  post 'auth/authenticate', as: 'authenticate'
+  post 'auth/logout', as: 'logout'
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 

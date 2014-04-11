@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140407145433) do
+ActiveRecord::Schema.define(version: 20140411171016) do
 
   create_table "clients", force: true do |t|
     t.integer  "manager_id"
@@ -84,6 +84,18 @@ ActiveRecord::Schema.define(version: 20140407145433) do
   end
 
   add_index "managers", ["company_id"], name: "index_managers_on_company_id"
+
+  create_table "users", force: true do |t|
+    t.integer  "owner_id"
+    t.string   "owner_type"
+    t.text     "login"
+    t.text     "password_digest"
+    t.text     "role"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users", ["owner_id", "owner_type"], name: "index_users_on_owner_id_and_owner_type"
 
   create_table "visa_data", force: true do |t|
     t.integer  "client_id"

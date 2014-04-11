@@ -8,11 +8,39 @@
 </head>
 <body style="padding: 60px;">
 <div class="navbar navbar-inverse navbar-fixed-top" >
-  <div class="navbar-inner" >
     <div class="container" >
-      <a class="navbar-brand" href="/">VisaBlank</a>
+      <div class="navbar-header" >
+        <a class="navbar-brand" href="/">VisaBlank</a>
+      </div>
+      <% flash.each do |name, message| -%>
+        <%= content_tag :span, message, class: "label label-#{name}" %>
+      <% end %>
+      <% if session[:user] == nil %>
+        <%= form_tag authenticate_path, method: "POST",
+          class: "navbar-form navbar-right", role: "login" do %>
+          <div class="input-group-sm" >
+            <%= text_field_tag :login, nil, class: "form-control",
+              placeholder: "Login" %>
+            <%= password_field_tag :pass, nil, class: "form-control",
+              placeholder: "Password"%>
+            <%= submit_tag "Войти", class: "btn btn-default btn-sm" %>
+            </div>
+        <% end %>
+      <% else %>
+        <%= form_tag logout_path, method: "POST",
+          class: "navbar-form navbar-right", role: "logout" do %>
+          <%= submit_tag "Выйти", class: "btn btn-default btn-xs" %>
+        <% end %>
+        <% if session[:user].role == "admin" %>
+          <ul class="nav navbar-nav navbar-right" >
+            <li><%= link_to "Компании", companies_path %></li>
+            <li><%= link_to "Заявки", company_claims_path %></li>
+          </ul>
+          <%= content_tag :span, "#{session[:user].login}",
+            class: "label label-success" %>
+        <% end %>
+      <% end %>
     </div>
-  </div>
 </div>
 <div class="container" >
   <div class="row" >
