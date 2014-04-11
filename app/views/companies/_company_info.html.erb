@@ -1,0 +1,41 @@
+<div class="panel panel-info" >
+  <div class="panel-heading" >
+    <h2 class="panel-title" >Информация о компании</h2>
+  </div>
+  <div class="panel-body" >
+    <table class="table" >
+      <thead>
+        <tr>
+          <td></td>
+          <td><%= link_to "Редактировать", edit_company_path, class: "btn btn-success" %></td>
+        </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>Название</td>
+        <td><%= @company.name %></td>
+      </tr>
+      <tr>
+        <td>Адрес</td>
+        <td><%= @company.address %></td>
+      </tr>
+      <tr>
+        <td>ИНН</td>
+        <td><%= @company.tin %></td>
+      </tr>
+      <tr>
+        <td>Телефон</td>
+        <td><%= @company.phone %></td>
+      </tr>
+      <tr>
+        <td>E-mail</td>
+        <td><%= @company.email %></td>
+      </tr>
+      <tr>
+        <td>Банковские данные</td>
+        <td><%= @company.bank_details %></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
