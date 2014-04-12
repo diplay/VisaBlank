@@ -15,7 +15,7 @@
       <% flash.each do |name, message| -%>
         <%= content_tag :span, message, class: "label label-#{name}" %>
       <% end %>
-      <% if session[:user] == nil %>
+      <% if @user == nil %>
         <%= form_tag authenticate_path, method: "POST",
           class: "navbar-form navbar-right", role: "login" do %>
           <div class="input-group-sm" >
@@ -27,18 +27,17 @@
             </div>
         <% end %>
       <% else %>
-        <%= form_tag logout_path, method: "POST",
-          class: "navbar-form navbar-right", role: "logout" do %>
-          <%= submit_tag "Выйти", class: "btn btn-default btn-xs" %>
-        <% end %>
-        <% if session[:user].role == "admin" %>
           <ul class="nav navbar-nav navbar-right" >
+          <% if @user.role == "admin" %>
             <li><%= link_to "Компании", companies_path %></li>
             <li><%= link_to "Заявки", company_claims_path %></li>
+          <% elsif @user.role == "company" %>
+            <li><%= link_to "Моя компания", company_path(@user.owner) %></li>
+          <% elsif @user.role == "manager" %>
+            <li><%= link_to "Личный кабинет", company_manager_path(@user.owner.company, @user.owner) %></li>
+          <% end %>
+          <li><%= link_to "Выйти", logout_path, method: "POST" %></li>
           </ul>
-          <%= content_tag :span, "#{session[:user].login}",
-            class: "label label-success" %>
-        <% end %>
       <% end %>
     </div>
 </div>

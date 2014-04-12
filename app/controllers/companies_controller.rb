@@ -1,5 +1,6 @@
 #coding: utf-8
 class CompaniesController < ApplicationController
+  before_action :check_owner
 
   def new #форма создания новой компании
     claim = CompanyClaim.find params[:claim_id]
@@ -42,4 +43,12 @@ class CompaniesController < ApplicationController
   def company_creation_params
     params[:company].permit(:id, :name, :email, :phone, :paid_before)
   end
+
+  def check_owner
+    unless @user.role == "admin" ||
+      (@user.role == "company" && @user.owner.id == params[:id].to_i)
+      redirect_to root_path
+    end
+  end
+
 end

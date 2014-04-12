@@ -2,14 +2,18 @@
 class AuthController < ApplicationController
 
   def authenticate
-    user = User.find_by(login: params[:login]).try(:authenticate,
-                                                  params[:pass])
-    unless user.nil? || user == false
-      session[:user] = user
+    if @user != nil
+      redirect_to root_path
     else
-      flash[:warning] = "Неверный логин или пароль"
+      user = User.find_by(login: params[:login]).try(:authenticate,
+                                                     params[:pass])
+      unless user.nil? || user == false
+        session[:user_id] = user.id
+      else
+        flash[:warning] = "Неверный логин или пароль"
+      end
+      redirect_to :back
     end
-    redirect_to :back
   end
 
   def logout
