@@ -8,11 +8,23 @@
 </tr>
 <tr>
   <th>E-mail</th>
-  <td><%= @claim.email %></td>
+  <td>
+    <% if @user != nil && @user.role == 'admin' %>
+      <%= @claim.email %>
+    <% else %>
+      <span class="label label-default" >Скрыто</span>
+    <% end %>
+  </td>
 </tr>
 <tr>
   <th>Телефон</th>
-  <td><%= @claim.phone %></td>
+  <td>
+    <% if @user != nil && @user.role == 'admin' %>
+      <%= @claim.phone %>
+    <% else %>
+      <span class="label label-default" >Скрыто</span>
+    <% end %>
+  </td>
 </tr>
 <tr>
   <th>Статус заявки</th>

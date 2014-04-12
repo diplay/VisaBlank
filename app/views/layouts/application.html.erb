@@ -33,7 +33,12 @@
           <ul class="nav navbar-nav navbar-right" >
           <% if @user.role == "admin" %>
             <li><%= link_to "Компании", companies_path %></li>
-            <li><%= link_to "Заявки", company_claims_path %></li>
+            <li>
+              <%= link_to company_claims_path do %>
+                Заявки
+                <span class="badge" ><%= @new_claims > 0 ? @new_claims : nil %></span>
+              <% end %>
+            </li>
           <% elsif @user.role == "company" %>
             <li><%= link_to "Моя компания", company_path(@user.owner) %></li>
           <% elsif @user.role == "manager" %>

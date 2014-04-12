@@ -2,7 +2,21 @@
 class ManagersController < ApplicationController
   before_action :check_owner
 
+  def new
+    if @user.role == 'admin'
+      company = Company.find(params[:company_id])
+      company.managers.create name: "Новый Менеджер"
+      redirect_to :back
+    elsif @user.role == 'company'
+      #redirect_to new_company_manager_claim_path
+    end
+  end
+
   def show
+    @manager = Manager.find(params[:id])
+  end
+
+  def edit
     @manager = Manager.find(params[:id])
   end
 

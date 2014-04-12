@@ -1,4 +1,13 @@
-<h3><%= @manager.name %></h3>
+<h3><%= @manager.name %>
+  <% if @user.role == 'admin' || @user.role == 'company' -%>
+  <small>
+    <%= link_to edit_company_manager_path(@manager.company, @manager),
+      class: "btn-xs" do %>
+    <span class="glyphicon glyphicon-pencil"></span> Редактировать
+    <% end %>
+  </small>
+  <% end %>
+</h3>
 <div>
   <ul id="tabMenu" class="nav nav-tabs" >
     <li class="active" ><a href="#stat" data-toggle="tab" >Статистика</a></li>

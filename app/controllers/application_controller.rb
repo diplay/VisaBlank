@@ -11,6 +11,9 @@ class ApplicationController < ActionController::Base
   private
   def check_auth
     @user = User.find_by id: session[:user_id]
+    if @user != nil && @user.role == 'admin'
+      @new_claims = CompanyClaim.where(status: 0).length
+    end
   end
 
 end
