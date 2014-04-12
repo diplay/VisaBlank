@@ -1,0 +1,23 @@
+<h3><%= @manager.name %></h3>
+<div>
+  <ul id="tabMenu" class="nav nav-tabs" >
+    <li class="active" ><a href="#stat" data-toggle="tab" >Статистика</a></li>
+    <li><a href="#clients" data-toggle="tab" >Клиенты</a></li>
+    <li><a href="#docs" data-toggle="tab" >Документы</a></li>
+  </ul>
+  <div class="tab-content" id="tabMenuContent" >
+    <div class="tab-pane fade active in" id="stat" >
+      <p>
+        Тут будет статистика
+      </p>
+    </div>
+    <div class="tab-pane fade" id="clients" >
+      <%= render 'manager_clients' %>
+    </div>
+    <div class="tab-pane fade" id="docs" >
+      <p>
+      Тут будет список делающихся в данный момент документов
+      </p>
+    </div>
+  </div>
+</div>

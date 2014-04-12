@@ -23,7 +23,10 @@
               placeholder: "Login" %>
             <%= password_field_tag :pass, nil, class: "form-control",
               placeholder: "Password"%>
-            <%= submit_tag "Войти", class: "btn btn-default btn-sm" %>
+            <%= button_tag type: "submit", class: "btn btn-success btn-sm" do %>
+              <%= content_tag(:span, nil, class: "glyphicon glyphicon-log-in")%>
+              Войти
+            <% end %>
             </div>
         <% end %>
       <% else %>
