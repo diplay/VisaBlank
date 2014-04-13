@@ -22,13 +22,24 @@ class ManagersController < ApplicationController
   end
 
   def edit
+    @company = Company.find(params[:company_id])
+    @manager = @company.managers.find(params[:id])
+  end
+
+  def update
     @manager = Manager.find(params[:id])
+    @manager.update(manager_update_params)
+    redirect_to company_manager_path(@manager.company, @manager)
   end
 
   private
   def manager_params
     params[:manager].permit(:name,
-                user_attributes: [:email, :password, :password_confirmation])
+                user_attributes: [:id, :email, :password, :password_confirmation])
+  end
+
+  def manager_update_params
+    params[:manager].permit(:name, user_attributes: [:id, :email])
   end
 
   def check_owner

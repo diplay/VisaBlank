@@ -1,0 +1,27 @@
+<h3>
+  <%= @client.fio %>
+  <small>
+    <%= link_to company_manager_client_path(@client.manager.company,
+      @client.manager, @client), class: "btn-xs", method: :delete,
+      confirm: "Вы уверены?" do %>
+      <span class="glyphicon glyphicon-remove text-danger" ></span>
+      Удалить
+    <% end %>
+  </small>
+</h3>
+<div>
+  <ul id="tabMenu" class="nav nav-tabs" >
+    <li><a href="#data" data-toggle="tab" >Информация о клиенте</a></li>
+    <li class="active" ><a href="#docs" data-toggle="tab" >Документы</a></li>
+  </ul>
+  <div class="tab-content" id="tabMenuContent" >
+    <div class="tab-pane fade" id="data" >
+      <%= render 'client_info' %>
+    </div>
+    <div class="tab-pane fade active in" id="docs" >
+      <p>
+      Тут будет список делающихся в данный момент документов
+      </p>
+    </div>
+  </div>
+</div>

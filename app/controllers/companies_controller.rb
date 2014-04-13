@@ -5,7 +5,6 @@ class CompaniesController < ApplicationController
   def new #форма создания новой компании
     claim = CompanyClaim.find params[:claim_id]
     @company = Company.new do |c|
-      c.id = claim.id
       c.name = claim.name
       c.email = claim.email
       c.phone = claim.phone
@@ -17,7 +16,7 @@ class CompaniesController < ApplicationController
     company = Company.create(company_creation_params)
     pass = gen_password
     company.create_user(email: company.email, password: pass,
-                       password_confirmation: pass)
+                       password_confirmation: pass, active: true)
     #send mail with account information
     redirect_to company_path(company)
   end
@@ -45,7 +44,7 @@ class CompaniesController < ApplicationController
   end
 
   def company_creation_params
-    params[:company].permit(:id, :name, :email, :phone, :paid_before)
+    params[:company].permit(:name, :email, :phone, :paid_before)
   end
 
   def check_owner
