@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  company_id: 
+  document_template_id: 
+  client_price: MyText
+  cost: MyText
+  active: false
+
+two:
+  company_id: 
+  document_template_id: 
+  client_price: MyText
+  cost: MyText
+  active: false

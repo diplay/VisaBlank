@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140411171016) do
+ActiveRecord::Schema.define(version: 20140413132047) do
 
   create_table "clients", force: true do |t|
     t.integer  "manager_id"
@@ -46,6 +46,41 @@ ActiveRecord::Schema.define(version: 20140411171016) do
     t.text     "email"
     t.text     "phone"
     t.integer  "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "company_document_data", force: true do |t|
+    t.integer  "company_id"
+    t.integer  "document_template_id"
+    t.text     "client_price"
+    t.text     "cost"
+    t.boolean  "active"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "company_document_data", ["company_id"], name: "index_company_document_data_on_company_id"
+  add_index "company_document_data", ["document_template_id"], name: "index_company_document_data_on_document_template_id"
+
+  create_table "document_orders", force: true do |t|
+    t.text     "status"
+    t.text     "comments"
+    t.text     "client_price"
+    t.text     "cost"
+    t.integer  "client_id"
+    t.integer  "document_template_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "document_orders", ["client_id"], name: "index_document_orders_on_client_id"
+  add_index "document_orders", ["document_template_id"], name: "index_document_orders_on_document_template_id"
+
+  create_table "document_templates", force: true do |t|
+    t.text     "name"
+    t.text     "template_path"
+    t.text     "document_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
