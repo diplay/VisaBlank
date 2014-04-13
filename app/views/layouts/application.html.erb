@@ -19,8 +19,8 @@
         <%= form_tag authenticate_path, method: "POST",
           class: "navbar-form navbar-right", role: "login" do %>
           <div class="input-group-sm" >
-            <%= text_field_tag :login, nil, class: "form-control",
-              placeholder: "Login" %>
+            <%= text_field_tag :email, nil, class: "form-control",
+              placeholder: "Email" %>
             <%= password_field_tag :pass, nil, class: "form-control",
               placeholder: "Password"%>
             <%= button_tag type: "submit", class: "btn btn-success btn-sm" do %>

@@ -88,9 +88,10 @@ ActiveRecord::Schema.define(version: 20140411171016) do
   create_table "users", force: true do |t|
     t.integer  "owner_id"
     t.string   "owner_type"
-    t.text     "login"
     t.text     "password_digest"
     t.text     "role"
+    t.text     "email"
+    t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

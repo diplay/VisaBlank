@@ -16,10 +16,10 @@ company = Company.create(name: "ООО \"Рога и Копыта\"",
                         email: "lol@lol.lol")
 manager = company.managers.create(name: "Иванов Иван")
 manager.clients.create(fio: "Лолка Ваня")
-User.create(login: 'roga_man', password: 'lolka', password_confirmation: 'lolka',
-           role: 'manager', owner: manager)
-User.create(login: 'roga', password: 'lolka', password_confirmation: 'lolka',
-           role: 'company', owner: company)
+User.create(email: 'roga_man', password: 'lolka', password_confirmation: 'lolka',
+           role: 'manager', owner: manager, active: true)
+User.create(email: 'roga', password: 'lolka', password_confirmation: 'lolka',
+           role: 'company', owner: company, active: true)
 
 company = Company.create(name: "ОАО \"Лолки\"",
                         paid_before: Date.today.next_month,
@@ -30,10 +30,10 @@ company = Company.create(name: "ОАО \"Лолки\"",
                         email: "lolka@lolka.lol")
 manager = company.managers.create(name: "Петров Петр")
 manager.clients.create(fio: "Супер Клиент")
-User.create(login: 'lolka_man', password: 'lolka', password_confirmation: 'lolka',
-           role: 'manager', owner: manager)
-User.create(login: 'lolka', password: 'lolka', password_confirmation: 'lolka',
-           role: 'company', owner: company)
+User.create(email: 'lolka_man', password: 'lolka', password_confirmation: 'lolka',
+           role: 'manager', owner: manager, active: true)
+User.create(email: 'lolka', password: 'lolka', password_confirmation: 'lolka',
+           role: 'company', owner: company, active: true)
 
-User.create(login: 'admin', password: 'admin', password_confirmation: 'admin',
-            role: 'admin')
+User.create(email: 'admin', password: 'admin', password_confirmation: 'admin',
+            role: 'admin', active: true)

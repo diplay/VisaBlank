@@ -5,7 +5,7 @@ class AuthController < ApplicationController
     if @user != nil
       redirect_to root_path
     else
-      user = User.find_by(login: params[:login]).try(:authenticate,
+      user = User.find_by(email: params[:email]).try(:authenticate,
                                                      params[:pass])
       unless user.nil? || user == false
         session[:user_id] = user.id

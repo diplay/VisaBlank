@@ -15,6 +15,10 @@ class CompaniesController < ApplicationController
 
   def create #создание компании
     company = Company.create(company_creation_params)
+    pass = gen_password
+    company.create_user(email: company.email, password: pass,
+                       password_confirmation: pass)
+    #send mail with account information
     redirect_to company_path(company)
   end
 
@@ -49,6 +53,10 @@ class CompaniesController < ApplicationController
       (@user.role == "company" && @user.owner.id == params[:id].to_i)
       redirect_to root_path
     end
+  end
+
+  def gen_password
+    rand(36**10).to_s(36)
   end
 
 end
