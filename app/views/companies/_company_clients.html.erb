@@ -14,9 +14,9 @@
       <tbody>
       <% @company.clients.each do |client| %>
       <tr>
-        <td><%= link_to client.fio, company_manager_client_path(@company, client.manager, client) %></td>
+        <td><%= link_to client.fio, client_path(client) %></td>
         <td>0</td>
-        <td><%= link_to client.manager.name, company_manager_path(@company, client.manager) %></td>
+        <td><%= link_to client.manager.name, manager_path(client.manager) %></td>
       </tr>
       <% end %>
       </tbody>

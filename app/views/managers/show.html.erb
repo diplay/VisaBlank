@@ -1,12 +1,11 @@
 <h3><%= @manager.name %>
   <% if @user.role == 'admin' || @user.role == 'company' -%>
   <small>
-    <%= link_to edit_company_manager_path(@manager.company, @manager),
+    <%= link_to edit_manager_path(@manager),
       class: "btn-xs" do %>
     <span class="glyphicon glyphicon-pencil"></span> Редактировать
     <% end %>
-    <%= link_to company_manager_path(@manager.company,
-      @manager), class: "btn-xs", method: :delete,
+    <%= link_to manager_path(@manager), class: "btn-xs", method: :delete,
       confirm: "Вы уверены?" do %>
       <span class="glyphicon glyphicon-remove text-danger" ></span>
       Удалить
@@ -16,18 +15,18 @@
 </h3>
 <div>
   <ul id="tabMenu" class="nav nav-tabs" >
-    <li class="active" ><a href="#stat" data-toggle="tab" >Статистика</a></li>
-    <li><a href="#clients" data-toggle="tab" >Клиенты</a></li>
+    <li class="active" ><a href="#clients" data-toggle="tab" >Клиенты</a></li>
+    <li><a href="#stat" data-toggle="tab" >Статистика</a></li>
     <li><a href="#docs" data-toggle="tab" >Документы</a></li>
   </ul>
   <div class="tab-content" id="tabMenuContent" >
-    <div class="tab-pane fade active in" id="stat" >
+    <div class="tab-pane fade active in" id="clients" >
+      <%= render 'manager_clients' %>
+    </div>
+    <div class="tab-pane fade" id="stat" >
       <p>
         Тут будет статистика
       </p>
-    </div>
-    <div class="tab-pane fade" id="clients" >
-      <%= render 'manager_clients' %>
     </div>
     <div class="tab-pane fade" id="docs" >
       <p>

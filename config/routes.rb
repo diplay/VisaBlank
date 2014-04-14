@@ -3,9 +3,9 @@ Visa::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   resources :companies do
-    resources :managers do
+    resources :managers, shallow: true do
       resources :clients do
-        resources :document_orders, shallow: true
+        resources :document_orders
       end
     end
   end
