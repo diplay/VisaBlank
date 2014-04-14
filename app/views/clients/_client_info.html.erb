@@ -9,47 +9,12 @@
   <div class="panel-body tab-content" id="pillsMenuContent" >
     <div class="tab-pane fade active in" id="general" >
       <div class="container" >
+        <%= render 'client_info_general' %>
       </div>
     </div>
     <div class="tab-pane fade" id="foreign" >
       <div class="container" >
-        <table class="table" >
-            <tr>
-              <td> ФИО </td>
-              <td><%= @client.fio %></td>
-            </tr>
-            <tr>
-              <th>Паспорт</th>
-            </tr>
-            <tr>
-              <td> Серия </td>
-              <td><%= @client.passport_number_series %></td>
-            </tr>
-            <tr>
-              <td> Номер </td>
-              <td><%= @client.passport_number %></td>
-            </tr>
-            <tr>
-              <td> Выдан </td>
-              <td><%= @client.passport_given %></td>
-            </tr>
-            <tr>
-              <td> Дата выдачи </td>
-              <td><%= @client.passport_given_date %></td>
-            </tr>
-            <tr>
-              <td> Код подразделения </td>
-              <td><%= @client.passport_given_code %></td>
-            </tr>
-            <tr>
-              <td> Дата рождения </td>
-              <td><%= @client.date_of_birth %></td>
-            </tr>
-            <tr>
-              <td> Пол </td>
-              <td><%= @client.sex %></td>
-            </tr>
-        </table>
+        <%= render 'client_info_foreign' %>
       </div>
     </div>
     <div class="tab-pane fade" id="visa" >

@@ -1,0 +1,58 @@
+<table class="table" >
+  <tr>
+    <td> Старое ФИО, если менялось </td>
+    <td><%= @client.foreign_passport_data.fio_changed %></td>
+  </tr>
+  <tr>
+    <td> Место рождения </td>
+    <td><%= @client.foreign_passport_data.place_of_birth %></td>
+  </tr>
+  <tr>
+    <td> Данные регистрации </td>
+    <td><%= @client.foreign_passport_data.registration %></td>
+  </tr>
+  <tr>
+    <td> Гражданство </td>
+    <td><%= @client.foreign_passport_data.citizenship %></td>
+  </tr>
+  <tr>
+    <td> Другие гражданства, если есть </td>
+    <td><%= @client.foreign_passport_data.citizenship_other %></td>
+  </tr>
+  <tr>
+    <td> Цель получения загранпаспорта </td>
+    <td><%= @client.foreign_passport_data.aim %></td>
+  </tr>
+  <tr>
+    <td> Получение </td>
+    <td><%= @client.foreign_passport_data.previous_passport %></td>
+  </tr>
+  <tr>
+    <td> Доступ к секретной информации </td>
+    <td><%= @client.foreign_passport_data.secret_access %></td>
+  </tr>
+  <tr>
+    <td> Обязательства по догворам </td>
+    <td><%= @client.foreign_passport_data.contract_liability %></td>
+  </tr>
+  <tr>
+    <td> Призван на службу </td>
+    <td><%= @client.foreign_passport_data.military_service %></td>
+  </tr>
+  <tr>
+    <td> Осужден либо обвиняемый </td>
+    <td><%= @client.foreign_passport_data.conviction %></td>
+  </tr>
+  <tr>
+    <td> Уклонение от обязательств, наложенных судом </td>
+    <td><%= @client.foreign_passport_data.court_obligations %></td>
+  </tr>
+  <tr>
+    <td> Дети </td>
+    <td><%= @client.foreign_passport_data.children %></td>
+  </tr>
+  <tr>
+    <td> История трудоустройства </td>
+    <td><%= @client.foreign_passport_data.employment_history %></td>
+  </tr>
+</table>
