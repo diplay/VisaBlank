@@ -1,12 +1,11 @@
 #coding: utf-8
 class ClientsController < ApplicationController
+  before_action :check_owner
 
   def show
-    @client = Client.find(params[:id])
   end
 
   def new
-    @client = Manager.find(params[:manager_id]).clients.build
     @client.build_foreign_passport_data
     @client.build_visa_data
   end
@@ -21,16 +20,13 @@ class ClientsController < ApplicationController
   end
 
   def update
-    client = Client.find(params[:id])
-    client.update(client_params)
-    redirect_to client_path(client)
+    @client.update(@client_params)
+    redirect_to client_path(@client)
   end
 
   def destroy
-    client = Client.find(params[:id])
-    manager = client.manager
-    client.destroy
-    redirect_to manager_path(manager)
+    @client.destroy
+    redirect_to manager_path(@manager)
   end
 
   private
@@ -44,6 +40,17 @@ class ClientsController < ApplicationController
         :military_service, :conviction, :court_obligations, :children,
         :employment_history, :old_passport_series, :old_passport_number,
         :old_passport_given, :old_passport_given_date])
+  end
+
+  def check_owner
+    @manager = Manager.find_by(id: params[:manager_id])
+    @client = Client.find_by(id: params[:id]) || @manager.clients.build
+    @manager = @client.manager if @manager.nil?
+    unless @user.role == "admin" ||
+      (@user.role == "company" && @user.owner.id == @manager.company.id) ||
+      (@user.role == "manager" && @user.owner.id == @manager.id)
+      redirect_to root_path
+    end
   end
 
 end
