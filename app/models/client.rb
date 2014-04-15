@@ -6,6 +6,15 @@ class Client < ActiveRecord::Base
   has_many :document_orders
   after_create :set_documents_data, on: :create
 
+  def sex_string
+    case sex
+    when true
+      return "Мужской"
+    when false
+      return "Женский"
+    end
+  end
+
   private
   def set_documents_data
     if foreign_passport_data.nil?
