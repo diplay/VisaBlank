@@ -3,8 +3,6 @@ class ManagersController < ApplicationController
   before_action :check_owner
 
   def new
-    @company = Company.find(params[:company_id])
-    @manager = @company.managers.build
     @manager.build_user
   end
 
@@ -18,16 +16,12 @@ class ManagersController < ApplicationController
   end
 
   def show
-    @manager = Manager.find(params[:id])
   end
 
   def edit
-    @company = Company.find(params[:company_id])
-    @manager = @company.managers.find(params[:id])
   end
 
   def update
-    @manager = Manager.find(params[:id])
     @manager.update(manager_update_params)
     redirect_to company_manager_path(@manager.company, @manager)
   end
@@ -43,9 +37,12 @@ class ManagersController < ApplicationController
   end
 
   def check_owner
+    @company = Company.find_by(id: params[:company_id])
+    @manager = Manager.find_by(id: params[:id]) || @company.managers.build
+    @company = @manager.company if @company.nil?
     unless @user.role == "admin" ||
-      (@user.role == "company" && @user.owner.id == params[:company_id].to_i) ||
-      (@user.role == "manager" && @user.owner.id == params[:id].to_i)
+      (@user.role == "company" && @user.owner.id == @company.id) ||
+      (@user.role == "manager" && @user.owner.id == @manager.id)
       redirect_to root_path
     end
   end
