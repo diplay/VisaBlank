@@ -6,6 +6,9 @@ class Client < ActiveRecord::Base
   has_many :document_orders
   after_create :set_documents_data, on: :create
 
+  accepts_nested_attributes_for :foreign_passport_data
+  accepts_nested_attributes_for :visa_data
+
   def sex_string
     case sex
     when true
