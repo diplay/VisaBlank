@@ -7,6 +7,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+DocumentTemplate.create(name: "Загранпаспорт", template_path: "foreign.pdf",
+                       document_type: "foreign_passport")
+DocumentTemplate.create(name: "Виза Австрия", template_path: "visa/austria.pdf",
+                       document_type: "visa")
+
 company = Company.create(name: "ООО \"Рога и Копыта\"",
                         paid_before: Date.today.next_month,
                         tin: "432134322",
