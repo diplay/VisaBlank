@@ -8,87 +8,14 @@
 </head>
 <body style="padding: 60px;">
 <div class="navbar navbar-inverse navbar-fixed-top" >
-    <div class="container" >
-      <div class="navbar-header" >
-        <a class="navbar-brand brand-font" href="/">VisaBlank</a>
-      </div>
-      <% flash.each do |name, message| -%>
-        <%= content_tag :span, message, class: "label label-#{name}" %>
-      <% end %>
-      <% if @user == nil %>
-        <%= form_tag authenticate_path, method: "POST",
-          class: "navbar-form navbar-right", role: "login" do %>
-          <div class="input-group-sm" >
-            <%= text_field_tag :email, nil, class: "form-control",
-              placeholder: "Email" %>
-            <%= password_field_tag :pass, nil, class: "form-control",
-              placeholder: "Password"%>
-            <%= button_tag type: "submit", class: "btn btn-success btn-sm" do %>
-              <%= content_tag(:span, nil, class: "glyphicon glyphicon-log-in")%>
-              Войти
-            <% end %>
-            </div>
-        <% end %>
-      <% else %>
-          <ul class="nav navbar-nav navbar-right" >
-          <% if @user.role == "admin" %>
-            <li><%= link_to "Компании", companies_path %></li>
-            <li>
-              <%= link_to company_claims_path do %>
-                Заявки
-                <span class="badge" ><%= @new_claims > 0 ? @new_claims : nil %></span>
-              <% end %>
-            </li>
-          <% elsif @user.role == "company" %>
-            <li><%= link_to "Моя компания", company_path(@user.owner) %></li>
-          <% elsif @user.role == "manager" %>
-            <li><%= link_to "Личный кабинет", manager_path(@user.owner) %></li>
-          <% end %>
-          <li><%= link_to "Выйти", logout_path, method: "POST" %></li>
-          </ul>
-      <% end %>
-    </div>
+  <%= render 'layouts/navbar' %>
 </div>
 <div class="container" >
   <div class="row" >
     <div class="col-md-12">
       <div class="jumbotron" >
         <% if @show_breadcrumb %>
-          <ol class="breadcrumb" >
-          <% if @user.role == "admin" || @user.role == 'company' %>
-            <li>
-            <% if params[:controller] != "companies"  %>
-              <%= link_to "Компания", company_path(@company) %>
-            <% else %>
-              Компания
-            <% end %>
-            </li>
-          <% end %>
-          <% if params[:controller] != "companies" %>
-          <li>
-            <% if params[:controller] == "managers" %>
-              Менеджер
-            <% else %>
-              <%= link_to "Менеджер", manager_path(@manager) %>
-            <% end %>
-          </li>
-          <% end %>
-          <% if params[:controller] != "companies" &&
-               params[:controller] != "managers" %>
-          <li>
-            <% if params[:controller] == "clients"  %>
-              Клиент
-            <% else %>
-              <%= link_to "Клиент", client_path(@client) %>
-            <% end %>
-          </li>
-          <% end %>
-          <% if params[:controller] == "document_orders" %>
-            <li>
-              Документ
-            </li>
-          <% end %>
-          </ol>
+          <%= render 'layouts/breadcrumb' %>
         <% end %>
         <%= yield %>
       </div>

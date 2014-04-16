@@ -1,0 +1,27 @@
+<ol class="breadcrumb" >
+  <% if @user.role == "admin" || @user.role == 'company' %>
+    <% if params[:controller] != "companies"  %>
+      <li><%= link_to "Компания", company_path(@company) %></li>
+    <% else %>
+      <li class="active" >Компания</li>
+    <% end %>
+  <% end %>
+  <% if params[:controller] != "companies" %>
+    <% if params[:controller] == "managers" %>
+      <li class="active" >Менеджер</li>
+    <% else %>
+      <li><%= link_to "Менеджер", manager_path(@manager) %></li>
+    <% end %>
+  <% end %>
+  <% if params[:controller] != "companies" &&
+       params[:controller] != "managers" %>
+    <% if params[:controller] == "clients"  %>
+      <li class="active" >Клиент</li>
+    <% else %>
+      <li><%= link_to "Клиент", client_path(@client) %></li>
+    <% end %>
+  <% end %>
+  <% if params[:controller] == "document_orders" %>
+    <li class="active" >Документ</li>
+  <% end %>
+</ol>

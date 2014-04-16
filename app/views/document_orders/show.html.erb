@@ -1,8 +1,12 @@
-<h3>Документ</h3>
+<h3><%= @order.document_template.name %></h3>
 <table class="table" >
   <tr>
-    <td class="col-sm-2" >Тип документа</td>
-    <td><%= @order.document_template.name %></td>
+    <td class="col-sm-2" >
+      Статус
+    </td>
+    <td>
+      <%= @order.status %>
+    </td>
   </tr>
   <tr>
     <td>Комментарий</td>
