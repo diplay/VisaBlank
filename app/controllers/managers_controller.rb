@@ -10,9 +10,9 @@ class ManagersController < ApplicationController
     pass = rand(36**10).to_s(36)
     params[:manager][:user_attributes][:password] = pass
     params[:manager][:user_attributes][:password_confirmation] = pass
-    company = Company.find(params[:company_id])
-    company.managers.create(manager_params)
+    manager = @company.managers.create(manager_params)
     #send email with password
+    redirect_to company_manager_path(@company, manager)
   end
 
   def show
@@ -23,7 +23,7 @@ class ManagersController < ApplicationController
 
   def update
     @manager.update(manager_update_params)
-    redirect_to company_manager_path(@manager.company, @manager)
+    redirect_to company_manager_path(@company, @manager)
   end
 
   private

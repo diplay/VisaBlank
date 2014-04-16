@@ -24,7 +24,7 @@
       <% @client.document_orders.each do |doc| %>
         <tr>
           <td><%= doc.id %></td>
-          <td><%= doc.document_template.name %></td>
+          <td><%= link_to doc.document_template.name, document_order_path(doc) %></td>
           <td><%= doc.status %></td>
         </tr>
       <% end %>
