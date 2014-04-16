@@ -40,6 +40,7 @@ class ManagersController < ApplicationController
     @company = Company.find_by(id: params[:company_id])
     @manager = Manager.find_by(id: params[:id]) || @company.managers.build
     @company = @manager.company if @company.nil?
+    @show_breadcrumb = true
     unless @user.role == "admin" ||
       (@user.role == "company" && @user.owner.id == @company.id) ||
       (@user.role == "manager" && @user.owner.id == @manager.id)

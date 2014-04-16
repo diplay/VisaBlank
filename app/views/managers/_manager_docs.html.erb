@@ -1,0 +1,27 @@
+<div class="panel panel-info" >
+  <div class="panel-heading" >
+    <h2 class="panel-title" >Делающиеся документы</h2>
+  </div>
+  <div class="panel-body" >
+    <table class="table table-hover" >
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Документ</th>
+          <th>Клиент</th>
+          <th>Статус</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @manager.document_orders.each do |doc| %>
+      <tr>
+        <td><%= doc.id %></td>
+        <td><%= link_to doc.document_template.name, document_order_path(doc) %></td>
+        <td><%= link_to doc.client.fio, client_path(doc.client) %></td>
+        <td><%= doc.status %></td>
+      </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

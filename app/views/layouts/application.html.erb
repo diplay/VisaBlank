@@ -53,6 +53,43 @@
   <div class="row" >
     <div class="col-md-12">
       <div class="jumbotron" >
+        <% if @show_breadcrumb %>
+          <ol class="breadcrumb" >
+          <% if @user.role == "admin" || @user.role == 'company' %>
+            <li>
+            <% if params[:controller] != "companies"  %>
+              <%= link_to "Компания", company_path(@company) %>
+            <% else %>
+              Компания
+            <% end %>
+            </li>
+          <% end %>
+          <% if params[:controller] != "companies" %>
+          <li>
+            <% if params[:controller] == "managers" %>
+              Менеджер
+            <% else %>
+              <%= link_to "Менеджер", manager_path(@manager) %>
+            <% end %>
+          </li>
+          <% end %>
+          <% if params[:controller] != "companies" &&
+               params[:controller] != "managers" %>
+          <li>
+            <% if params[:controller] == "clients"  %>
+              Клиент
+            <% else %>
+              <%= link_to "Клиент", client_path(@client) %>
+            <% end %>
+          </li>
+          <% end %>
+          <% if params[:controller] == "document_orders" %>
+            <li>
+              Документ
+            </li>
+          <% end %>
+          </ol>
+        <% end %>
         <%= yield %>
       </div>
     </div>

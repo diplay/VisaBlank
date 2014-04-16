@@ -46,8 +46,10 @@ class ClientsController < ApplicationController
     @manager = Manager.find_by(id: params[:manager_id])
     @client = Client.find_by(id: params[:id]) || @manager.clients.build
     @manager = @client.manager if @manager.nil?
+    @company = @manager.company
+    @show_breadcrumb = true
     unless @user.role == "admin" ||
-      (@user.role == "company" && @user.owner.id == @manager.company.id) ||
+      (@user.role == "company" && @user.owner.id == @company.id) ||
       (@user.role == "manager" && @user.owner.id == @manager.id)
       redirect_to root_path
     end

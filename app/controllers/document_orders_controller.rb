@@ -21,9 +21,12 @@ class DocumentOrdersController < ApplicationController
     @order = DocumentOrder.find_by(id: params[:id]) ||
       @client.document_orders.build
     @client = @order.client if @client.nil?
+    @manager = @client.manager
+    @company = @manager.company
+    @show_breadcrumb = true
     unless @user.role == "admin" ||
-      (@user.role == "company" && @user.owner.id == @client.manager.company.id) ||
-      (@user.role == "manager" && @user.owner.id == @client.manager.id)
+      (@user.role == "company" && @user.owner.id == @company.id) ||
+      (@user.role == "manager" && @user.owner.id == @manager.id)
       redirect_to root_path
     end
   end

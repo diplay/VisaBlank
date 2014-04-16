@@ -23,6 +23,7 @@ class CompaniesController < ApplicationController
 
   def index #список компаний
     @companies = Company.all
+    @show_breadcrumb = false
   end
 
   def show #просмотр страницы компании
@@ -48,6 +49,7 @@ class CompaniesController < ApplicationController
   end
 
   def check_owner
+    @show_breadcrumb = true
     unless @user.role == "admin" ||
       (@user.role == "company" && @user.owner.id == params[:id].to_i)
       redirect_to root_path
