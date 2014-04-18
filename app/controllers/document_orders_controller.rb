@@ -15,6 +15,11 @@ class DocumentOrdersController < ApplicationController
   def show
   end
 
+  def update
+    @order.update(order_params)
+    redirect_to document_order_path(@order)
+  end
+
   private
   def check_owner
     @client = Client.find_by(id: params[:client_id])
