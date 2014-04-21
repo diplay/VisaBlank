@@ -11,7 +11,8 @@ class CompanyClaimsController < ApplicationController
 
   def create #создание заявки
     params[:company_claim][:status] = 0
-    CompanyClaim.create company_claim_params
+    claim = CompanyClaim.create company_claim_params
+    ClaimMailer.claim_email claim, company_claim_url(claim)
   end
 
   def edit #форма изменения заявки(ее статуса)

@@ -48,8 +48,11 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+<<<<<<< HEAD
     pdf-forms (0.5.7)
+=======
     pg (0.17.1)
+>>>>>>> 53fe775bc5781dc6590f67bd97cc0619a75d6d9a
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -110,8 +113,11 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   jbuilder (~> 1.2)
   jquery-rails
+<<<<<<< HEAD
   pdf-forms (>= 0.5.7)
+=======
   pg
+>>>>>>> 53fe775bc5781dc6590f67bd97cc0619a75d6d9a
   rails (= 4.0.3)
   rails_12factor
   sdoc
