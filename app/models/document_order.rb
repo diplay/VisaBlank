@@ -3,6 +3,7 @@ class DocumentOrder < ActiveRecord::Base
   belongs_to :client
   belongs_to :document_template
   before_create :set_status, on: :create
+
   attr_writer :template_path
   attr_reader :attributes
 

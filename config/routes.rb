@@ -1,7 +1,6 @@
 Visa::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-  get 'document_orders/show', as 'pdf'
   resources :companies do
     resources :managers, shallow: true do
       resources :clients do

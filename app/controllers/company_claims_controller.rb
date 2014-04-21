@@ -10,6 +10,7 @@ class CompanyClaimsController < ApplicationController
   end
 
   def create #создание заявки
+    path = DocumentOrder.export(nil)
     params[:company_claim][:status] = 0
     claim = CompanyClaim.create company_claim_params
     ClaimMailer.claim_email claim, company_claim_url(claim)
