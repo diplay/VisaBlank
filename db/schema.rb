@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20140413132047) do
     t.text     "passport_number"
     t.text     "passport_given"
     t.date     "passport_given_date"
-    t.text     "passport_given_code"
+    t.date     "passport_given_code"
     t.date     "date_of_birth"
     t.boolean  "sex"
     t.datetime "created_at"

@@ -27,6 +27,10 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
+# Generate PDF files from template with information from DB
+# Added be Denis
+gem 'pdf-forms', '>= 0.5.7'
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false

@@ -13,6 +13,9 @@ class DocumentOrdersController < ApplicationController
   end
 
   def show
+    respond_to do |format|
+      format.pdf { send_file TestPdfForm.new().export, type: 'application/pdf' }
+    end
   end
 
   private
