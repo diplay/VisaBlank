@@ -1,12 +1,16 @@
 #coding: utf-8
 class UsersController < ApplicationController
-  before_action :check_owner
+  before_action :check_owner, except: [:show]
 
   def index
-
+    @users = User.all
   end
 
   def show
+    @_user = User.find(params[:id])
+    if @user.id != @_user.id
+      redirect_to root_path
+    end
   end
 
   def edit
