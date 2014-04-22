@@ -15,7 +15,7 @@ Visa::Application.routes.draw do
   resources :users do
     member do
       get 'change_password', as: 'change_password'
-      post 'change_password'
+      patch 'change_password', to: 'users#set_password'
     end
   end
 
