@@ -10,6 +10,15 @@ class UsersController < ApplicationController
   def show
   end
 
+  def edit
+  end
+
+  def update
+    @_user.active = !@_user.active
+    @_user.save
+    redirect_to :back
+  end
+
   def change_password
   end
 
@@ -36,6 +45,7 @@ class UsersController < ApplicationController
 
   private
   def check_owner
+    @_user = User.find_by(id: params[:id])
     unless @user.role == "admin" ||
       @user.id == params[:id]
       redirect_to root_path

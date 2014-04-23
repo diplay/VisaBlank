@@ -17,7 +17,7 @@ class CompaniesController < ApplicationController
     pass = gen_password
     company.create_user(email: company.email, password: pass,
                        password_confirmation: pass, active: true)
-    #send mail with account information
+    #TODO send mail with account information
     redirect_to company_path(company)
   end
 

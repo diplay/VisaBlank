@@ -11,7 +11,7 @@ class ManagersController < ApplicationController
     params[:manager][:user_attributes][:password] = pass
     params[:manager][:user_attributes][:password_confirmation] = pass
     manager = @company.managers.create(manager_params)
-    #send email with password
+    #TODO send email with password
     redirect_to company_manager_path(@company, manager)
   end
 
