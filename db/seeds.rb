@@ -7,9 +7,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-DocumentTemplate.create(name: "Загранпаспорт", template_path: "foreign.pdf",
+DocumentTemplate.create(name: "Загранпаспорт", template_path: "pdf_templates/foreign.pdf",
                        document_type: "foreign_passport")
-DocumentTemplate.create(name: "Виза Австрия", template_path: "visa/austria.pdf",
+DocumentTemplate.create(name: "Виза Австрия", template_path: "pdf_templates/austria.pdf",
                        document_type: "visa")
 
 company = Company.create(name: "ООО \"Рога и Копыта\"",
@@ -34,7 +34,10 @@ company = Company.create(name: "ОАО \"Лолки\"",
                         phone: "728-02-74",
                         email: "lolka@lolka.lol")
 manager = company.managers.create(name: "Петров Петр")
-manager.clients.create(fio: "Супер Клиент")
+client = manager.clients.create(fio: "Супер Клиент")
+client.create_visa_data(surname: "Syper",
+                        surname_at_birth: "Syp",
+                        name: "Client")
 User.create(email: 'lolka_man', password: 'lolka', password_confirmation: 'lolka',
            role: 'manager', owner: manager, active: true)
 User.create(email: 'lolka', password: 'lolka', password_confirmation: 'lolka',

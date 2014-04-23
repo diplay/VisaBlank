@@ -11,11 +11,12 @@ class DocumentOrdersController < ApplicationController
       Client.find(params[:client_id]).document_orders.create(order_params)
     redirect_to document_order_path(order)
   end
-
+  
+  def pdf  
+    send_file @order.export, type: 'application/pdf'
+  end
+  
   def show
-    respond_to do |format|
-      format.pdf { send_file TestPdfForm.new().export, type: 'application/pdf' }
-    end
   end
 
   def update
