@@ -14,8 +14,7 @@ class UsersController < ApplicationController
   end
 
   def update
-    @_user.active = !@_user.active
-    @_user.save
+    @_user.toggle_activation
     redirect_to :back
   end
 
@@ -23,20 +22,19 @@ class UsersController < ApplicationController
   end
 
   def set_password
-    #TODO don't forget to send email
-    if @_user.try(:authenticate, params[:user][:old_password])
-      if @_user.update(password: params[:user][:password],
-                   password_confirmation: params[:user][:password_confirmation])
-        flash[:success] = "Пароль изменен"
-        redirect_to user_path(@_user)
-      else
-        flash[:warning] = "Пароли не совпадают"
-        redirect_to user_path(@_user)
-      end
-    else
+    result = @_user.change_password(params[:user][:old_password],
+                                   params[:user][:password],
+                                   params[:user][:password_confirmation])
+    if result == :ok
+      flash[:success] = "Пароль изменен"
+      redirect_to user_path(@_user)
+    elsif result == :fail_pass
       reset_session
       flash[:warning] = "Неверный пароль"
       redirect_to root_path
+    elsif result == :fail_confirm
+      flash[:warning] = "Пароли не совпадают"
+      redirect_to :back
     end
   end
 

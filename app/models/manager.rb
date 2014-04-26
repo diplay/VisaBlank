@@ -4,10 +4,18 @@ class Manager < ActiveRecord::Base
   has_many :clients
   has_many :document_orders, through: :clients
   has_one :user, as: :owner
+
+  before_destroy :destroy_user
+
   accepts_nested_attributes_for :user
 
   def month_profit
     return 0
+  end
+
+  private
+  def destroy_user
+    user.destroy
   end
 
 end

@@ -36,7 +36,11 @@
         <td>Банковские данные</td>
         <td><%= @company.bank_details %></td>
       </tr>
-      <tr>
+      <% if @company.active? %>
+        <tr class="bg-success" >
+      <% else %>
+        <tr class="bg-danger" >
+      <% end %>
         <td>Проплачено до</td>
         <td><%= @company.paid_before.inspect %></td>
       </tr>

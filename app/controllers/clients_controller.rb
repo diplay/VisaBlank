@@ -1,6 +1,7 @@
 #coding: utf-8
 class ClientsController < ApplicationController
   before_action :check_owner
+  before_action :check_active, except: [:show]
 
   def show
   end

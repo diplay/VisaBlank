@@ -1,4 +1,8 @@
-<h3><%= @company.name %></h3>
+<% if @company.active? %>
+  <h3><%= @company.name %></h3>
+<% else %>
+  <h3><%= @company.name %> <small class="bg-danger" >Компания заблокирована</small></h3>
+<% end %>
 <div>
   <ul id="tabMenu" class="nav nav-tabs">
     <li class="active" ><a href="#company" data-toggle="tab" >Компания</a></li>
