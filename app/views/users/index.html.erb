@@ -1,0 +1,8 @@
+<h3>Список пользователей</h3>
+
+<table class="table table-hover" >
+  <%= content_tag_for :tr, @users do |user| %>
+    <td><%= link_to user.email, edit_user_path(user) %></td>
+    <td><%= user.active ? "Активен" : "Неактивен" %></td>
+  <% end %>
+</table>

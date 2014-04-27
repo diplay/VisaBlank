@@ -16,6 +16,13 @@ Visa::Application.routes.draw do
 
   resources :company_claims
 
+  resources :users do
+    member do
+      get 'change_password', as: 'change_password'
+      patch 'change_password', to: 'users#set_password'
+    end
+  end
+
   root 'application#index'
 
   post 'auth/authenticate', as: 'authenticate'

@@ -51,8 +51,8 @@ GEM
 <<<<<<< HEAD
     pdf-forms (0.5.7)
 =======
+>>>>>>> 08baddde40c516c39bcf72a4b7467b43f193fc22
     pg (0.17.1)
->>>>>>> 53fe775bc5781dc6590f67bd97cc0619a75d6d9a
     polyglot (0.3.4)
     rack (1.5.2)
     rack-test (0.6.2)
@@ -116,8 +116,8 @@ DEPENDENCIES
 <<<<<<< HEAD
   pdf-forms (>= 0.5.7)
 =======
+>>>>>>> 08baddde40c516c39bcf72a4b7467b43f193fc22
   pg
->>>>>>> 53fe775bc5781dc6590f67bd97cc0619a75d6d9a
   rails (= 4.0.3)
   rails_12factor
   sdoc

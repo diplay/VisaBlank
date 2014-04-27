@@ -11,7 +11,7 @@ DocumentTemplate.create(name: "Загранпаспорт", template_path: "pdf_
                        document_type: "foreign_passport")
 DocumentTemplate.create(name: "Виза Австрия", template_path: "pdf_templates/austria.pdf",
                        document_type: "visa")
-
+                          
 company = Company.create(name: "ООО \"Рога и Копыта\"",
                         paid_before: Date.today.next_month,
                         tin: "432134322",
@@ -37,7 +37,8 @@ manager = company.managers.create(name: "Петров Петр")
 client = manager.clients.create(fio: "Супер Клиент")
 client.create_visa_data(surname: "Syper",
                         surname_at_birth: "Syp",
-                        name: "Client")
+                        name: "Client",
+                        marital_status: 0)
 User.create(email: 'lolka_man', password: 'lolka', password_confirmation: 'lolka',
            role: 'manager', owner: manager, active: true)
 User.create(email: 'lolka', password: 'lolka', password_confirmation: 'lolka',

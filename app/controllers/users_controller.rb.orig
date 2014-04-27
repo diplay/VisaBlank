@@ -1,15 +1,24 @@
 #coding: utf-8
 class UsersController < ApplicationController
+<<<<<<< HEAD
+  before_action :check_owner
+
+  def index
+
+=======
   before_action :check_owner, except: [:show, :change_password, :set_password]
   before_action :check_user, only: [:show, :change_password, :set_password]
 
   def index
     @users = User.all
+>>>>>>> 08baddde40c516c39bcf72a4b7467b43f193fc22
   end
 
   def show
   end
 
+<<<<<<< HEAD
+=======
   def change_password
   end
 
@@ -31,6 +40,7 @@ class UsersController < ApplicationController
     end
   end
 
+>>>>>>> 08baddde40c516c39bcf72a4b7467b43f193fc22
   def edit
   end
 
@@ -42,6 +52,8 @@ class UsersController < ApplicationController
     end
   end
 
+<<<<<<< HEAD
+=======
   def check_user
     @_user = User.find(params[:id])
     if @user.id != @_user.id
@@ -49,4 +61,5 @@ class UsersController < ApplicationController
     end
   end
 
+>>>>>>> 08baddde40c516c39bcf72a4b7467b43f193fc22
 end

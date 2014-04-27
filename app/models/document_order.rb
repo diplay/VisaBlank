@@ -7,7 +7,11 @@ class DocumentOrder < ActiveRecord::Base
   def export
     out_path = "#{Rails.root}/public/pdf/DocumentForOrder" + id.to_s + ".pdf"
     pdftk = PdfForms.new('/usr/bin/pdftk')
-    pdftk.fill_form "#{Rails.root}/public/" + document_template.template_path, out_path, client.visa_data.attributes
+    case document_template.document_type
+    when 'visa'
+      current_attributes = client.visa_data.get_attributes
+    end
+    pdftk.fill_form "#{Rails.root}/public/" + document_template.template_path, out_path, current_attributes
     out_path
   end
 
