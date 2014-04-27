@@ -8,6 +8,17 @@ class ApplicationController < ActionController::Base
   def index #главная страница
   end
 
+  protected
+  def check_active
+    if @user.role == "manager" && @user.owner.company.active? == false
+      flash[:warning] = "Ваша компания заблокирована"
+      redirect_to :back
+    elsif @user.role == "company" && @user.owner.active? == false
+      flash[:warning] = "Сперва необходимо разблокировать компанию"
+      redirect_to :back
+    end
+  end
+
   private
   def check_auth
     @user = User.find_by id: session[:user_id]

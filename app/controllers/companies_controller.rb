@@ -1,6 +1,7 @@
 #coding: utf-8
 class CompaniesController < ApplicationController
   before_action :check_owner
+  before_action :check_active, except: [:show]
 
   def new #форма создания новой компании
     claim = CompanyClaim.find params[:claim_id]
@@ -17,7 +18,7 @@ class CompaniesController < ApplicationController
     pass = gen_password
     company.create_user(email: company.email, password: pass,
                        password_confirmation: pass, active: true)
-    #send mail with account information
+    #TODO send mail with account information
     redirect_to company_path(company)
   end
 
@@ -35,13 +36,16 @@ class CompaniesController < ApplicationController
   end
 
   def update #сохранение данных о компании
+    if @user.role != "admin"
+      params[:company].delete(:paid_before)
+    end
     Company.find(params[:id]).update(company_params)
     redirect_to company_path(params[:id])
   end
 
   private
   def company_params
-    params[:company].permit(:name, :email, :phone, :address, :tin, :bank_details)
+    params[:company].permit(:name, :email, :phone, :address, :tin, :bank_details, :paid_before)
   end
 
   def company_creation_params

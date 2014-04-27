@@ -1,3 +1,4 @@
+#coding: utf-8
 class ClaimMailer < ActionMailer::Base
   default from: "from@visablank.com"
 
@@ -8,6 +9,16 @@ class ClaimMailer < ActionMailer::Base
   #
   def claim_email(claim, claim_url)
     @claim_url = claim_url
-    mail to: claim.email
+    mail to: claim.email, subject: "Подана заявка"
+  end
+
+  def claim_accepted_email(claim, claim_url)
+    @claim_url = claim_url
+    mail to: claim.email, subject: "Заявка принята"
+  end
+
+  def claim_declined_email(claim, claim_url)
+    @claim_url = claim_url
+    mail to: claim.email, subject: "Заявка отклонена"
   end
 end

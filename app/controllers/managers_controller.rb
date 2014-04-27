@@ -1,6 +1,7 @@
 #coding: utf-8
 class ManagersController < ApplicationController
   before_action :check_owner
+  before_action :check_active, except: [:show]
 
   def new
     @manager.build_user
@@ -11,8 +12,7 @@ class ManagersController < ApplicationController
     params[:manager][:user_attributes][:password] = pass
     params[:manager][:user_attributes][:password_confirmation] = pass
     manager = @company.managers.create(manager_params)
-    #send email with password
-    redirect_to company_manager_path(@company, manager)
+    redirect_to manager_path(manager)
   end
 
   def show
@@ -21,9 +21,14 @@ class ManagersController < ApplicationController
   def edit
   end
 
+  def destroy
+    @manager.destroy
+    redirect_to company_path(@company)
+  end
+
   def update
     @manager.update(manager_update_params)
-    redirect_to company_manager_path(@company, @manager)
+    redirect_to manager_path(@manager)
   end
 
   private

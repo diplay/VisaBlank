@@ -1,5 +1,6 @@
 class DocumentOrdersController < ApplicationController
   before_action :check_owner
+  before_action :check_active, except: [:show]
 
   def new
     @templates =

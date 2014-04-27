@@ -1,0 +1,16 @@
+<h3>Профиль пользователя</h3>
+<div class="container" >
+  <div class="row" >
+    <div class="col-xs-4" ><strong>Email:</strong> <%= @_user.email %></div>
+    <div class="col-xs-4" ><strong>Активен:</strong> <%= @_user.active ? "Активен" : "Неактивен" %></div>
+    <div class="col-xs-4" >
+      <% if @_user.active %>
+        <%= link_to "Заблокировать", user_path(@_user),
+          method: :patch, class: "btn btn-warning" %>
+      <% else %>
+        <%= link_to "Активировать", user_path(@_user),
+          method: :patch, class: "btn btn-success" %>
+      <% end %>
+    </div>
+  </div>
+</div>
