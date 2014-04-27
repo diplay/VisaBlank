@@ -13,7 +13,7 @@ DocumentTemplate.create(name: "Виза Австрия", template_path: "visa/au
                        document_type: "visa")
 
 company = Company.create(name: "ООО \"Рога и Копыта\"",
-                        paid_before: Date.today.next_month,
+                        paid_before: Date.today << 1,
                         tin: "432134322",
                         address: "ул. Пушкина, д.23",
                         bank_details: "Номер счета: 12345",

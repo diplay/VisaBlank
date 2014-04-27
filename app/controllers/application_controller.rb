@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
     #if @user.nil? && params[:controller] != 'application'
     #  redirect_to root_path
     #end
+    if @user != nil && @user.active == false &&
+      !(['users', 'auth'].include?(params[:controller]))
+      redirect_to user_path(@user)
+    end
     if @user != nil && @user.role == 'admin'
       @new_claims = CompanyClaim.where(status: 0).length
     end
