@@ -2,7 +2,7 @@
 <div class="container" >
   <div class="row" >
     <div class="col-xs-4" ><strong>Email:</strong> <%= @_user.email %></div>
-    <div class="col-xs-4" ><strong>Активен:</strong> <%= @_user.active ? "Активен" : "Неактивен" %></div>
+    <div class="col-xs-4" ><strong>Активен:</strong> <%= @_user.active ? "<span class=\"text-success\" >Активен</span>".html_safe : "<span class=\"text-danger\" >Заблокирован</span>".html_safe %></div>
     <div class="col-xs-4" >
       <%= link_to "Сменить пароль", change_password_user_path, class: "btn btn-success" %>
     </div>

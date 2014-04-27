@@ -5,12 +5,20 @@
     <tr>
       <th>Email</th>
       <th>Статус</th>
+      <th>Владеет</th>
     </tr>
   </thead>
   <tbody>
     <%= content_tag_for :tr, @users do |user| %>
       <td><%= link_to user.email, edit_user_path(user) %></td>
-      <td><%= user.active ? "Активен" : "Неактивен" %></td>
+      <td><%= user.active ? "Активен" : "Заблокирован" %></td>
+      <% if user.role == "company" %>
+        <td><%= link_to user.owner.name, company_path(user.owner) %></td>
+      <% elsif user.role == "manager" %>
+        <td><%= link_to user.owner.name, manager_path(user.owner) %></td>
+      <% else %>
+        <td>Admin</td>
+      <% end %>
     <% end %>
   </tbody>
 </table>

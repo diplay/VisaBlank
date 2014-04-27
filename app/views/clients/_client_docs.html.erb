@@ -4,22 +4,24 @@
   </div>
   <div class="panel-body" >
     <table class="table table-hover" >
-      <thead>
-        <tr>
-          <td>
-            <%= link_to new_client_document_order_path(@client),
-              class: "btn btn-success btn-xs" do %>
-              <span class="glyphicon glyphicon-plus"></span>
-              Создать документ
-            <% end %>
-          </td>
-        </tr>
-        <tr>
-          <th>Id</th>
-          <th>Документ</th>
-          <th>Статус</th>
-        </tr>
-      </thead>
+      <% if @user.role == "manager" %>
+        <thead>
+          <tr>
+            <td>
+              <%= link_to new_client_document_order_path(@client),
+                class: "btn btn-success btn-xs" do %>
+                <span class="glyphicon glyphicon-plus"></span>
+                Создать документ
+              <% end %>
+            </td>
+          </tr>
+          <tr>
+            <th>Id</th>
+            <th>Документ</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+      <% end %>
       <tbody>
       <% @client.document_orders.each do |doc| %>
         <tr>
