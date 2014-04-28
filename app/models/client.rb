@@ -4,7 +4,7 @@ class Client < ActiveRecord::Base
   has_one :foreign_passport_data
   has_one :visa_data
   has_many :document_orders
-  after_create :set_documents_data, on: :create
+  #after_create :set_documents_data, on: :create
   
   accepts_nested_attributes_for :foreign_passport_data
   accepts_nested_attributes_for :visa_data
@@ -18,14 +18,13 @@ class Client < ActiveRecord::Base
     end
   end
 
-  def check_nil
-    attributes.each do |key, val|
-      if val == nil
-        attributes[key] = ' '
-      end
-      if val == ''
-        attributes[key] = ' '
-      end
+  private
+  def set_documents_data
+    if foreign_passport_data.nil?
+      create_foreign_passport_data
+    end
+    if visa_data.nil?
+      create_visa_data
     end
   end
 end

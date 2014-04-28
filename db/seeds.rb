@@ -39,10 +39,7 @@ client.create_visa_data(surname: "Syper",
                         surname_at_birth: "Syp",
                         name: "Client",
                         marital_status: 0)
-User.create(email: 'lolka_man', password: 'lolka', password_confirmation: 'lolka',
-           role: 'manager', owner: manager, active: true)
-User.create(email: 'lolka', password: 'lolka', password_confirmation: 'lolka',
-           role: 'company', owner: company, active: true)
+User.create(email: 'lolka_man', password: 'lolka', password_confirmation: 'lolka', role: 'manager', owner: manager, active: true)
+User.create(email: 'lolka', password: 'lolka', password_confirmation: 'lolka', role: 'company', owner: company, active: true)
 
-User.create(email: 'admin', password: 'admin', password_confirmation: 'admin',
-            role: 'admin', active: true)
+User.create(email: 'admin', password: 'admin', password_confirmation: 'admin', role: 'admin', active: true)
