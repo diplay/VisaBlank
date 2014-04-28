@@ -5,27 +5,27 @@ class Client < ActiveRecord::Base
   has_one :visa_data
   has_many :document_orders
   after_create :set_documents_data, on: :create
-
+  
   accepts_nested_attributes_for :foreign_passport_data
   accepts_nested_attributes_for :visa_data
 
   def sex_string
     case sex
     when true
-      return "Мужской"
+      return "мужской"
     when false
-      return "Женский"
+      return "женский"
     end
   end
 
-  private
-  def set_documents_data
-    if foreign_passport_data.nil?
-      create_foreign_passport_data
-    end
-    if visa_data.nil?
-      create_visa_data
+  def check_nil
+    attributes.each do |key, val|
+      if val == nil
+        attributes[key] = ' '
+      end
+      if val == ''
+        attributes[key] = ' '
+      end
     end
   end
-
 end

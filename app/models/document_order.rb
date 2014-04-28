@@ -10,6 +10,8 @@ class DocumentOrder < ActiveRecord::Base
     case document_template.document_type
     when 'visa'
       current_attributes = client.visa_data.get_attributes
+    when 'foreign_passport'
+      current_attributes = client.foreign_passport_data.get_attributes
     end
     pdftk.fill_form "#{Rails.root}/public/" + document_template.template_path, out_path, current_attributes
     out_path
