@@ -38,7 +38,7 @@ class ManagersController < ApplicationController
   end
 
   def manager_update_params
-    params[:manager].permit(:name, user_attributes: [:id, :email])
+    params[:manager].permit(:name)
   end
 
   def check_owner

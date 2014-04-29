@@ -20,14 +20,16 @@
       </tr>
       <% end %>
       </tbody>
-      <tfoot>
-        <tr>
-          <td>
-      <%= link_to "Добавить менеджера", new_company_manager_path(@company),
-        class: "btn btn-success btn-xs"%>
-          </td>
-        </tr>
-      </tfoot>
+      <% if @user.role == "company" %>
+        <tfoot>
+          <tr>
+            <td>
+        <%= link_to "Добавить менеджера", new_company_manager_path(@company),
+          class: "btn btn-success btn-xs"%>
+            </td>
+          </tr>
+        </tfoot>
+      <% end %>
     </table>
   </div>
 </div>
