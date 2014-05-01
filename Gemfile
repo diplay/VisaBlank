@@ -28,6 +28,11 @@ gem 'therubyracer', platforms: :ruby
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Use Java
+gem 'jruby-jars'
+
+gem 'pdf-stamper', '~> 0.3.0'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 #gem 'turbolinks'
 
@@ -36,7 +41,7 @@ gem 'jbuilder', '~> 1.2'
 
 # Generate PDF files from template with information from DB
 # Added be Denis
-gem 'pdf-forms', '>= 0.5.7'
+#gem 'pdf-forms', '>= 0.5.7'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -45,6 +50,9 @@ end
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
+
+# Use to convert symbols
+gem 'iconv', '~> 1.0.4'
 
 # Use unicorn as the app server
 # gem 'unicorn'
