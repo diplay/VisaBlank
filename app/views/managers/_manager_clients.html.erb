@@ -25,7 +25,12 @@
       <% @manager.clients.each do |client| %>
       <tr>
         <td><%= link_to client.fio, client_path(client) %></td>
-        <td>Нет</td>
+        <% doc = client.get_last_document_status %>
+        <% if doc != nil %>
+          <td><%= link_to doc[:document_string], document_order_path(doc[:document]) %></td>
+        <% else %>
+          <td>Нет</td>
+        <% end %>
       </tr>
       <% end %>
       </tbody>

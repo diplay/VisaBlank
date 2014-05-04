@@ -18,6 +18,16 @@ class Client < ActiveRecord::Base
     end
   end
 
+  def get_last_document_status
+    last_active_document = document_orders.where.not(status: "Отдан клиенту").order(updated_at: :desc).limit(1).first
+    if last_active_document.nil?
+      nil
+    else
+      {document_string: "#{last_active_document.document_template.name}(#{last_active_document.status})",
+      document: last_active_document}
+    end
+  end
+
   private
   def set_documents_data
     if foreign_passport_data.nil?
