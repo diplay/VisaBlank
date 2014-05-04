@@ -1,24 +1,22 @@
 <h3><%= @order.document_template.name %></h3>
+<%= form_for @order, html: {class: "form-horizontal"} do |f| %>
 <table class="table" >
   <tr>
     <td class="col-sm-2" >
       Статус
     </td>
     <td>
-      <%= @order.status %>
+      <%= f.select :status, options_for_select(DocumentOrder.statuses,
+                                               @order.status), {},
+                  class: "form-control" %>
     </td>
   </tr>
   <tr>
     <td>Комментарий</td>
     <td>
-      <%= form_for @order, html: {class: "form-horizontal"} do |f| %>
-        <div class="input-group" >
-          <%= f.text_area :comments, class: "form-control" %>
-          <span class="input-group-btn" >
-            <%= f.submit "Сохранить", class: "btn btn-success" %>
-          </span>
-        </div>
-      <% end %>
+      <%= f.text_area :comments, class: "form-control" %>
     </td>
   </tr>
 </table>
+<%= f.submit "Сохранить", class: "btn btn-success pull-right" %>
+<% end %>
