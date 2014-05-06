@@ -1,19 +1,23 @@
 #coding: utf-8
 class DocumentOrder < ActiveRecord::Base 
-  require 'iconv'
-  require 'jruby-jars'
+  #require 'iconv'
+  require 'rjb'
   #$LOAD_PATH << './lib'
-  require 'itext-2.0.4'
+  #require '/home/alzater/VisaBlank/lib/itext-2.0.4.jar'
   belongs_to :client
   belongs_to :document_template
   before_create :set_status, on: :create
 
 def export
     out_path = "#{Rails.root}/public/pdf/DocumentForOrder" + id.to_s + ".pdf"
-    pdf = PDF::Stamper.new("#{Rails.root}/public/pdf_templates/foreign.pdf") 
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1"
+    p "#{Rails.root}/public/pdf_templates/foreign.pdf"
+    pdf = PDF::Stamper.new("/home/alzater/VisaBlank/public/pdf_templates/foreign.pdf") 
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!12"
     pdf.text :fio, "аворал"
     pdf.text :nameLast, "Yates" 
     send_data(pdf.to_s, :filename => out_path, :type => "application/pdf",:disposition => "inline")
+    p "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!123"
     out_path
 end
 

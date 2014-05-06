@@ -29,7 +29,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'jquery-rails'
 
 # Use Java
-gem 'jruby-jars'
+gem 'rjb'
 
 gem 'pdf-stamper', '~> 0.3.0'
 
@@ -52,7 +52,7 @@ end
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 # Use to convert symbols
-gem 'iconv', '~> 1.0.4'
+#gem 'iconv', '~> 1.0.4'
 
 # Use unicorn as the app server
 # gem 'unicorn'
