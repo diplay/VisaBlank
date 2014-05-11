@@ -56,6 +56,7 @@
       </div>
     </div>
   </fieldset>
+<br />
   <fieldset>
   <%= f.fields_for :foreign_passport_data do |data| %>
     <h4>Данные для загранпаспорта</h4>
@@ -119,8 +120,275 @@
         <%= data.text_field :secret_access , class: "form-control" %>
       </div>
     </div>
+    <div class="form-group" >
+      <%= data.label :contract_liability, "Контрактные обязательства",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :contract_liability , class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= data.label :military_service, "Военная служба",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :military_service , class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= data.label :conviction, "Судимость",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :conviction , class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= data.label :court_obligations, "Уклонение от суд. обязательств",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :court_obligations , class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= data.label :children, "Дети",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :children , class: "form-control" %>
+      </div>
+    </div>
+     <div class="form-group" >
+      <%= data.label :old_passport_series, "Серия",
+        class: "control-label col-sm-1"%>
+      <div class="col-sm-1" >
+        <%= data.text_field :old_passport_series, class: "form-control input-sm" %>
+      </div>
+      <%= data.label :old_passport_number, "Номер",
+        class: "control-label col-sm-1" %>
+      <div class="col-sm-2" >
+        <%= data.text_field :old_passport_number, class: "form-control input-sm" %>
+      </div>
+      <%= data.label :old_passport_given_date, "Дата",
+        class: "control-label col-sm-1" %>
+      <div class="col-sm-2" >
+        <%= data.date_field :old_passport_given_date, class: "form-control input-sm" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= data.label :old_passport_given, "Выдан",
+        class: "control-label col-sm-1"%>
+      <div class="col-sm-11" >
+          <%= data.text_field :old_passport_given, class: "form-control" %>
+      </div>
+    </div>
+  <% end %>
+</fieldset>
+<br />
+<fieldset>
+  <%= f.fields_for :visa_data do |visa| %>
+    <h4>Данные для визы</h4>
+    <div class="form-group" >
+      <%= visa.label :surname, "Фамилия",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :surname, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :surname_at_birth, "Фамилия при рождении",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :surname_at_birth, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :name, "Имя",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :patronymic_name, "Отчество",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :patronymic_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :place_of_birth, "Место рождения",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :place_of_birth, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :country_of_birth, "Страна рождения",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :country_of_birth, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :current_nationality, "Гражданство",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :current_nationality, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :nationality_at_birth, "Гражданство при рождении",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :nationality_at_birth, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :marital_status, "Семейное положение",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.select :marital_status,
+          options_for_select([ 
+          ["Холост/не замужем", 1],
+          ["женат/замужем", 2],
+          ["не проживает с супругом", 3],
+          ["Разведен/-а", 4],
+          ["Взамен утраченного", 5],
+          ["Иное (уточнить)", 0]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :marital_status_other, "Другое",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :marital_status_other, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :guardian_data, "Данные опекуна",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :guardian_data, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :national_id, "Идентификационный номер",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :national_id, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :national_id, "Идентификационный номер",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :national_id, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :travel_document_type, "Тип проездного документа",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.select :travel_document_type,
+          options_for_select([ 
+          ["Обычный паспорт", 1],
+          ["Дипломатический паспорт", 2],
+          ["Служебный паспорт", 3],
+          ["Официальный паспорт", 4],
+          ["Особый паспорт", 5],
+          ["Иное (уточнить)", 0]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :travel_document_type_other, "Другое",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.text_field :travel_document_type_other, class: "form-control" %>
+      </div>
+    </div>
+     <div class="form-group" >
+      <%= visa.label :travel_document_number, "Номер проездного документа",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.text_field :travel_document_number, class: "form-control input-sm" %>
+      </div>
+      <%= visa.label :travel_document_date_of_issue, "Дата выдачи",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :travel_document_date_of_issue, class: "form-control input-sm" %>
+      </div>
+      <%= visa.label :travel_document_valid_until, "Действителен до",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :travel_document_valid_until, class: "form-control input-sm" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :travel_document_issued_by, "Выдан",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :travel_document_issued_by, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :home_address_and_email, "Домашний адрес и email",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :home_address_and_email, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :phone, "телефон",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :phone, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :residence_other_country, "Страна пребывания, если не является страной гражданства",
+        class: "control-label col-sm-6" %>
+      <div class="col-sm-2" >
+        <%= visa.select :residence_other_country,
+          options_for_select([ 
+          ["Нет", false],
+          ["Да", true]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>    
+    <div class="form-group" >
+      <%= visa.label :residence_document_type, "тип документа",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-2" >
+          <%= visa.text_field :residence_document_type, class: "form-control" %>
+      </div>
+      <%= visa.label :residence_document_number, "номер документа",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-2" >
+          <%= visa.text_field :residence_document_number, class: "form-control" %>
+      </div>
+
+      <%= visa.label :valid_until, "Действителен до",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :valid_until, class: "form-control input-sm" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :current_occupation, "Работа в наст. время",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :current_occupation, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :employer_data, "Данные работодателя",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :employer_data, class: "form-control" %>
+      </div>
+    </div>
     <p>
     Тут еще поля...
     </p>
   <% end %>
-  </fieldset>
+</fieldset>

@@ -48,6 +48,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+    pdf-stamper (0.3.0)
     pg (0.17.1)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -75,6 +76,7 @@ GEM
     rdoc (4.1.1)
       json (~> 1.4)
     ref (1.0.5)
+    rjb (1.4.9)
     sdoc (0.4.0)
       json (~> 1.8)
       rdoc (~> 4.0, < 5.0)
@@ -109,9 +111,11 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   jbuilder (~> 1.2)
   jquery-rails
+  pdf-stamper
   pg
   rails (= 4.0.3)
   rails_12factor
+  rjb
   sdoc
   sqlite3
   therubyracer

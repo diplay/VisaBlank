@@ -14,6 +14,7 @@ class DocumentOrdersController < ApplicationController
   end
 
   def show
+    DocumentOrder.find_by(id: params[:id]).export
   end
 
   def update

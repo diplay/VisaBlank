@@ -42,6 +42,9 @@ end
 # Use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'rjb'
+gem 'pdf-stamper'
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

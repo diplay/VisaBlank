@@ -33,7 +33,54 @@ class CreateVisaData < ActiveRecord::Migration
 
       t.text :current_occupation
       t.text :employer_data
-
+#new
+      t.integer :aim
+      t.text :aim_other
+      t.text :contry_of_destination
+      t.text :first_enter_country
+      t.integer :quantity_of_entries
+      t.integer :duration_of_stay
+      
+      t.boolean :visa_given
+      t.date :visa_given1_from
+      t.date :visa_given1_to
+      t.date :visa_given2_from
+      t.date :visa_given2_to
+      t.date :visa_given3_from
+      t.date :visa_given3_to
+      t.date :visa_given4_from
+      t.date :visa_given4_to
+      
+      t.boolean :fingerprints
+      t.date :fingerprints_date
+      t.text :entry_permit
+      t.date :entry_permit_from
+      t.date :entry_permit_to
+      
+      t.date :entry_date
+      t.date :departure_date
+      
+      t.text :inviter_name
+      t.text :inviter_adress_and_email
+      t.text :inviter_phone
+      
+      t.text :inviter_company_name_and_adress
+      t.integer :sponsor
+      t.integer :means1
+      t.integer :means2
+      t.text :means1_others
+      t.text :means2_others
+      
+      t.text :nearest_surname
+      t.text :nearest_name
+      t.date :nearest_date_of_birth
+      t.text :nearest_nationality
+      t.text :nearest_passport_number
+      t.integer :nearest
+      
+      t.text :place
+      t.date :date   
+      
       t.timestamps
     end
   end
