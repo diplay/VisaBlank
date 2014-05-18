@@ -22,3 +22,5 @@
     method: :delete, class: "btn btn-danger", confirm: "Вы точно уверены?"%>
 <%= f.submit "Сохранить", class: "btn btn-success pull-right" %>
 <% end %>
+
+<%= link_to "скачать pdf", get_document_document_order_path(@order) %>

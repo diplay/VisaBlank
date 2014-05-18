@@ -40,7 +40,17 @@ class ClientsController < ApplicationController
         :previous_passport, :secret_access, :contract_liability,
         :military_service, :conviction, :court_obligations, :children,
         :employment_history, :old_passport_series, :old_passport_number,
-        :old_passport_given, :old_passport_given_date])
+        :old_passport_given, :old_passport_given_date],
+      visa_data_attributes: [:surname, :surname_at_birth, :name, 
+        :patronymic_name, :place_of_birth, :country_of_birth,
+        :current_nationality, :nationality_at_birth, :marital_status,
+        :marital_status_other, :guardian_data, :national_id, 
+        :travel_document_type, :travel_document_trype_other,
+        :travel_document_number, :travel_document_date_of_issue,
+        :travel_document_valid_until, :travel_issued_by,
+        :home_address_and_email, :phone, :residence_other_country,
+        :residence_document_type, :residense_document_number,
+        :valid_until, :current_occupation, :employer_data])
   end
 
   def check_owner

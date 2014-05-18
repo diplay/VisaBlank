@@ -55,4 +55,20 @@
     <td> История трудоустройства </td>
     <td><%= @client.foreign_passport_data.employment_history %></td>
   </tr>
+  <tr>
+    <td> Серия старого паспорта </td>
+    <td><%= @client.foreign_passport_data.old_passport_series %></td>
+  </tr>
+  <tr>
+    <td> Номер </td>
+    <td><%= @client.foreign_passport_data.old_passport_number %></td>
+  </tr>
+  <tr>
+    <td> Выдан </td>
+    <td><%= @client.foreign_passport_data.old_passport_given %></td>
+  </tr>
+  <tr>
+    <td> Дата выдачи </td>
+    <td><%= @client.foreign_passport_data.old_passport_given_date %></td>
+  </tr>
 </table>
