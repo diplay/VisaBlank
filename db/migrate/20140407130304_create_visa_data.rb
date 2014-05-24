@@ -33,13 +33,13 @@ class CreateVisaData < ActiveRecord::Migration
 
       t.text :current_occupation
       t.text :employer_data
-#new
+      
       t.integer :aim
       t.text :aim_other
-      t.text :contry_of_destination
+      t.text :country_of_destination
       t.text :first_enter_country
       t.integer :quantity_of_entries
-      t.integer :duration_of_stay
+      t.text :duration_of_stay
       
       t.boolean :visa_given
       t.date :visa_given1_from
@@ -66,10 +66,11 @@ class CreateVisaData < ActiveRecord::Migration
       
       t.text :inviter_company_name_and_adress
       t.integer :sponsor
+      t.text :sponsor_other
       t.integer :means1
+      t.text :means1_other
       t.integer :means2
-      t.text :means1_others
-      t.text :means2_others
+      t.text :means2_other
       
       t.text :nearest_surname
       t.text :nearest_name

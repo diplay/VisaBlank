@@ -7,7 +7,12 @@ class DocumentOrder < ActiveRecord::Base
   def export()
     output_path = "#{Rails.root}/public/pdfs/DocumentOrder#{self.id}.pdf"
     input_path = self.document_template.template_path
-    self.client.visa_data.create_pdf( input_path, output_path)
+    case self.document_template.document_type
+    when 'visa'
+      self.client.visa_data.create_pdf( input_path, output_path)
+    when 'foreign_passport'
+#not made    
+    end
     output_path
   end
 

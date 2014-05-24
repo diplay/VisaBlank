@@ -5,7 +5,11 @@ Visa::Application.routes.draw do
   resources :companies do
     resources :managers, shallow: true do
       resources :clients do
-        resources :document_orders
+        resources :document_orders do
+          member do
+            get "doc"
+          end
+        end
       end
     end
   end

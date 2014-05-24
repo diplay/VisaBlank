@@ -17,8 +17,8 @@ class DocumentOrdersController < ApplicationController
     
   end
   
-  def get_document
-    send_file DocumentOrder.find_by(id: params[:id]).export, type: 'application/pdf' 
+  def doc
+    send_file @order.export, type: 'application/pdf' 
   end
 
   def update

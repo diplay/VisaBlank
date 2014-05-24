@@ -48,6 +48,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
+    pdf-forms (0.5.7)
     pdf-stamper (0.3.0)
     pg (0.17.1)
     polyglot (0.3.4)
@@ -111,6 +112,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.1.2)
   jbuilder (~> 1.2)
   jquery-rails
+  pdf-forms
   pdf-stamper
   pg
   rails (= 4.0.3)

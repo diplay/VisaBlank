@@ -245,7 +245,7 @@
       <%= visa.label :marital_status, "Семейное положение",
         class: "control-label col-sm-2" %>
       <div class="col-sm-10" >
-        <%= visa.select :marital_status,
+        <%= visa.select :marital_status, 
           options_for_select([ 
           ["Холост/не замужем", 1],
           ["женат/замужем", 2],
@@ -288,8 +288,7 @@
       <%= visa.label :travel_document_type, "Тип проездного документа",
         class: "control-label col-sm-2" %>
       <div class="col-sm-10" >
-        <%= visa.select :travel_document_type,
-          options_for_select([ 
+        <%= visa.select :travel_document_type, options_for_select([ 
           ["Обычный паспорт", 1],
           ["Дипломатический паспорт", 2],
           ["Служебный паспорт", 3],
@@ -306,7 +305,7 @@
         <%= visa.text_field :travel_document_type_other, class: "form-control" %>
       </div>
     </div>
-     <div class="form-group" >
+    <div class="form-group" >
       <%= visa.label :travel_document_number, "Номер проездного документа",
         class: "control-label col-sm-2" %>
       <div class="col-sm-2" >
@@ -387,8 +386,318 @@
           <%= visa.text_field :employer_data, class: "form-control" %>
       </div>
     </div>
-    <p>
-    Тут еще поля...
-    </p>
+    <div class="form-group" >
+      <%= visa.label :aim, "Цель поездки",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.select :aim, options_for_select([ 
+          ["Туризм", 1],
+          ["Деловая", 2],
+          ["Родственники", 3],
+          ["Культура", 4],
+          ["Спорт", 5],
+          ["Официальная", 6],
+          ["Лечение", 7],
+          ["Учеба", 8],
+          ["Транзит", 9],
+          ["Транзит ч. Аэропорт", 10],
+          ["Иное (уточнить)", 0]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :aim_other, "цель поездки: другое",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :aim_other, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :country_of_destination, "страна назначения",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :country_of_destination, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :first_enter_country, "страна вьезда",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :first_enter_country, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :travel_document_type, "Цель поездки!!!",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.select :travel_document_type, options_for_select([ 
+          ["Однократный въезд", 1],
+          ["Двукратный въезд", 2],
+          ["Многократный въезд", 3]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :duration_of_stay, "продолжительность пребывания",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :duration_of_stay, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :residence_other_country, "Шенгенские визы, выданные за последние 3 года",
+        class: "control-label col-sm-5" %>
+      <div class="col-sm-2" >
+        <%= visa.select :residence_other_country,
+          options_for_select([ 
+          ["Нет", false],
+          ["Да", true]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :visa_given1_from, "Срок действия с",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :visa_given1_from, class: "form-control input-sm" %>
+      </div>
+      <%= visa.label :visa_given1_to, "до",
+        class: "control-label col-sm-1" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :visa_given1_to, class: "form-control input-sm" %>
+      </div>
+    </div>
+     <div class="form-group" >
+      <%= visa.label :visa_given2_from, "Срок действия с",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :visa_given2_from, class: "form-control input-sm" %>
+      </div>
+      <%= visa.label :visa_given2_to, "до",
+        class: "control-label col-sm-1" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :visa_given2_to, class: "form-control input-sm" %>
+      </div>
+    </div>
+     <div class="form-group" >
+      <%= visa.label :visa_given3_from, "Срок действия с",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :visa_given3_from, class: "form-control input-sm" %>
+      </div>
+      <%= visa.label :visa_given3_to, "до",
+        class: "control-label col-sm-1" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :visa_given3_to, class: "form-control input-sm" %>
+      </div>
+    </div>
+     <div class="form-group" >
+      <%= visa.label :visa_given4_from, "Срок действия с",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :visa_given4_from, class: "form-control input-sm" %>
+      </div>
+      <%= visa.label :visa_given4_to, "до",
+        class: "control-label col-sm-1" %>
+      <div class="col-sm-2" >
+        <%= visa.date_field :visa_given4_to, class: "form-control input-sm" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :fingerprints, "Отпечатки пальцев",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-2" >
+        <%= visa.select :fingerprints,
+          options_for_select([ 
+          ["Нет", false],
+          ["Да", true]]), {},
+          {class: "form-control"} %>
+      </div>
+      <%= visa.label :fingerprints_date, "Дата отпечатков",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-2" >
+          <%= visa.date_field :fingerprints_date, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :entry_permit, "Разрешение на въезд выдано",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :entry_permit, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :entry_permit_from, "Выдано с",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-2" >
+          <%= visa.date_field :entry_permit_from, class: "form-control" %>
+      </div>
+      <%= visa.label :entry_permit_to, "Выдано по",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-2" >
+          <%= visa.date_field :entry_permit_to, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :entry_date, "Дата въезда",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-2" >
+          <%= visa.date_field :entry_date, class: "form-control" %>
+      </div>
+      <%= visa.label :departure_date, "Дата выезда",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-2" >
+          <%= visa.date_field :departure_date, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :inviter_name, "Пригласивший",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :inviter_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :inviter_adress_and_email, "Адресс пригласившего",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :inviter_adress_and_email, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :inviter_phone, "Телефон пригласившего",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :inviter_phone, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :inviter_company_name_and_adress, "Телефон пригласившего",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :inviter_company_name_and_adress, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :travel_document_type, "Чьи задачи",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-5" >
+        <%= visa.select :travel_document_type, options_for_select([ 
+          ["Заявитель", 1],
+          ["Спонсор", 2],
+          ["Упомянутые в 31 и 32", 3],
+          ["Иные", 0]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :sponsor_other, "другое",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :sponsor_other, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :means1, "Свои средства",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.select :means1, options_for_select([ 
+          ["Наличные деньги", 1],
+          ["Дорожные чеки", 2],
+          ["Кредитная карточка", 3],
+          ["Предоплачено место проживания", 4],
+          ["Оплачивается транспорт", 5],
+          ["Иное", 0]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :means1_other, "другое",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :means1_other, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :means2, "Cпонсорские средства",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.select :means2, options_for_select([ 
+          ["Наличные деньги", 1],
+          ["Обеспечивается место проживания", 2],
+          ["Оплачиваются все расходы", 3],
+          ["Оплачивается транспорт", 4],
+          ["Иное", 0]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :means2_other, "другое",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :means2_other, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :nearest_surname, "Фамилия близкого",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :nearest_surname, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :nearest_name, "Имя близкого",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :nearest_name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :nearest_date_of_birth, "Дата рождения близкого",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.date_field :nearest_date_of_birth, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :nearest_nationality, "Национальность близкого",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :nearest_nationality, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :nearest_passport_number, "Номер паспорта близкого",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :nearest_passport_number, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= visa.label :nearest, "Родство с гражданином ЕС",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= visa.select :nearest, options_for_select([ 
+          ["Супруг-а", 1],
+          ["Ребенок", 2],
+          ["Внук-чка", 3],
+          ["Иждивенец", 4]]), {},
+          {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group">
+     <%= visa.label :place, "Место",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.text_field :place, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+     <%= visa.label :date, "Дата",
+        class: "control-label col-sm-2"%>
+      <div class="col-sm-10" >
+          <%= visa.date_field :date, class: "form-control" %>
+      </div>
+    </div>
   <% end %>
 </fieldset>
