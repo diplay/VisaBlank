@@ -43,8 +43,8 @@ end
 gem 'bcrypt-ruby', '~> 3.1.2'
 
 gem 'pdf-forms'
-#gem 'rjb'
-#gem 'pdf-stamper'
+gem 'rjb'
+gem 'pdf-stamper'
 
 # Use unicorn as the app server
 # gem 'unicorn'
