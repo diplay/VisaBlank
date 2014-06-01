@@ -22,7 +22,7 @@ class CreateVisaData < ActiveRecord::Migration
       t.date :travel_document_date_of_issue
       t.date :travel_document_valid_until
       t.text :travel_document_issued_by
-
+ 
       t.text :home_address_and_email
       t.text :phone
 

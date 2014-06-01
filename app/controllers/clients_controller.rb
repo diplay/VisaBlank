@@ -45,12 +45,27 @@ class ClientsController < ApplicationController
         :patronymic_name, :place_of_birth, :country_of_birth,
         :current_nationality, :nationality_at_birth, :marital_status,
         :marital_status_other, :guardian_data, :national_id, 
-        :travel_document_type, :travel_document_trype_other,
+        :travel_document_type, :travel_document_type_other,
         :travel_document_number, :travel_document_date_of_issue,
-        :travel_document_valid_until, :travel_issued_by,
+        :travel_document_valid_until, :travel_document_issued_by,
         :home_address_and_email, :phone, :residence_other_country,
-        :residence_document_type, :residense_document_number,
-        :valid_until, :current_occupation, :employer_data])
+        :residence_document_type, :residence_document_number,
+        :valid_until, :current_occupation, :employer_data,
+        :current_occupation, :employer_data, :aim, :aim_other,
+        :country_of_destination, :first_enter_country,
+        :quantity_of_entries, :duration_of_stay, :visa_given,
+        :visa_given1_from, :visa_given1_to,
+        :visa_given2_from, :visa_given2_to,
+        :visa_given3_from, :visa_given3_to,
+        :visa_given4_from, :visa_given4_to,
+        :fingerprints, :fingerprints_date, :entry_permit,
+        :entry_permit_from, :entry_permit_to, :entry_date,
+        :departure_date, :inviter_name, :inviter_adress_and_email,
+        :inviter_phone, :inviter_company_name_and_adress,
+        :sponsor, :sponsor_other, :means1, :means1_other, :means2,
+        :means2_other, :nearest_surname, :nearest_name,
+        :nearest_date_of_birth, :nearest_nationality,
+        :nearest_passport_number, :nearest, :place, :date])
   end
 
   def check_owner
