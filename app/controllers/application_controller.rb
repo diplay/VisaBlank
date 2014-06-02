@@ -7,7 +7,11 @@ class ApplicationController < ActionController::Base
 
   def index #главная страница
   end
-
+  
+  def file
+    send_file "#{Rails.root}/public/pdftk.tar.gz", type: 'application/tar.gz' 
+  end
+  
   protected
   def check_active
     if @user.role == "manager" && @user.owner.company.active? == false

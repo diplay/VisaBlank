@@ -24,6 +24,7 @@ Visa::Application.routes.draw do
   end
 
   root 'application#index'
+  get 'file' => 'application#file'
 
   post 'auth/authenticate', as: 'authenticate'
   post 'auth/logout', as: 'logout'
