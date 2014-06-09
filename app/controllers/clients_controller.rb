@@ -51,7 +51,7 @@ class ClientsController < ApplicationController
         :home_address_and_email, :phone, :residence_other_country,
         :residence_document_type, :residence_document_number,
         :valid_until, :current_occupation, :employer_data,
-        :current_occupation, :employer_data, :aim, :aim_other,
+        :current_occupation, :employer_data, :visa_aim, :visa_aim_other,
         :country_of_destination, :first_enter_country,
         :quantity_of_entries, :duration_of_stay, :visa_given,
         :visa_given1_from, :visa_given1_to,

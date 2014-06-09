@@ -288,7 +288,8 @@
       <%= visa.label :travel_document_type, "Тип проездного документа",
         class: "control-label col-sm-2" %>
       <div class="col-sm-10" >
-        <%= visa.select :travel_document_type, options_for_select([ 
+        <%= visa.select :travel_document_type, 
+        options_for_select([ 
           ["Обычный паспорт", 1],
           ["Дипломатический паспорт", 2],
           ["Служебный паспорт", 3],
@@ -387,10 +388,10 @@
       </div>
     </div>
     <div class="form-group" >
-      <%= visa.label :aim, "Цель поездки",
+      <%= visa.label :visa_aim, "Цель поездки",
         class: "control-label col-sm-2" %>
       <div class="col-sm-10" >
-        <%= visa.select :aim, options_for_select([ 
+        <%= visa.select :visa_aim, options_for_select([ 
           ["Туризм", 1],
           ["Деловая", 2],
           ["Родственники", 3],
@@ -406,10 +407,10 @@
       </div>
     </div>
     <div class="form-group" >
-      <%= visa.label :aim_other, "цель поездки: другое",
+      <%= visa.label :visa_aim_other, "цель поездки: другое",
         class: "control-label col-sm-2"%>
       <div class="col-sm-10" >
-          <%= visa.text_field :aim_other, class: "form-control" %>
+          <%= visa.text_field :visa_aim_other, class: "form-control" %>
       </div>
     </div>
     <div class="form-group" >
@@ -427,10 +428,10 @@
       </div>
     </div>
     <div class="form-group" >
-      <%= visa.label :travel_document_type, "Цель поездки!!!",
+      <%= visa.label :quantity_of_entries, "Цель поездки!!!",
         class: "control-label col-sm-2" %>
       <div class="col-sm-10" >
-        <%= visa.select :travel_document_type, options_for_select([ 
+        <%= visa.select :quantity_of_entries, options_for_select([ 
           ["Однократный въезд", 1],
           ["Двукратный въезд", 2],
           ["Многократный въезд", 3]]), {},
@@ -579,10 +580,10 @@
       </div>
     </div>
     <div class="form-group" >
-      <%= visa.label :travel_document_type, "Чьи задачи",
+      <%= visa.label :sponsor, "Чьи задачи",
         class: "control-label col-sm-2" %>
       <div class="col-sm-5" >
-        <%= visa.select :travel_document_type, options_for_select([ 
+        <%= visa.select :sponsor, options_for_select([ 
           ["Заявитель", 1],
           ["Спонсор", 2],
           ["Упомянутые в 31 и 32", 3],

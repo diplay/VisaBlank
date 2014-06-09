@@ -22,6 +22,16 @@ private
     return_attributes = travel_doc(return_attributes)
     return_attributes = residence(return_attributes)
     return_attributes = aimf(return_attributes)
+    return_attributes = quantity_of_entr(return_attributes)
+    return_attributes = visa_giv(return_attributes)
+    return_attributes = fingerprints_foo(return_attributes)
+    return_attributes = near(return_attributes)
+    return_attributes = spons(return_attributes)
+    return_attributes = means1_foo(return_attributes)
+    return_attributes = means2_foo(return_attributes)
+    
+    return_attributes["place1"] = return_attributes["place"]
+    return_attributes["date1"] = return_attributes["date"]
     
     return_attributes
   end
@@ -76,10 +86,10 @@ private
   end
   
   def aimf(cur_attr)
-    case cur_attr["aim"]
+    case cur_attr["visa_aim"]
     when 0
       cur_attr["aim0"] = "Yes"
-      cur_attr["aim0_other"] = cur_attr["aim_other"]
+      cur_attr["aim0_other"] = cur_attr["visa_aim_other"]
     when 1
       cur_attr["aim1"] = "Yes"
     when 2
@@ -100,6 +110,101 @@ private
       cur_attr["aim9"] = "Yes"
     when 10
       cur_attr["aim10"] = "Yes"   
+    end
+    cur_attr
+  end
+  
+  def quantity_of_entr(cur_attr)
+    case cur_attr["quantity_of_entries"]
+    when 1
+      cur_attr["quantity_of_entries1"] = "Yes"
+    when 2
+      cur_attr["quantity_of_entries2"] = "Yes"
+    when 3
+      cur_attr["quantity_of_entries3"] = "Yes"
+    end
+    cur_attr
+  end
+  
+  def visa_giv(cur_attr)
+    if cur_attr["visa_given"] == true
+      cur_attr["visa_given_true"] = "Yes"
+    else
+      cur_attr["visa_given_false"] = "Yes"
+    end
+    cur_attr
+  end
+  
+  def fingerprints_foo(cur_attr)
+    if cur_attr["fingerprints"] == true
+      cur_attr["fingerprints_true"] = "Yes"
+    else
+      cur_attr["fingerprints_false"] = "Yes"
+    end
+    cur_attr
+  end
+  
+  def near(cur_attr)
+    case cur_attr["nearest"]
+    when 1
+      cur_attr["nearest1"] = "Yes"
+    when 2
+      cur_attr["nearest2"] = "Yes"
+    when 3
+      cur_attr["nearest3"] = "Yes"
+    when 4
+      cur_attr["nearest4"] = "Yes"
+    end
+    cur_attr
+  end
+  
+  def spons(cur_attr)
+    case cur_attr["sponsor"]
+    when 1
+      cur_attr["sponsor1"] = "Yes"
+    when 2
+      cur_attr["sponsor2"] = "Yes"
+    when 3
+      cur_attr["sponsor3"] = "Yes"
+    when 0
+      cur_attr["sponsor0"] = "Yes"
+      cur_attr["sponsor0_other"] = cur_attr["sponsor_other"]
+    end
+    cur_attr
+  end
+  
+  def means1_foo(cur_attr)
+    case cur_attr["means1"]
+    when 1
+      cur_attr["means1_1"] = "Yes"
+    when 2
+      cur_attr["means1_2"] = "Yes"
+    when 3
+      cur_attr["means1_3"] = "Yes"
+    when 4
+      cur_attr["means1_4"] = "Yes"
+    when 5
+      cur_attr["means1_5"] = "Yes"
+    when 0
+      cur_attr["means1_0"] = "Yes"
+      cur_attr["means1_0_other"] = cur_attr["means1_other"]
+    end
+    cur_attr
+  end
+  
+  def means2_foo(cur_attr)
+    case cur_attr["means2"]
+    when 1
+      cur_attr["means2_1"] = "Yes"
+    when 2
+      cur_attr["means2_2"] = "Yes"
+    when 3
+      cur_attr["means2_3"] = "Yes"
+    when 4
+      cur_attr["means2_4"] = "Yes"
+    when 0
+      cur_attr["means2_0"] = "Yes"
+      cur_attr["means2_0_other"] = cur_attr["means2_other"]
     end
     cur_attr
   end
