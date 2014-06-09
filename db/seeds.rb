@@ -11,6 +11,8 @@ DocumentTemplate.create(name: "Загранпаспорт", template_path: "/hom
                        document_type: "foreign_passport")
 DocumentTemplate.create(name: "Виза Австрия", template_path: "/home/alzater/VisaBlank/public/pdf_templates/austria.pdf",
                        document_type: "visa")
+DocumentTemplate.create(name: "договор на паспорт", template_path: "/home/alzater/VisaBlank/lib/docx_templates/passportcontract.docx",
+                       document_type: "passport_contract")
 
 company = Company.create(name: "ООО \"Рога и Копыта\"",
                         paid_before: Date.today << 1,

@@ -27,6 +27,12 @@ class Client < ActiveRecord::Base
       document: last_active_document}
     end
   end
+  
+  def gen_passport_contract( input_path, output_path)
+    doc = DocxReplace::Doc.new(input_path)
+    doc.replace('%name%', self.fio)
+    doc.commit(output_path)
+  end
 
   private
   def set_documents_data
