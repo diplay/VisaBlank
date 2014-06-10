@@ -18,6 +18,12 @@ class ForeignPassportData < ActiveRecord::Base
     r_attr
   end
   
+  def create_pdf( input_path, output_path)
+    pdf = PDF::Stamper.new(input_path)
+    pdf.text :name, "Иван"
+    pdf.save_as output_path
+  end
+  
   def passport_given_date_month
     case client.passport_given_date.mon
     when 1

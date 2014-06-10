@@ -5,14 +5,16 @@ class DocumentOrder < ActiveRecord::Base
   before_create :set_status, on: :create
 
   def export()
-    output_path = "#{Rails.root}/public/pdfs/DocumentOrder#{self.id}.docx"
     input_path = self.document_template.template_path
     case self.document_template.document_type
     when 'visa'
+      output_path = "#{Rails.root}/public/pdfs/DocumentOrder#{self.id}.pdf"
       self.client.visa_data.create_pdf( input_path, output_path)
     when 'foreign_passport'
-#to_do   
+      output_path = "#{Rails.root}/public/pdfs/DocumentOrder#{self.id}.pdf"
+      self.client.foreign_passport_data.create_pdf( input_path, output_path)
     when 'passport_contract'
+      output_path = "#{Rails.root}/public/pdfs/DocumentOrder#{self.id}.docx"
       self.client.gen_passport_contract( input_path, output_path)
     end
     output_path

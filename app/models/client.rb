@@ -29,9 +29,28 @@ class Client < ActiveRecord::Base
   end
   
   def gen_passport_contract( input_path, output_path)
-    doc = DocxReplace::Doc.new(input_path)
-    doc.replace('%name%', self.fio)
-    doc.commit(output_path)
+    #doc = DocxReplace::Doc.new(input_path)
+    #doc.replace("%name%", self.fio)
+    #doc.commit(output_path)
+    Zip.unicode_names
+    @zip_file = Zip::File.new(input_path)
+   
+    @document_content =  Iconv.conv('cp1251', 'utf-8', @zip_file.read("word/document.xml"))
+    
+    @document_content.gsub!("%name%".encode("cp1251"), self.fio.encode("cp1251"))
+    
+      Zip::OutputStream.open(output_path) do |zos|
+        @zip_file.entries.each do |e|
+          unless e.name == "word/document.xml"
+            zos.put_next_entry(e.name)
+            zos.print e.get_input_stream.read
+          end
+        end
+
+        zos.put_next_entry("word/document.xml")
+        zos.print Iconv.conv('utf8', 'cp1251', @document_content)
+      end
+
   end
 
   private
