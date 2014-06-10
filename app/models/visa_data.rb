@@ -1,24 +1,24 @@
 #coding: utf-8
 class VisaData < ActiveRecord::Base
   belongs_to :client
-  
+
   def create_pdf(input_path, output_path)
     pdftk = PdfForms.new('/usr/bin/pdftk')
-    pdftk.fill_form input_path, output_path, get_attributes 
-  end  
-  
-private
+    pdftk.fill_form input_path, output_path, get_attributes
+  end
+
+  private
   def get_attributes
     return_attributes = attributes
     return_attributes = marital_stat(return_attributes)
-    return_attributes["date_of_birth"] = self.client.date_of_birth.to_s    
-    
+    return_attributes["date_of_birth"] = self.client.date_of_birth.to_s
+
     if self.client.sex == true
       return_attributes["sex_male"] = "Yes"
     else
       return_attributes["sex_female"] = "Yes"
     end
-    
+
     return_attributes = travel_doc(return_attributes)
     return_attributes = residence(return_attributes)
     return_attributes = aimf(return_attributes)
@@ -29,13 +29,13 @@ private
     return_attributes = spons(return_attributes)
     return_attributes = means1_foo(return_attributes)
     return_attributes = means2_foo(return_attributes)
-    
+
     return_attributes["place1"] = return_attributes["place"]
     return_attributes["date1"] = return_attributes["date"]
-    
+
     return_attributes
   end
-  
+
   def marital_stat(cur_attr)
     case cur_attr["marital_status"]
     when 0
@@ -54,7 +54,7 @@ private
     end
     cur_attr
   end
-  
+
   def travel_doc(cur_attr)
     case cur_attr["travel_document_type"]
     when 0
@@ -73,7 +73,7 @@ private
     end
     cur_attr
   end
-  
+
   def residence(cur_attr)
     if cur_attr["residence_other_country"] = true
       cur_attr["residence_other_country_yes"] = "Yes"
@@ -82,9 +82,9 @@ private
       cur_attr["valid_until"] = " "
       cur_attr["residence_other_country_no"] = "Yes"
     end
-    cur_attr  
+    cur_attr
   end
-  
+
   def aimf(cur_attr)
     case cur_attr["visa_aim"]
     when 0
@@ -113,7 +113,7 @@ private
     end
     cur_attr
   end
-  
+
   def quantity_of_entr(cur_attr)
     case cur_attr["quantity_of_entries"]
     when 1
@@ -125,7 +125,7 @@ private
     end
     cur_attr
   end
-  
+
   def visa_giv(cur_attr)
     if cur_attr["visa_given"] == true
       cur_attr["visa_given_true"] = "Yes"
@@ -134,7 +134,7 @@ private
     end
     cur_attr
   end
-  
+
   def fingerprints_foo(cur_attr)
     if cur_attr["fingerprints"] == true
       cur_attr["fingerprints_true"] = "Yes"
@@ -143,7 +143,7 @@ private
     end
     cur_attr
   end
-  
+
   def near(cur_attr)
     case cur_attr["nearest"]
     when 1
@@ -157,7 +157,7 @@ private
     end
     cur_attr
   end
-  
+
   def spons(cur_attr)
     case cur_attr["sponsor"]
     when 1
@@ -172,7 +172,7 @@ private
     end
     cur_attr
   end
-  
+
   def means1_foo(cur_attr)
     case cur_attr["means1"]
     when 1
@@ -191,7 +191,7 @@ private
     end
     cur_attr
   end
-  
+
   def means2_foo(cur_attr)
     case cur_attr["means2"]
     when 1
