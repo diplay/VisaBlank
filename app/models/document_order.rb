@@ -6,7 +6,7 @@ class DocumentOrder < ActiveRecord::Base
 
   def export
     input_path = self.document_template.template_path
-    output_path = "#{Rails.root}/public/pdfs/DocumentOrder#{self.id}."
+    output_path = "#{Rails.root}/public/generated_documents/DocumentOrder#{self.id}."
 
     case self.document_template.document_type
     when 'visa'
