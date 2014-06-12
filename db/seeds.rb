@@ -11,7 +11,7 @@ DocumentTemplate.create(name: "Загранпаспорт", template_path: "#{Ra
                        document_type: "foreign_passport")
 DocumentTemplate.create(name: "Виза Австрия", template_path: "#{Rails.root}/public/pdf_templates/austria.pdf",
                        document_type: "visa")
-DocumentTemplate.create(name: "договор на паспорт", template_path: "#{Rails.root}/lib/docx_templates/passportcontract.docx",
+DocumentTemplate.create(name: "договор на паспорт", template_path: "#{Rails.root}/lib/docx_templates/passport_contract.docx",
                        document_type: "passport_contract")
 
 company = Company.create(name: "ООО \"Рога и Копыта\"",
