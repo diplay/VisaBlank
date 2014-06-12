@@ -4,7 +4,7 @@ class DocumentOrder < ActiveRecord::Base
   belongs_to :document_template
   before_create :set_status, on: :create
 
-  def export()
+  def export
     input_path = self.document_template.template_path
     output_path = "#{Rails.root}/public/pdfs/DocumentOrder#{self.id}."
 
