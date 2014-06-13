@@ -17,10 +17,14 @@
       <%= f.text_area :comments, class: "form-control" %>
     </td>
   </tr>
+  <tr>
+    <td>Скачать документы</td>
+    <td>
+      <%= render "export_list" %>
+    </td>
+  </tr>
 </table>
 <%= link_to "Удалить документ", document_order_path(@order),
     method: :delete, class: "btn btn-danger", confirm: "Вы точно уверены?"%>
 <%= f.submit "Сохранить", class: "btn btn-success pull-right" %>
 <% end %>
-
-<%= link_to "скачать pdf", doc_document_order_path(@order) %>
