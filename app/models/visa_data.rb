@@ -10,6 +10,7 @@ class VisaData < ActiveRecord::Base
   private
   def get_attributes
     return_attributes = attributes
+    return_attributes["surname"] = return_attributes["surname"]
     return_attributes = marital_stat(return_attributes)
     return_attributes["date_of_birth"] = self.client.date_of_birth.to_s
 

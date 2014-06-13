@@ -61,10 +61,10 @@ class CreateVisaData < ActiveRecord::Migration
       t.date :departure_date
 
       t.text :inviter_name
-      t.text :inviter_adress_and_email
+      t.text :inviter_address_and_email
       t.text :inviter_phone
 
-      t.text :inviter_company_name_and_adress
+      t.text :inviter_company_name_and_address
       t.integer :sponsor
       t.text :sponsor_other
       t.integer :means1

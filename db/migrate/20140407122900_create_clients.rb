@@ -11,6 +11,8 @@ class CreateClients < ActiveRecord::Migration
       t.text :passport_given_code
       t.date :date_of_birth
       t.boolean :sex
+      t.text :address
+      t.text :phone
 
       t.timestamps
     end

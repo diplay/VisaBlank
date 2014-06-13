@@ -24,34 +24,7 @@ class ForeignPassportData < ActiveRecord::Base
     pdf.save_as output_path
   end
   
-  def passport_given_date_month
-    case client.passport_given_date.mon
-    when 1
-      return "январь"
-    when 2
-      return "февраль"
-    when 3
-      return "март"
-    when 4
-      return "апрель"  
-    when 5
-      return "май"
-    when 6
-      return "июнь"
-    when 7
-      return "июль"
-    when 8
-      return "август"
-    when 9
-      return "сентябрь"
-    when 10
-      return "октябрь"
-    when 11
-      return "ноябрь"
-    when 12
-      return "декабрь"
-    end
-  end
+  
   
   def previous_passport_string
     case previous_passport

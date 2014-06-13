@@ -46,7 +46,6 @@ gem 'pdf-forms'
 gem 'rubyzip', '~> 1.1.4'
 gem 'docx_replace', '~> 1.0.2'
 gem 'iconv', '~> 1.0.4'
-#gem 'rhc', '~> 1.25.3'
 #gem 'rjb'
 #gem 'pdf-stamper'
 

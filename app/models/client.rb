@@ -29,30 +29,71 @@ class Client < ActiveRecord::Base
   end
   
   def gen_passport_contract( input_path, output_path)
-    #doc = DocxReplace::Doc.new(input_path)
-    #doc.replace("%name%", self.fio)
-    #doc.commit(output_path)
     Zip.unicode_names
     @zip_file = Zip::File.new(input_path)
    
-    @document_content =  Iconv.conv('cp1251', 'utf-8', @zip_file.read("word/document.xml"))
+    @document_content =  @zip_file.read("word/document.xml").force_encoding("utf-8")
+    @header_content =  @zip_file.read("word/header1.xml").force_encoding("utf-8")
     
-    @document_content.gsub!("%name%".encode("cp1251"), self.fio.encode("cp1251"))
-    
+    @document_content.gsub!("%name%", self.fio)
+    d = Date.today
+    @document_content.gsub!("%d%", d.mday.to_s)
+    @document_content.gsub!("%m%", date_to_s(d.mon))
+    @document_content.gsub!("%y%", d.year.to_s)
+    @document_content.gsub!("%cname%", self.manager.company.name)
+    @document_content.gsub!("%caddress%", self.manager.company.address)
+    @document_content.gsub!("%cphone%", self.manager.company.phone)
+    @document_content.gsub!("%cbank%", self.manager.company.bank_details)
+    @document_content.gsub!("%address%", self.address)
+    @document_content.gsub!("%phone%", self.phone)
+    @header_content.gsub!("%cname%", self.manager.company.name)
+    @header_content.gsub!("%caddress%", self.manager.company.address)
+    @header_content.gsub!("%cphone%", self.manager.company.phone)
       Zip::OutputStream.open(output_path) do |zos|
         @zip_file.entries.each do |e|
-          unless e.name == "word/document.xml"
+          unless (e.name == "word/document.xml") || (e.name == "word/header1.xml")
             zos.put_next_entry(e.name)
             zos.print e.get_input_stream.read
           end
         end
 
         zos.put_next_entry("word/document.xml")
-        zos.print Iconv.conv('utf8', 'cp1251', @document_content)
+        zos.print  @document_content
+        zos.put_next_entry("word/header1.xml")
+        zos.print  @header_content
       end
-
   end
-
+  
+  
+  def date_to_s(num)
+    case num
+    when 1
+      return "январь"
+    when 2
+      return "февраль"
+    when 3
+      return "март"
+    when 4
+      return "апрель"  
+    when 5
+      return "май"
+    when 6
+      return "июнь"
+    when 7
+      return "июль"
+    when 8
+      return "август"
+    when 9
+      return "сентябрь"
+    when 10
+      return "октябрь"
+    when 11
+      return "ноябрь"
+    when 12
+      return "декабрь"
+    end
+  end
+  
   private
   def set_documents_data
     if foreign_passport_data.nil?
