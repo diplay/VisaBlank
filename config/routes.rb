@@ -8,6 +8,8 @@ Visa::Application.routes.draw do
         resources :document_orders do
           member do
             get "doc"
+            get "passportcontr"
+            get "visacontr"
           end
         end
       end

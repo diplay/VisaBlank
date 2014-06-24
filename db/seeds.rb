@@ -11,8 +11,6 @@ DocumentTemplate.create(name: "Загранпаспорт", template_path: "#{Ra
                        document_type: "foreign_passport")
 DocumentTemplate.create(name: "Виза Австрия", template_path: "#{Rails.root}/public/pdf_templates/austria.pdf",
                        document_type: "visa")
-DocumentTemplate.create(name: "договор на паспорт", template_path: "#{Rails.root}/lib/docx_templates/passport_contract.docx",
-                       document_type: "passport_contract")
 
 company = Company.create(name: "ООО \"Рога и Копыта\"",
                         paid_before: Date.today << 1,
@@ -20,7 +18,9 @@ company = Company.create(name: "ООО \"Рога и Копыта\"",
                         address: "ул. Пушкина, д.23",
                         bank_details: "Номер счета: 12345",
                         phone: "788-08-78",
-                        email: "lol@lol.lol")
+                        email: "lol@lol.lol",
+                        repr_i: "Иван И.И.",
+                        repr_r: "Ивана И.И.")
 manager = company.managers.create(name: "Иванов Иван")
 manager.clients.create(fio: "Лолка Ваня")
 User.create(email: 'roga_man', password: 'lolka', password_confirmation: 'lolka',
@@ -34,7 +34,9 @@ company = Company.create(name: "ОАО \"Лолки\"",
                         address: "ул. Пушкина, д.24",
                         bank_details: "Номер счета: 32145",
                         phone: "728-02-74",
-                        email: "lolka@lolka.lol")
+                        email: "lolka@lolka.lol",
+                        repr_i: "Иван И.И.",
+                        repr_r: "Ивана И.И.")
 manager = company.managers.create(name: "Петров Петр")
 manager.clients.create(fio: "Супер Клиент")
 User.create(email: 'lolka_man', password: 'lolka', password_confirmation: 'lolka',

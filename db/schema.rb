@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20140413132047) do
     t.text     "bank_details"
     t.text     "phone"
     t.text     "email"
+    t.text     "repr_i"
+    t.text     "repr_r"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

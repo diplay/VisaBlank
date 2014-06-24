@@ -41,6 +41,8 @@ class Client < ActiveRecord::Base
     @document_content.gsub!("%m%", date_to_s(d.mon))
     @document_content.gsub!("%y%", d.year.to_s)
     @document_content.gsub!("%cname%", self.manager.company.name)
+    @document_content.gsub!("%repr_i%", self.manager.company.repr_i)
+    @document_content.gsub!("%repr_r%", self.manager.company.repr_r)
     @document_content.gsub!("%caddress%", self.manager.company.address)
     @document_content.gsub!("%cphone%", self.manager.company.phone)
     @document_content.gsub!("%cbank%", self.manager.company.bank_details)
@@ -62,6 +64,46 @@ class Client < ActiveRecord::Base
         zos.put_next_entry("word/header1.xml")
         zos.print  @header_content
       end
+      
+    output_path
+  end
+  
+  def gen_visa_contract( input_path, output_path)
+    Zip.unicode_names
+    @zip_file = Zip::File.new(input_path)
+   
+    @document_content =  @zip_file.read("word/document.xml").force_encoding("utf-8")
+    @header_content =  @zip_file.read("word/header1.xml").force_encoding("utf-8")
+    
+    @document_content.gsub!("%name%", self.fio)
+    @document_content.gsub!("%repr_r%", self.manager.company.repr_r)
+    d = Date.today
+    @document_content.gsub!("%d%", d.mday.to_s)
+    @document_content.gsub!("%m%", date_to_s(d.mon))
+    @document_content.gsub!("%y%", d.year.to_s)
+    @document_content.gsub!("%cname%", self.manager.company.name)
+    @document_content.gsub!("%caddress%", self.manager.company.address)
+    @document_content.gsub!("%cphone%", self.manager.company.phone)
+    @document_content.gsub!("%cbank%", self.manager.company.bank_details)
+    @document_content.gsub!("%address%", self.address)
+    @document_content.gsub!("%phone%", self.phone)
+    @header_content.gsub!("%cname%", self.manager.company.name)
+    @header_content.gsub!("%caddress%", self.manager.company.address)
+    @header_content.gsub!("%cphone%", self.manager.company.phone)
+      Zip::OutputStream.open(output_path) do |zos|
+        @zip_file.entries.each do |e|
+          unless (e.name == "word/document.xml") || (e.name == "word/header1.xml")
+            zos.put_next_entry(e.name)
+            zos.print e.get_input_stream.read
+          end
+        end
+
+        zos.put_next_entry("word/document.xml")
+        zos.print  @document_content
+        zos.put_next_entry("word/header1.xml")
+        zos.print  @header_content
+      end
+    output_path
   end
   
   

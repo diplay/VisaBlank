@@ -20,7 +20,12 @@
   <tr>
     <td>Скачать документы</td>
     <td>
-      <%= render "export_list" %>
+      <% case @order.document_template.document_type
+          when 'visa' %>
+            <%= render "visa_list" %>
+          <% when 'foreign_passport' %>
+            <%= render 'foreign_passport_list' %>
+          <% end %>
     </td>
   </tr>
 </table>

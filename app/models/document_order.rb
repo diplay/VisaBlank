@@ -13,11 +13,8 @@ class DocumentOrder < ActiveRecord::Base
       output_path += "pdf"
       self.client.visa_data.create_pdf( input_path, output_path)
     when 'foreign_passport'
-      output_path += "pdf"
-      self.client.foreign_passport_data.create_pdf( input_path, output_path)
-    when 'passport_contract'
       output_path += "docx"
-      self.client.gen_passport_contract( input_path, output_path)
+      self.client.foreign_passport_data.create_docx( input_path, output_path)
     end
     output_path
   end
@@ -32,6 +29,10 @@ class DocumentOrder < ActiveRecord::Base
     ]
   end
 
+  def name_for_contract
+  
+  end
+  
   private
   def set_status
     self.status = "Новый документ"

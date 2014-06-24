@@ -20,6 +20,14 @@ class DocumentOrdersController < ApplicationController
   def doc
     send_file @order.export, type: 'application/pdf' 
   end
+  
+  def visacontr
+    send_file @order.client.gen_visa_contract("#{Rails.root}/lib/docx_templates/visa_contract.docx", "#{Rails.root}/public/generated_documents/DocumentOrderContract#{@order.id}.docx"), type: 'application/docx' 
+  end
+  
+  def passportcontr
+    send_file @order.client.gen_passport_contract("#{Rails.root}/lib/docx_templates/passport_contract.docx", "#{Rails.root}/public/generated_documents/DocumentOrderContract#{@order.id}.docx"), type: 'application/docx' 
+  end
 
   def update
     @order.update(order_params)
