@@ -16,3 +16,4 @@
 /tmp
 *.swp
 public/generated_documents/*
+public/pdfs/*.pdf
