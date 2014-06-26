@@ -19,6 +19,9 @@ test:
   timeout: 5000
 
 production:
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+   adapter: mysql2
+   encoding: utf8
+   database: visa_blank
+   pool: 10
+   username: visa
+   password: 123456

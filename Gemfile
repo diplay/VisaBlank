@@ -9,8 +9,9 @@ group :development, :test do
 end
 
 group :production do
-  gem 'pg'
-  gem 'rails_12factor'
+  #gem 'pg'
+  #gem 'rails_12factor'
+  gem 'mysql2'
 end
 
 # Use SCSS for stylesheets
@@ -45,7 +46,7 @@ gem 'bcrypt-ruby', '~> 3.1.2'
 gem 'pdf-forms'
 gem 'rubyzip', '~> 1.1.4'
 gem 'docx_replace', '~> 1.0.2'
-gem 'iconv', '~> 1.0.4'
+#gem 'iconv', '~> 1.0.4'
 #gem 'rjb'
 #gem 'pdf-stamper'
 
