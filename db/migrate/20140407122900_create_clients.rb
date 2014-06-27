@@ -13,6 +13,7 @@ class CreateClients < ActiveRecord::Migration
       t.boolean :sex, default: true
       t.text :address, default: ""
       t.text :phone, default: ""
+      
 
       t.timestamps
     end
