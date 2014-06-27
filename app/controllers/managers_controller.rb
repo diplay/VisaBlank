@@ -15,6 +15,11 @@ class ManagersController < ApplicationController
     puts same_mail.inspect
     if same_mail.nil?
       manager = @company.managers.create(manager_params)
+      #shitty workaround
+      if manager.company.managers.size < 3
+        manager.user.toggle_activation
+      end
+
       redirect_to manager_path(manager)
     else
       flash[:warning] = "Пользователь с таким email уже существует"
