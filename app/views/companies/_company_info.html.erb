@@ -36,6 +36,14 @@
         <td>Банковские данные</td>
         <td><%= @company.bank_details %></td>
       </tr>
+      <tr>
+        <td>Гениральный директор(именительный падеж)</td>
+        <td><%= @company.repr_i %></td>
+      </tr>
+      <tr>
+        <td>Гениральный директор(родительный падеж)</td>
+        <td><%= @company.repr_r %></td>
+      </tr>
       <% if @company.active? %>
         <tr class="bg-success" >
       <% else %>

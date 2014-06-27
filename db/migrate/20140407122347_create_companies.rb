@@ -1,15 +1,15 @@
 class CreateCompanies < ActiveRecord::Migration
   def change
     create_table :companies do |t|
-      t.text :name
-      t.date :paid_before
-      t.text :tin
-      t.text :address
-      t.text :bank_details
-      t.text :phone
-      t.text :email
-      t.text :repr_i
-      t.text :repr_r
+      t.text :name, default: ""
+      t.date :paid_before, default: "01.01.0001"
+      t.text :tin, default: ""
+      t.text :address, default: ""
+      t.text :bank_details, default: ""
+      t.text :phone, default: ""
+      t.text :email, default: ""
+      t.text :repr_i, default: ""
+      t.text :repr_r, default: ""
 
       t.timestamps
     end

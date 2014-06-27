@@ -15,16 +15,16 @@ ActiveRecord::Schema.define(version: 20140413132047) do
 
   create_table "clients", force: true do |t|
     t.integer  "manager_id"
-    t.text     "fio"
-    t.text     "passport_number_series"
-    t.text     "passport_number"
-    t.text     "passport_given"
+    t.text     "fio",                    default: ""
+    t.text     "passport_number_series", default: ""
+    t.text     "passport_number",        default: ""
+    t.text     "passport_given",         default: ""
     t.date     "passport_given_date"
-    t.text     "passport_given_code"
+    t.text     "passport_given_code",    default: ""
     t.date     "date_of_birth"
     t.boolean  "sex"
-    t.text     "address"
-    t.text     "phone"
+    t.text     "address",                default: ""
+    t.text     "phone",                  default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,15 +32,15 @@ ActiveRecord::Schema.define(version: 20140413132047) do
   add_index "clients", ["manager_id"], name: "index_clients_on_manager_id"
 
   create_table "companies", force: true do |t|
-    t.text     "name"
-    t.date     "paid_before"
-    t.text     "tin"
-    t.text     "address"
-    t.text     "bank_details"
-    t.text     "phone"
-    t.text     "email"
-    t.text     "repr_i"
-    t.text     "repr_r"
+    t.text     "name",         null: false
+    t.date     "paid_before",  null: false
+    t.text     "tin",          null: false
+    t.text     "address",      null: false
+    t.text     "bank_details", null: false
+    t.text     "phone",        null: false
+    t.text     "email",        null: false
+    t.text     "repr_i",       null: false
+    t.text     "repr_r",       null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

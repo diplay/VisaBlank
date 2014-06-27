@@ -14,7 +14,7 @@ class DocumentOrder < ActiveRecord::Base
       self.client.visa_data.create_pdf( input_path, output_path)
     when 'foreign_passport'
       output_path = "#{Rails.root}/public/generated_documents/DocumentOrder#{self.id}.docx"
-      self.client.foreign_passport_data.create_docx( input_path, output_path)
+      self.client.foreign_passport_data.create_docx(output_path)
     end
     output_path
   end

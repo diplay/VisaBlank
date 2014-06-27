@@ -3,16 +3,16 @@ class CreateClients < ActiveRecord::Migration
     create_table :clients do |t|
       t.references :manager, index: true
 
-      t.text :fio
-      t.text :passport_number_series
-      t.text :passport_number
-      t.text :passport_given
-      t.date :passport_given_date
-      t.text :passport_given_code
-      t.date :date_of_birth
-      t.boolean :sex
-      t.text :address
-      t.text :phone
+      t.text :fio, default: ""
+      t.text :passport_number_series, default: ""
+      t.text :passport_number, default: ""
+      t.text :passport_given, default: ""
+      t.date :passport_given_date, default: "01.01.0001"
+      t.text :passport_given_code, default: ""
+      t.date :date_of_birth, default: "01.01.0001"
+      t.boolean :sex, default: true
+      t.text :address, default: ""
+      t.text :phone, default: ""
 
       t.timestamps
     end

@@ -3,27 +3,28 @@ class CreateForeignPassportData < ActiveRecord::Migration
     create_table :foreign_passport_data do |t|
       t.references :client, index: true
 
-      t.text :fio_changed
-      t.text :place_of_birth
-      t.text :registration
-      t.text :citizenship
-      t.text :citizenship_other
-      t.text :aim
-      t.integer :previous_passport #получение первичное
+      t.text :fio_changed, default: ""
+      t.text :place_of_birth, default: ""
+      t.text :registration, default: ""
+      t.text :citizenship, default: ""
+      t.text :citizenship_other, default: ""
+      t.text :aim, default: ""
+      t.integer :previous_passport, default: "1"
+                            #получение первичное
                             #взамен использованного испорченного утраченного
 
-      t.text :secret_access
-      t.text :contract_liability
-      t.text :military_service
-      t.text :conviction
-      t.text :court_obligations
-      t.text :children
-      t.text :employment_history
+      t.text :secret_access, default: ""
+      t.text :contract_liability, default: ""
+      t.text :military_service, default: ""
+      t.text :conviction, default: ""
+      t.text :court_obligations, default: ""
+      t.text :children, default: ""
+      t.text :employment_history, default: ""
 
-      t.text :old_passport_series
-      t.text :old_passport_number
-      t.text :old_passport_given
-      t.date :old_passport_given_date
+      t.text :old_passport_series, default: ""
+      t.text :old_passport_number, default: ""
+      t.text :old_passport_given, default: ""
+      t.date :old_passport_given_date, default: "01.01.0001"
 
       t.timestamps
     end

@@ -18,18 +18,35 @@ class ForeignPassportData < ActiveRecord::Base
     r_attr
   end
   
-  def create_docx(input_path, output_path)
-    diff = self.client.date_of_birth - Date.today
-    if diff < Date.new("01.01.18")
-      create_passport_18_down(input_path, output_path)
+  def create_docx(output_path)
+    birth_date = self.client.date_of_birth
+    today = Date.today
+    if  (birth_date.year - today.year) == 18
+      if (birth_date.mon == today.mon)
+        if birth_date.day < today.day
+          create_passport_18_down(output_path)
+        else
+          create_passport_18_up(output_path) 
+        end
+      else
+        if birth_date.mon < today.mon
+          create_passport_18_down(output_path)
+        else
+          create_passport_18_up(output_path) 
+        end
+      end
     else
-      create_passport_18_up(input_path, output_path)
+      if birth_date.year < 18
+        create_passport_18_down(output_path)
+      else
+        create_passport_18_up(output_path)
+      end
     end
   end
   
-  def create_passport_18_up( input_path, output_path)
+  def create_passport_18_up(output_path)
     Zip.unicode_names
-    @zip_file = Zip::File.new(input_path)
+    @zip_file = Zip::File.new("#{Rails.root}/lib/docx_templates/foreign_passport_18_up.docx")
    
     @document_content =  @zip_file.read("word/document.xml").force_encoding("utf-8")
     @header_content =  @zip_file.read("word/header1.xml").force_encoding("utf-8")
@@ -65,9 +82,9 @@ class ForeignPassportData < ActiveRecord::Base
   end
   
   
-  def create_passport_18_down( input_path, output_path)
+  def create_passport_18_down(output_path)
     Zip.unicode_names
-    @zip_file = Zip::File.new(input_path)
+    @zip_file = Zip::File.new("#{Rails.root}/lib/docx_templates/foreign_passport_18_down.docx")
    
     @document_content =  @zip_file.read("word/document.xml").force_encoding("utf-8")
     @header_content =  @zip_file.read("word/header1.xml").force_encoding("utf-8")
