@@ -23,7 +23,8 @@ class CompaniesController < ApplicationController
     else
       company = Company.create(company_creation_params)
       new_user = User.create(email: company.email, active: true, owner: company,
-                            password: "1234", password_confirmation: "1234")
+                            password: "1234", password_confirmation: "1234",
+                            role: "company")
       redirect_to company_path(company)
     end
   end

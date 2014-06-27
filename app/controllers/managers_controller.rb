@@ -10,6 +10,7 @@ class ManagersController < ApplicationController
   def create
     params[:manager][:user_attributes][:password] = "1234"
     params[:manager][:user_attributes][:password_confirmation] = "1234"
+    params[:manager][:user_attributes][:role] = "manager"
     same_mail = User.find_by(email: params[:manager][:user_attributes][:email])
     unless same_mail.nil?
       manager = @company.managers.create(manager_params)
@@ -39,7 +40,7 @@ class ManagersController < ApplicationController
   private
   def manager_params
     params[:manager].permit(:name,
-                user_attributes: [:id, :email, :password, :password_confirmation])
+                user_attributes: [:id, :role, :email, :password, :password_confirmation])
   end
 
   def manager_update_params
