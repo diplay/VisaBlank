@@ -4,6 +4,7 @@ class CompaniesController < ApplicationController
   before_action :check_active, except: [:show]
 
   def new #форма создания новой компании
+    @show_breadcrumb = false
     claim = CompanyClaim.find params[:claim_id]
     @company = Company.new do |c|
       c.name = claim.name
@@ -14,12 +15,18 @@ class CompaniesController < ApplicationController
   end
 
   def create #создание компании
-    company = Company.create(company_creation_params)
-    pass = gen_password
-    company.create_user(email: company.email, password: pass,
-                       password_confirmation: pass, active: true)
-    #TODO send mail with account information
-    redirect_to company_path(company)
+    same_mail = User.find_by(email: company_creation_params[:email])
+    puts same_mail.inspect
+    unless same_mail.nil?
+      flash[:warning] = "Пользователь с таким email уже существует"
+      redirect_to :back
+    else
+      company = Company.create(company_creation_params)
+      new_user = User.create(email: company.email, active: true, owner: company,
+                            password: "1234", password_confirmation: "1234",
+                            role: "company")
+      redirect_to company_path(company)
+    end
   end
 
   def index #список компаний
@@ -58,10 +65,6 @@ class CompaniesController < ApplicationController
       (@user.role == "company" && @user.owner.id == params[:id].to_i)
       redirect_to root_path
     end
-  end
-
-  def gen_password
-    rand(36**10).to_s(36)
   end
 
 end

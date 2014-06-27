@@ -20,15 +20,18 @@ class ApplicationController < ActionController::Base
     elsif @user.role == "company" && @user.owner.active? == false
       flash[:warning] = "Сперва необходимо разблокировать компанию"
       redirect_to :back
+    elsif @user.role == "manager" && @user.active? == false
+      flash[:warning] == "Аккаунт заблокирован"
+      redirect_to :back
     end
   end
 
   private
   def check_auth
     @user = User.find_by id: session[:user_id]
-    #if @user.nil? && params[:controller] != 'application'
-    #  redirect_to root_path
-    #end
+    if @user.nil? && params[:controller] != 'application'
+      redirect_to root_path
+    end
     if @user != nil && @user.active == false &&
       !(['users', 'auth'].include?(params[:controller]))
       redirect_to user_path(@user)

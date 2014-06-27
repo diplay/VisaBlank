@@ -35,5 +35,6 @@ Visa::Application.configure do
     domain: 'visablank.com',
     port: 25
   }
+  config.action_mailer.perform_deliveries = false
 
 end
