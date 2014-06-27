@@ -20,6 +20,9 @@ class ApplicationController < ActionController::Base
     elsif @user.role == "company" && @user.owner.active? == false
       flash[:warning] = "Сперва необходимо разблокировать компанию"
       redirect_to :back
+    elsif @user.role == "manager" && @user.active? == false
+      flash[:warning] == "Прежде чем использовать аккаунт менеджера, необходимо его разблокировать"
+      redirect_to :back
     end
   end
 

@@ -27,7 +27,15 @@ class User < ActiveRecord::Base
 
   private
   def welcome_email
-    #TODO send email with password
+    if try(:authenticate, "1234")
+      pass = gen_password
+      update(password: pass, password_confirmation: pass)
+      UserMailer.new_user_email(self, pass).deliver
+    end
+  end
+
+  def gen_password
+    rand(36**10).to_s(36)
   end
 
 end
