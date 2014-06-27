@@ -4,6 +4,7 @@ class CompaniesController < ApplicationController
   before_action :check_active, except: [:show]
 
   def new #форма создания новой компании
+    @show_breadcrumb = false
     claim = CompanyClaim.find params[:claim_id]
     @company = Company.new do |c|
       c.name = claim.name

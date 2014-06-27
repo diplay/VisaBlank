@@ -8,11 +8,16 @@ class ManagersController < ApplicationController
   end
 
   def create
-    pass = rand(36**10).to_s(36)
-    params[:manager][:user_attributes][:password] = pass
-    params[:manager][:user_attributes][:password_confirmation] = pass
-    manager = @company.managers.create(manager_params)
-    redirect_to manager_path(manager)
+    params[:manager][:user_attributes][:password] = "1234"
+    params[:manager][:user_attributes][:password_confirmation] = "1234"
+    same_mail = User.find_by(email: params[:manager][:user_attributes][:email])
+    unless same_mail.nil?
+      manager = @company.managers.create(manager_params)
+      redirect_to manager_path(manager)
+    else
+      flash[:warning] = "Пользователь с таким email уже существует"
+      redirect_to :back
+    end
   end
 
   def show

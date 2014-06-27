@@ -27,9 +27,11 @@ class User < ActiveRecord::Base
 
   private
   def welcome_email
-    pass = gen_password
-    update(password: pass, password_confirmation: pass)
-    UserMailer.new_user_email(self, pass).deliver
+    if try(:authenticate, "1234")
+      pass = gen_password
+      update(password: pass, password_confirmation: pass)
+      UserMailer.new_user_email(self, pass).deliver
+    end
   end
 
   def gen_password

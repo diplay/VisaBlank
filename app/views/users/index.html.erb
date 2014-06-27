@@ -12,9 +12,9 @@
     <%= content_tag_for :tr, @users do |user| %>
       <td><%= link_to user.email, edit_user_path(user) %></td>
       <td><%= user.active ? "Активен" : "Заблокирован" %></td>
-      <% if user.role == "company" %>
+      <% if user.owner_type == "Company" %>
         <td><%= link_to user.owner.name, company_path(user.owner) %></td>
-      <% elsif user.role == "manager" %>
+      <% elsif user.owner_type == "Manager"%>
         <td><%= link_to user.owner.name, manager_path(user.owner) %></td>
       <% else %>
         <td>Admin</td>
