@@ -12,7 +12,8 @@ class ManagersController < ApplicationController
     params[:manager][:user_attributes][:password_confirmation] = "1234"
     params[:manager][:user_attributes][:role] = "manager"
     same_mail = User.find_by(email: params[:manager][:user_attributes][:email])
-    unless same_mail.nil?
+    puts same_mail.inspect
+    if same_mail.nil?
       manager = @company.managers.create(manager_params)
       redirect_to manager_path(manager)
     else
