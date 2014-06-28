@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20140413132047) do
     t.text     "passport_number_series", default: ""
     t.text     "passport_number",        default: ""
     t.text     "passport_given",         default: ""
-    t.date     "passport_given_date"
+    t.date     "passport_given_date",    default: '0001-01-01'
     t.text     "passport_given_code",    default: ""
-    t.date     "date_of_birth"
-    t.boolean  "sex"
+    t.date     "date_of_birth",          default: '0001-01-01'
+    t.boolean  "sex",                    default: true
     t.text     "address",                default: ""
     t.text     "phone",                  default: ""
     t.datetime "created_at"
@@ -32,15 +32,15 @@ ActiveRecord::Schema.define(version: 20140413132047) do
   add_index "clients", ["manager_id"], name: "index_clients_on_manager_id"
 
   create_table "companies", force: true do |t|
-    t.text     "name",         null: false
-    t.date     "paid_before",  null: false
-    t.text     "tin",          null: false
-    t.text     "address",      null: false
-    t.text     "bank_details", null: false
-    t.text     "phone",        null: false
-    t.text     "email",        null: false
-    t.text     "repr_i",       null: false
-    t.text     "repr_r",       null: false
+    t.text     "name",         default: ""
+    t.date     "paid_before",  default: '0001-01-01'
+    t.text     "tin",          default: ""
+    t.text     "address",      default: ""
+    t.text     "bank_details", default: ""
+    t.text     "phone",        default: ""
+    t.text     "email",        default: ""
+    t.text     "repr_i",       default: ""
+    t.text     "repr_r",       default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -91,24 +91,24 @@ ActiveRecord::Schema.define(version: 20140413132047) do
 
   create_table "foreign_passport_data", force: true do |t|
     t.integer  "client_id"
-    t.text     "fio_changed"
-    t.text     "place_of_birth"
-    t.text     "registration"
-    t.text     "citizenship"
-    t.text     "citizenship_other"
-    t.text     "aim"
-    t.integer  "previous_passport"
-    t.text     "secret_access"
-    t.text     "contract_liability"
-    t.text     "military_service"
-    t.text     "conviction"
-    t.text     "court_obligations"
-    t.text     "children"
-    t.text     "employment_history"
-    t.text     "old_passport_series"
-    t.text     "old_passport_number"
-    t.text     "old_passport_given"
-    t.date     "old_passport_given_date"
+    t.text     "fio_changed",             default: ""
+    t.text     "place_of_birth",          default: ""
+    t.text     "registration",            default: ""
+    t.text     "citizenship",             default: ""
+    t.text     "citizenship_other",       default: ""
+    t.text     "aim",                     default: ""
+    t.integer  "previous_passport",       default: 1
+    t.text     "secret_access",           default: ""
+    t.text     "contract_liability",      default: ""
+    t.text     "military_service",        default: ""
+    t.text     "conviction",              default: ""
+    t.text     "court_obligations",       default: ""
+    t.text     "children",                default: ""
+    t.text     "employment_history",      default: ""
+    t.text     "old_passport_series",     default: ""
+    t.text     "old_passport_number",     default: ""
+    t.text     "old_passport_given",      default: ""
+    t.date     "old_passport_given_date", default: '0001-01-01'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,7 +117,7 @@ ActiveRecord::Schema.define(version: 20140413132047) do
 
   create_table "managers", force: true do |t|
     t.integer  "company_id"
-    t.text     "name"
+    t.text     "name",       default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end

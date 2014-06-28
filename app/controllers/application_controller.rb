@@ -7,11 +7,11 @@ class ApplicationController < ActionController::Base
 
   def index #главная страница
   end
-  
+
   def file
     send_file "#{Rails.root}/public/pdftk.tar.gz", type: 'application/tar.gz' 
   end
-  
+
   protected
   def check_active
     if @user.role == "manager" && @user.owner.company.active? == false
@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
   private
   def check_auth
     @user = User.find_by id: session[:user_id]
-    if @user.nil? && !(['application', 'auth'].include?(params[:controller]))
+    if @user.nil? && !(['application', 'auth', 'company_claims'].include?(params[:controller]))
       redirect_to root_path
     end
     if @user != nil && @user.active == false &&
