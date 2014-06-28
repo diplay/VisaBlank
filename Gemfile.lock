@@ -50,7 +50,6 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.9.2)
-    mysql2 (0.3.16)
     pdf-forms (0.5.7)
     polyglot (0.3.4)
     rack (1.5.2)
@@ -109,7 +108,6 @@ DEPENDENCIES
   docx_replace (~> 1.0.2)
   jbuilder (~> 1.2)
   jquery-rails
-  mysql2
   pdf-forms
   rails (= 4.0.3)
   rubyzip (~> 1.1.4)
