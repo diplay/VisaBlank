@@ -6,19 +6,19 @@
     <table class="table table-hover" >
       <thead>
         <tr>
-          <th>Id</th>
           <th>Документ</th>
           <th>Клиент</th>
           <th>Статус</th>
+          <th>Комментарий</th>
         </tr>
       </thead>
       <tbody>
       <% @manager.document_orders.each do |doc| %>
       <tr>
-        <td><%= doc.id %></td>
         <td><%= link_to doc.document_template.name, document_order_path(doc) %></td>
         <td><%= link_to doc.client.fio, client_path(doc.client) %></td>
         <td><%= doc.status %></td>
+        <td><%= doc.comments %></td>
       </tr>
       <% end %>
       </tbody>
