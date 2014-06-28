@@ -20,7 +20,7 @@ class UserMailer < ActionMailer::Base
 
   def activation_changed_email(user)
     @status = user.active ? "активирован" : "блокирован"
-    mail to: user.email, subject: "Ваш аккаунт #{status}"
+    mail to: user.email, subject: "Ваш аккаунт #{@status}"
   end
 
 end
