@@ -8,19 +8,20 @@ class User < ActiveRecord::Base
   def toggle_activation
     self.active = !active
     save
-    #TODO don't forget to send mail
+    UserMailer.activation_changed_email(self).deliver
   end
 
   def change_password(_old_password, _password, _password_confirmation)
-    #TODO don't forget to send email
     if try(:authenticate, _old_password)
       if update(password: _password,
                    password_confirmation: _password_confirmation)
+        UserMailer.password_change_email(self, _password).deliver
         return :ok
       else
         return :fail_confirm
       end
     else
+      UserMailer.password_change_failed_email(self).deliver
       return :fail_pass
     end
   end

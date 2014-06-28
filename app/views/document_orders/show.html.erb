@@ -20,8 +20,8 @@
   <tr>
     <td>Скачать документы</td>
     <td>
-      <% case @order.document_template.document_type
-          when 'visa' %>
+    <% case @order.document_template.document_type %>
+          <% when 'visa' %>
             <%= render "visa_list" %>
           <% when 'foreign_passport' %>
             <%= render 'foreign_passport_list' %>
