@@ -123,7 +123,7 @@
         <%= data.select :previous_passport,
           options_for_select([["Первичное", 0], ["Взамен использованного", 1],
                               ["Взамен испорченного", 2],
-                              ["Взамен утраченного", 3]]), {},
+                              ["Взамен утраченного", 3]], data.object.previous_passport.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -163,13 +163,6 @@
       </div>
     </div>
     <div class="form-group" >
-      <%= data.label :children, "Дети",
-        class: "control-label col-sm-2" %>
-      <div class="col-sm-10" >
-        <%= data.text_field :children , class: "form-control" %>
-      </div>
-    </div>
-     <div class="form-group" >
       <%= data.label :old_passport_series, "Серия",
         class: "control-label col-sm-1"%>
       <div class="col-sm-1" >

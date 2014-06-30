@@ -10,6 +10,8 @@ Visa::Application.routes.draw do
             get "doc"
             get "passportcontr"
             get "visacontr"
+            get "pass"
+            get "passch"
           end
         end
       end

@@ -1,4 +1,5 @@
 <div class="btn_group btn-group-vertical">
-  <%= link_to "Анкета на загранпаспорт", doc_document_order_path(@order), class: "btn btn-info" %>
+  <%= link_to "Анкета на загранпаспорт для взрослого", pass_document_order_path(@order), class: "btn btn-info" %>
+  <%= link_to "Анкета на загранпаспорт для ребенка", passch_document_order_path(@order), class: "btn btn-info" %>
   <%= link_to "Договор на загранпаспорт", passportcontr_document_order_path(@order), class: "btn btn-info" %>
 </div>
