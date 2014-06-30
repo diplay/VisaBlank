@@ -2,7 +2,7 @@
 class Manager < ActiveRecord::Base
   belongs_to :company
   has_many :clients
-  has_many :document_orders, through: :clients
+  has_many :document_orders, through: :clients, order: 'updated_at DESC'
   has_one :user, as: :owner
 
   before_destroy :destroy_user

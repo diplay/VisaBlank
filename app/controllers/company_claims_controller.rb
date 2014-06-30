@@ -1,5 +1,6 @@
 #coding: utf-8
 class CompanyClaimsController < ApplicationController
+  before_action :check_role, except: [:new, :create, :show]
 
   def index #просмотр списка заявок
     @claims = CompanyClaim.find(:all, order: "status")
@@ -46,6 +47,14 @@ class CompanyClaimsController < ApplicationController
   private
     def company_claim_params
       params[:company_claim].permit(:name, :email, :phone, :status)
+    end
+
+    def check_role
+      if @user == nil || @user.role != 'admin'
+        puts "LOOOOOOOOOOOOOOOOOOOOOOL"
+        puts $user.inspect
+        redirect_to root_path
+      end
     end
 
 end

@@ -3,7 +3,7 @@ class Client < ActiveRecord::Base
   belongs_to :manager
   has_one :foreign_passport_data
   has_one :visa_data
-  has_many :document_orders
+  has_many :document_orders, order: 'updated_at DESC'
   after_create :set_documents_data, on: :create
 
   accepts_nested_attributes_for :foreign_passport_data
@@ -27,14 +27,14 @@ class Client < ActiveRecord::Base
       document: last_active_document}
     end
   end
-  
+
   def gen_passport_contract( input_path, output_path)
     Zip.unicode_names
     @zip_file = Zip::File.new(input_path)
-   
+
     @document_content =  @zip_file.read("word/document.xml").force_encoding("utf-8")
     @header_content =  @zip_file.read("word/header1.xml").force_encoding("utf-8")
-    
+
     @document_content.gsub!("%name%", self.fio)
     d = Date.today
     @document_content.gsub!("%d%", d.mday.to_s)
@@ -64,17 +64,17 @@ class Client < ActiveRecord::Base
         zos.put_next_entry("word/header1.xml")
         zos.print  @header_content
       end
-      
+
     output_path
   end
-  
+
   def gen_visa_contract( input_path, output_path)
     Zip.unicode_names
     @zip_file = Zip::File.new(input_path)
-   
+
     @document_content =  @zip_file.read("word/document.xml").force_encoding("utf-8")
     @header_content =  @zip_file.read("word/header1.xml").force_encoding("utf-8")
-    
+
     @document_content.gsub!("%name%", self.fio)
     @document_content.gsub!("%repr_r%", self.manager.company.repr_r)
     d = Date.today

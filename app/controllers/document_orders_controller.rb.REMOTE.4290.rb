@@ -21,18 +21,6 @@ class DocumentOrdersController < ApplicationController
     send_file @order.export, type: 'application/pdf' 
   end
 
-  
-  def pass
-    send_file @order.client.foreign_passport_data.create_passport_18_up("#{Rails.root}/public/generated_documents/Passport#{@order.id}.docx"), type: 'application/docx' 
-  end
-  
-  def passch
-    send_file @order.client.foreign_passport_data.create_passport_18_down("#{Rails.root}/public/generated_documents/ChildPassport#{@order.id}.docx"), type: 'application/docx' 
-  end  
-  
-
-
-
   def visacontr
     send_file @order.client.gen_visa_contract("#{Rails.root}/lib/docx_templates/visa_contract.docx", "#{Rails.root}/public/generated_documents/DocumentOrderContract#{@order.id}.docx"), type: 'application/docx' 
   end

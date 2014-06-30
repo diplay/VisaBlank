@@ -16,18 +16,18 @@
             </td>
           </tr>
           <tr>
-            <th>Id</th>
             <th>Документ</th>
             <th>Статус</th>
+            <th>Комментарий</th>
           </tr>
         </thead>
       <% end %>
       <tbody>
       <% @client.document_orders.each do |doc| %>
         <tr>
-          <td><%= doc.id %></td>
           <td><%= link_to doc.document_template.name, document_order_path(doc) %></td>
           <td><%= doc.status %></td>
+          <td><%= doc.comments %></td>
         </tr>
       <% end %>
       </tbody>
