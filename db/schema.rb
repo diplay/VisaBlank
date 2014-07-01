@@ -21,9 +21,7 @@ ActiveRecord::Schema.define(version: 20140413132047) do
     t.text     "passport_given",         default: ""
     t.date     "passport_given_date",    default: '0001-01-01'
     t.text     "passport_given_code",    default: ""
-
     t.date     "date_of_birth",          default: '0001-01-01'
-
     t.boolean  "sex",                    default: true
     t.text     "address",                default: ""
     t.text     "phone",                  default: ""
@@ -86,7 +84,7 @@ ActiveRecord::Schema.define(version: 20140413132047) do
   create_table "document_templates", force: true do |t|
     t.text     "name"
     t.text     "template_path"
-   t.text     "document_type"
+    t.text     "document_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -101,20 +99,13 @@ ActiveRecord::Schema.define(version: 20140413132047) do
     t.text     "citizenship_other",       default: ""
     t.text     "aim",                     default: ""
     t.integer  "previous_passport",       default: 1
-
     t.text     "conviction",              default: ""
     t.text     "court_obligations",       default: ""
-
-"
-    t.text     "conviction",              default: ""
-    t.text     "court_obligations",       default: ""
-
     t.text     "old_passport_series",     default: ""
     t.text     "old_passport_number",     default: ""
     t.text     "old_passport_given",      default: ""
     t.date     "old_passport_given_date", default: '0001-01-01'
-
-   t.text     "secret_access",           default: ""
+    t.text     "secret_access",           default: ""
     t.text     "contract_liability",      default: ""
     t.text     "military_service",        default: ""
     t.text     "job1_date_from",          default: ""
@@ -157,7 +148,6 @@ ActiveRecord::Schema.define(version: 20140413132047) do
     t.text     "job10_date_to",           default: ""
     t.text     "job10",                   default: ""
     t.text     "job10_address",           default: ""
-
     t.datetime "created_at"
     t.datetime "updated_at"
   end

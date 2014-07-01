@@ -8,14 +8,34 @@ class ForeignPassportData < ActiveRecord::Base
    
     @document_content =  @zip_file.read("word/document.xml").force_encoding("utf-8")
     
-    @document_content.gsub!("%fio%", self.client.fio)
-    @document_content.gsub!("%fio_changed%", self.fio_changed)
+    @document_content.sub!("fio", self.client.fio)
+    @document_content.sub!("fiochanged", self.fio_changed)
     d = Date.today
-    @document_content.gsub!("%7", d.mday.to_s)
-    @document_content.gsub!("%date_month%", self.client.date_to_s(d.mon))
-    @document_content.gsub!("%8", d.year.to_s)
-    @document_content.gsub!("%date_of_birth%", self.client.date_of_birth.to_s)
-    @document_content.gsub!("%sex%", self.client.sex_string)
+    @document_content.sub!("%7", d.mday.to_s)
+    @document_content.sub!("datemonth", self.client.date_to_s(d.mon))
+    @document_content.sub!("%8", d.year.to_s)
+    #@document_content.sub!("dateofbirth", self.client.date_of_birth.to_s)
+    @document_content.sub!("sex", self.client.sex_string)
+    
+    @document_content.sub!("placeofbirth", place_of_birth)
+    @document_content.sub!("registration", registration)
+    @document_content.sub!("address", address)
+    #@document_content.gsub!("citizenship", citizenship)
+    @document_content.sub!("citizenshipother", citizenship_other)
+    #@document_content.sub!("passser", citizenship_other)
+    #@document_content.sub!("passnum", citizenship_other)
+    @document_content.sub!("%1", citizenship_other)
+    #@document_content.sub!("passmonth", citizenship_other)
+    @document_content.sub!("%2", citizenship_other)
+    @document_content.sub!("passgiven", "1")
+    
+    @document_content.sub!("aim", aim)
+    @document_content.sub!("previouspassport", previous_passport.to_s)
+    @document_content.sub!("secretaccess", secret_access)
+    @document_content.sub!("contractliability", contract_liability)
+    @document_content.sub!("militaryservice", military_service)
+    @document_content.sub!("conviction", conviction)
+    @document_content.sub!("courtobligations", court_obligations)
     
     
       Zip::OutputStream.open(output_path) do |zos|

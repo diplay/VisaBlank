@@ -10,14 +10,14 @@ class CreateForeignPassportData < ActiveRecord::Migration
       t.text :citizenship, default: ""
       t.text :citizenship_other, default: ""
       t.text :aim, default: ""
-      t.integer :previous_passport, default: "1" #получение первичное #взамен использованного испорченного утраченного
+      t.integer :previous_passport, default: 1 #получение первичное #взамен использованного испорченного утраченного
       t.text :conviction, default: ""
       t.text :court_obligations, default: ""
       
       t.text :old_passport_series, default: ""
       t.text :old_passport_number, default: ""
       t.text :old_passport_given, default: ""
-      t.date :old_passport_given_date, default: "01.01.0001"
+      t.date :old_passport_given_date, default: "0001-01-01"
       
 #только взрослый      
       t.text :secret_access, default: ""

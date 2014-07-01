@@ -7,9 +7,9 @@ class CreateClients < ActiveRecord::Migration
       t.text :passport_number_series, default: ""
       t.text :passport_number, default: ""
       t.text :passport_given, default: ""
-      t.date :passport_given_date, default: ""
+      t.date :passport_given_date, default: "0001-01-01"
       t.text :passport_given_code, default: ""
-      t.date :date_of_birth, default: ""
+      t.date :date_of_birth, default: "0001-01-01"
       t.boolean :sex, default: true
       t.text :address, default: ""
       t.text :phone, default: ""
