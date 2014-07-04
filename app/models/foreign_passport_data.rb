@@ -37,6 +37,13 @@ class ForeignPassportData < ActiveRecord::Base
     @document_content.sub!("conviction", conviction)
     @document_content.sub!("courtobligations", court_obligations)
     
+    for i in 1..10 do
+      @document_content.sub!("r" + (i%10).to_s + "1", attributes["job" + i.to_s + "_date_from"])
+      @document_content.sub!("r" + (i%10).to_s + "2", attributes["job" + i.to_s + "_date_to"])
+      @document_content.sub!("r" + (i%10).to_s + "job", attributes["job" + i.to_s])
+      @document_content.sub!("r" + (i%10).to_s + "address", attributes["job" + i.to_s + "_address"])
+    end
+    
     
       Zip::OutputStream.open(output_path) do |zos|
         @zip_file.entries.each do |e|

@@ -25,7 +25,7 @@
         </label>
       </div>
     </div>
-    <h4>Паспорт</h4>
+    <h3>Паспорт</h3>
     <div class="form-group" >
       <%= f.label :passport_number_series, "Серия",
         class: "control-label col-sm-1"%>
@@ -73,7 +73,7 @@
 <br />
   <fieldset>
   <%= f.fields_for :foreign_passport_data do |data| %>
-    <h4>Данные для загранпаспорта</h4>
+    <h3>Данные для загранпаспорта: общие</h3>
     <div class="form-group" >
       <%= data.label :fio_changed, "Старое ФИО",
         class: "control-label col-sm-2" %>
@@ -128,27 +128,6 @@
       </div>
     </div>
     <div class="form-group" >
-      <%= data.label :secret_access, "Доступ к тайне",
-        class: "control-label col-sm-2" %>
-      <div class="col-sm-10" >
-        <%= data.text_field :secret_access , class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= data.label :contract_liability, "Контрактные обязательства",
-        class: "control-label col-sm-2" %>
-      <div class="col-sm-10" >
-        <%= data.text_field :contract_liability , class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= data.label :military_service, "Военная служба",
-        class: "control-label col-sm-2" %>
-      <div class="col-sm-10" >
-        <%= data.text_field :military_service , class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
       <%= data.label :conviction, "Судимость",
         class: "control-label col-sm-2" %>
       <div class="col-sm-10" >
@@ -186,12 +165,65 @@
           <%= data.text_field :old_passport_given, class: "form-control" %>
       </div>
     </div>
+    <h3>Данные для загранпаспорта: для взрослого</h3>
+    <div class="form-group" >
+      <%= data.label :secret_access, "Доступ к тайне",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :secret_access , class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= data.label :contract_liability, "Контрактные обязательства",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :contract_liability , class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= data.label :military_service, "Военная служба",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :military_service , class: "form-control" %>
+      </div>
+    </div>
+    <% for i in 1..10 do %>
+      <div class="form-group" >
+        <div class="col-sm-2"  >
+          <h4>Работа № <%= i.to_s %>:</h4>
+        </div>
+        <%= data.label ("job" + i.to_s + "_date_from").to_sym, "Месяц и год поступления",
+          class: "control-label col-sm-2" %>
+        <div class="col-sm-2" >
+          <%= data.text_field ("job" + i.to_s + "_date_from").to_sym, class: "form-control input-sm" %>
+        </div>
+        <%= data.label ("job" + i.to_s + "_date_to").to_sym, "Месяц и год увольнения",
+          class: "control-label col-sm-2" %>
+        <div class="col-sm-2" >
+          <%= data.text_field ("job" + i.to_s + "_date_to").to_sym, class: "form-control input-sm" %>
+        </div>
+      </div>
+      <div class="form-group" >
+        <%= data.label ("job" + i.to_s).to_sym, "Должность и место работы с указанием министерства (ведомства), номер войсковой части",
+          class: "control-label col-sm-4"%>
+        <div class="col-sm-8" >
+            <%= data.text_field ("job" + i.to_s).to_sym, class: "form-control" %>
+        </div>
+      </div>
+      <div class="form-group" >
+        <%= data.label ("job" + i.to_s + "_address").to_sym, "Адрес организации, войсковой части",
+          class: "control-label col-sm-4"%>
+        <div class="col-sm-8" >
+            <%= data.text_field ("job" + i.to_s + "_address").to_sym, class: "form-control" %>
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </fieldset>
 <br />
 <fieldset>
   <%= f.fields_for :visa_data do |visa| %>
-    <h4>Данные для визы</h4>
+    <h3>Данные для визы</h3>
     <div class="form-group" >
       <%= visa.label :surname, "Фамилия",
         class: "control-label col-sm-2" %>
