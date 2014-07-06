@@ -1,3 +1,10 @@
+<ul id="tabMenu" class="nav nav-tabs" >
+  <li class="active"><a href="#general" data-toggle="tab" >Общая информация</a></li>
+  <li><a href="#foreign" data-toggle="tab" >Загранпаспорт</a></li>
+  <li><a href="#visa" data-toggle="tab" >Шенген</a></li>
+</ul>
+<div class="tab-content" id="tabMenuContent" >
+  <div class="tab-pane fade active in" id="general" >
   <fieldset>
     <div class="form-group" >
       <%= f.label :fio, "ФИО", class: "control-label col-sm-2" %>
@@ -70,7 +77,8 @@
       </div>
     </div>
   </fieldset>
-<br />
+  </div>
+  <div class="tab-pane fade" id="foreign" >
   <fieldset>
   <%= f.fields_for :foreign_passport_data do |data| %>
     <h3>Данные для загранпаспорта: общие</h3>
@@ -219,9 +227,10 @@
       </div>
     <% end %>
   <% end %>
-</fieldset>
-<br />
-<fieldset>
+  </fieldset>
+  </div>
+  <div class="tab-pane fade" id="visa" >
+  <fieldset>
   <%= f.fields_for :visa_data do |visa| %>
     <h3>Данные для визы</h3>
     <div class="form-group" >
@@ -741,3 +750,5 @@
     </div>
   <% end %>
 </fieldset>
+</div>
+</div>
