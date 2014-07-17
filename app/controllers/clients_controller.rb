@@ -37,7 +37,7 @@ class ClientsController < ApplicationController
                           :passport_given, :passport_given_code,
                           :address, :phone,
       foreign_passport_data_attributes: [:fio_changed, :place_of_birth,
-        :registration, :citizenship, :citizenship_other, :aim,
+        :registration, :address, :citizenship, :citizenship_other, :aim,
         :previous_passport, :secret_access, :contract_liability,
         :military_service, :conviction, :court_obligations,
         :old_passport_series, :old_passport_number,

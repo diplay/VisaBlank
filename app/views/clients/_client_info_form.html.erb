@@ -104,6 +104,13 @@
       </div>
     </div>
     <div class="form-group" >
+      <%= data.label :address, "Адрес",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-10" >
+        <%= data.text_field :address , class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group" >
       <%= data.label :citizenship, "Гражданство",
         class: "control-label col-sm-2" %>
       <div class="col-sm-10" >
@@ -374,7 +381,7 @@
           ["не проживает с супругом", 3],
           ["Разведен/-а", 4],
           ["Взамен утраченного", 5],
-          ["Иное (уточнить)", 0]]), {},
+          ["Иное (уточнить)", 0]], visa.object.marital_status.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -417,7 +424,7 @@
           ["Служебный паспорт", 3],
           ["Официальный паспорт", 4],
           ["Особый паспорт", 5],
-          ["Иное (уточнить)", 0]]), {},
+          ["Иное (уточнить)", 0]], visa.object.travel_document_type.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -473,7 +480,7 @@
         <%= visa.select :residence_other_country,
           options_for_select([ 
           ["Нет", false],
-          ["Да", true]]), {},
+          ["Да", true]], visa.object.residence_other_country.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>    
@@ -524,7 +531,7 @@
           ["Учеба", 8],
           ["Транзит", 9],
           ["Транзит ч. Аэропорт", 10],
-          ["Иное (уточнить)", 0]]), {},
+          ["Иное (уточнить)", 0]], visa.object.visa_aim.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -556,7 +563,7 @@
         <%= visa.select :quantity_of_entries, options_for_select([ 
           ["Однократный въезд", 1],
           ["Двукратный въезд", 2],
-          ["Многократный въезд", 3]]), {},
+          ["Многократный въезд", 3]], visa.object.quantity_of_entries.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -574,7 +581,7 @@
         <%= visa.select :residence_other_country,
           options_for_select([ 
           ["Нет", false],
-          ["Да", true]]), {},
+          ["Да", true]], visa.object.residence_other_country.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -633,7 +640,7 @@
         <%= visa.select :fingerprints,
           options_for_select([ 
           ["Нет", false],
-          ["Да", true]]), {},
+          ["Да", true]], visa.object.fingerprints.to_s), {},
           {class: "form-control"} %>
       </div>
       <%= visa.label :fingerprints_date, "Дата отпечатков",
@@ -709,7 +716,7 @@
           ["Заявитель", 1],
           ["Спонсор", 2],
           ["Упомянутые в 31 и 32", 3],
-          ["Иные", 0]]), {},
+          ["Иные", 0]], visa.object.sponsor.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -730,7 +737,7 @@
           ["Кредитная карточка", 3],
           ["Предоплачено место проживания", 4],
           ["Оплачивается транспорт", 5],
-          ["Иное", 0]]), {},
+          ["Иное", 0]], visa.object.means1.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -750,7 +757,7 @@
           ["Обеспечивается место проживания", 2],
           ["Оплачиваются все расходы", 3],
           ["Оплачивается транспорт", 4],
-          ["Иное", 0]]), {},
+          ["Иное", 0]], visa.object.means2.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
@@ -804,7 +811,7 @@
           ["Супруг-а", 1],
           ["Ребенок", 2],
           ["Внук-чка", 3],
-          ["Иждивенец", 4]]), {},
+          ["Иждивенец", 4]], visa.object.nearest.to_s), {},
           {class: "form-control"} %>
       </div>
     </div>
