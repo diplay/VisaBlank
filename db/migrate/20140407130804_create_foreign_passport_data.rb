@@ -75,10 +75,17 @@ class CreateForeignPassportData < ActiveRecord::Migration
       t.text :job10_address, default: ""
       
 #только ребенок
-      
-
-      
-
+      t.text :p_fio, default: ""
+      t.text :p_fio_changed, default: ""
+      t.date :p_date_of_birth, default: "0001-01-01"
+      t.text :p_place_of_birth, default: ""
+      t.text :p_sex, default: ""
+      t.text :p_registration, default: ""
+      t.text :p_address, default: ""
+      t.text :p_pass_ser, default: ""
+      t.text :p_pass_num, default: ""
+      t.date :p_pass_given_date, default: "0001-01-01"
+      t.text :p_pass_given, default: ""
 
       t.timestamps
     end

@@ -71,36 +71,81 @@
     <td><h4> Данные для взрослого </h4></td>
   </tr>
   <tr>
-    <td> Дата выдачи </td>
+    <td> Доступ к тайне </td>
     <td><%= @client.foreign_passport_data.secret_access %></td>
   </tr>
   <tr>
-    <td> Дата выдачи </td>
+    <td> Контрактные обязательства </td>
     <td><%= @client.foreign_passport_data.contract_liability %></td>
   </tr>
   <tr>
-    <td> Дата выдачи </td>
+    <td> Военная служба </td>
     <td><%= @client.foreign_passport_data.military_service %></td>
   </tr>
-  </table>
-  <table>
+</table>
+<table class="table table-bordered">
   <tr>
-    <td width="15%"> Месяц и год поступления </td>
-    <td width="15%"> Месяц и год увольнения </td>
-    <td width="35%"> Должность и место работы с указанием министерства (ведомства), номер войсковой части </td>
+    <td width="12%"> Месяц и год поступления </td>
+    <td width="12%"> Месяц и год увольнения </td>
+    <td width="41%"> Должность и место работы с указанием министерства (ведомства), номер войсковой части </td>
     <td width="35%"> Адрес организации, войсковой части </td>
   </tr>
   <% for i in 1..10 %>
     <tr>
-      <td><%= @client.foreign_passport_data.attributes["job" + (i % 10).to_s + "_date_from"] %> &nbsp;</td>
-      <td><%= @client.foreign_passport_data.attributes["job" + (i % 10).to_s + "_date_to"] %> &nbsp; </td>
-      <td><%= @client.foreign_passport_data.attributes["job" + (i % 10).to_s] %> &nbsp; </td>
-      <td><%= @client.foreign_passport_data.attributes["job" + (i % 10).to_s + "_address"] %> &nbsp; </td>
+      <td><%= @client.foreign_passport_data.attributes["job" + i.to_s + "_date_from"] %> &nbsp;</td>
+      <td><%= @client.foreign_passport_data.attributes["job" + i.to_s + "_date_to"] %> &nbsp; </td>
+      <td><%= @client.foreign_passport_data.attributes["job" + i.to_s] %> &nbsp; </td>
+      <td><%= @client.foreign_passport_data.attributes["job" + i.to_s + "_address"] %> &nbsp; </td>
     </tr>
   <% end %>
-  </table>
-  <table>
+</table>
+<table class="table">
   <tr>
     <td><h4> Данные для ребенка </h4></td>
   </tr>
+  <tr>
+    <td> ФИО представителя </td>
+    <td><%= @client.foreign_passport_data.p_fio %></td>
+  </tr>
+  <tr>
+    <td> Измененное ФИО представителя </td>
+    <td><%= @client.foreign_passport_data.p_fio_changed %></td>
+  </tr>
+  <tr>
+    <td> Дата рождения представителя </td>
+    <td><%= @client.foreign_passport_data.p_date_of_birth %></td>
+  </tr>
+  <tr>
+    <td> Место рождения представителя </td>
+    <td><%= @client.foreign_passport_data.p_place_of_birth %></td>
+  </tr>
+  <tr>
+    <td> Пол представителя </td>
+    <td><%= @client.foreign_passport_data.p_sex %></td>
+  </tr>
+  <tr>
+    <td> Регистрация представителя </td>
+    <td><%= @client.foreign_passport_data.p_registration %></td>
+  </tr>
+  <tr>
+    <td> Адрес представителя </td>
+    <td><%= @client.foreign_passport_data.p_address %></td>
+  </tr>
+  <tr>
+    <td> Серия паспорта представителя </td>
+    <td><%= @client.foreign_passport_data.p_pass_ser %></td>
+  </tr>
+  <tr>
+    <td> Номер паспорта представителя </td>
+    <td><%= @client.foreign_passport_data.p_pass_num %></td>
+  </tr>
+  <tr>
+    <td> Дата выдачи пасспорта представителя </td>
+    <td><%= @client.foreign_passport_data.p_pass_given_date %></td>
+  </tr>
+  <tr>
+    <td> Кем выдан пасспорт представителю </td>
+    <td><%= @client.foreign_passport_data.p_pass_given %></td>
+  </tr>
+  
 </table>

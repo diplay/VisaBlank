@@ -148,6 +148,17 @@ ActiveRecord::Schema.define(version: 20140413132047) do
     t.text     "job10_date_to",           default: ""
     t.text     "job10",                   default: ""
     t.text     "job10_address",           default: ""
+    t.text     "p_fio",                   default: ""
+    t.text     "p_fio_changed",           default: ""
+    t.date     "p_date_of_birth",         default: '0001-01-01'
+    t.text     "p_place_of_birth",        default: ""
+    t.text     "p_sex",                   default: ""
+    t.text     "p_registration",          default: ""
+    t.text     "p_address",               default: ""
+    t.text     "p_pass_ser",              default: ""
+    t.text     "p_pass_num",              default: ""
+    t.date     "p_pass_given_date",       default: '0001-01-01'
+    t.text     "p_pass_given",            default: ""
     t.datetime "created_at"
     t.datetime "updated_at"
   end
