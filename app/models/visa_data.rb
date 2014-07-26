@@ -6,7 +6,161 @@ class VisaData < ActiveRecord::Base
     pdftk = PdfForms.new('/usr/bin/pdftk')
     pdftk.fill_form input_path, output_path, get_attributes
   end
+     
+  def marital_status_string()
+    case marital_status
+    when 0
+      return "Иное (уточнить)"
+    when 1
+      return "Холост/не замужем"
+    when 2
+      return "женат/замужем"
+    when 3
+      return "не проживает с супругом"
+    when 4
+      return "Разведен/-а"
+    when 5
+      return "Взамен утраченного"
+    end
+  end
+  
+  def travel_document_type_string()
+    case travel_document_type
+    when 0
+      return "Иное (уточнить)"
+    when 1
+      return "Обычный паспорт"
+    when 2
+      return "Дипломатический паспорт"
+    when 3
+      return "Служебный паспорт"
+    when 4
+      return "Официальный паспорт"
+    when 5
+      return "Особый паспорт"
+    end
+  end
+  
+  def visa_aim_string()
+    case visa_aim
+    when 0
+      return "Иное (уточнить)"
+    when 1
+      return "Туризм"
+    when 2
+      return "Деловая"
+    when 3
+      return "Родственники"
+    when 4
+      return "Культура"
+    when 5
+      return "Спорт"
+    when 6
+      return "Официальная"
+    when 7
+      return "Лечение"
+    when 8
+      return "Учеба"
+    when 9
+      return "Транзит"
+    when 10
+      return "Транзит ч. Аэропорт"  
+    end
+  end
+  
+  def residence_other_country_string()
+    if residence_other_country == true
+      return "Да"
+    else
+      return "Нет"
+    end
+  end
 
+  def quantity_of_entries_string()
+    case quantity_of_entries
+    when 1
+      return "Однократный въезд"
+    when 2
+      return "Двукратный въезд"
+    when 3
+      return "Многократный въезд"
+    end
+  end
+  
+  def visa_given_string()
+    if visa_given == true
+      return "Да"
+    else
+      return "Нет"
+    end
+  end
+
+  def fingerprints_string()
+    if fingerprints == true
+      return "Да"
+    else
+      return "Нет"
+    end
+  end
+  
+  def nearest_string()
+    case nearest
+    when 1
+      return "Супруг-а"
+    when 2
+      return "Ребенок"
+    when 3
+      return "Внук-чка"
+    when 4
+      return "Иждивенец"
+    end
+  end
+  
+  def sponsor_string()
+    case sponsor
+    when 1
+      return "Заявитель"
+    when 2
+      return "Спонсор"
+    when 3
+      return "Упомянутые в 31 и 32"
+    when 0
+      return "Иные"
+    end
+  end
+
+  def means1_string()
+    case means1
+    when 1
+      return "Наличные деньги"
+    when 2
+      return "Дорожные чеки"
+    when 3
+      return "Кредитная карточка"
+    when 4
+      return "Предоплачено место проживания"
+    when 5
+      return "Оплачивается транспорт"
+    when 0
+      return "Иное"
+    end
+  end
+  
+  def means2_string()
+    case means2
+    when 1
+      return "Наличные деньги"
+    when 2
+      return "Обеспечивается место проживания"
+    when 3
+      return "Оплачиваются все расходы"
+    when 4
+      return "Оплачивается транспорт"
+    when 0
+      return "Иное"
+    end
+  end
+  
   private
   def get_attributes
     return_attributes = attributes
@@ -55,7 +209,7 @@ class VisaData < ActiveRecord::Base
     end
     cur_attr
   end
-
+  
   def travel_doc(cur_attr)
     case cur_attr["travel_document_type"]
     when 0
@@ -85,9 +239,9 @@ class VisaData < ActiveRecord::Base
     end
     cur_attr
   end
-
+  
   def aimf(cur_attr)
-    case cur_attr["visa_aim"]
+    case visa_aim
     when 0
       cur_attr["aim0"] = "Yes"
       cur_attr["aim0_other"] = cur_attr["visa_aim_other"]
@@ -126,7 +280,7 @@ class VisaData < ActiveRecord::Base
     end
     cur_attr
   end
-
+  
   def visa_giv(cur_attr)
     if cur_attr["visa_given"] == true
       cur_attr["visa_given_true"] = "Yes"
@@ -144,7 +298,7 @@ class VisaData < ActiveRecord::Base
     end
     cur_attr
   end
-
+  
   def near(cur_attr)
     case cur_attr["nearest"]
     when 1
@@ -192,7 +346,7 @@ class VisaData < ActiveRecord::Base
     end
     cur_attr
   end
-
+  
   def means2_foo(cur_attr)
     case cur_attr["means2"]
     when 1
@@ -209,4 +363,5 @@ class VisaData < ActiveRecord::Base
     end
     cur_attr
   end
+
 end

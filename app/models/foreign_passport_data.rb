@@ -30,7 +30,7 @@ class ForeignPassportData < ActiveRecord::Base
     @document_content.sub!("passgiven", client.passport_given + ", код подразделения:" + client.passport_given_code)
     
     @document_content.sub!("aim", aim)
-    @document_content.sub!("previouspassport", previous_passport.to_s)
+    @document_content.sub!("previouspassport", previous_passport_string)
     @document_content.sub!("secretaccess", secret_access)
     @document_content.sub!("contractliability", contract_liability)
     @document_content.sub!("militaryservice", military_service)
@@ -93,7 +93,7 @@ class ForeignPassportData < ActiveRecord::Base
     @document_content.sub!("%2", client.passport_given_date.year.to_s)
     @document_content.sub!("passgiven", client.passport_given + ", код подразделения:" + client.passport_given_code)
     @document_content.sub!("aim", aim)
-    @document_content.sub!("previouspassport", previous_passport.to_s)
+    @document_content.sub!("previouspassport", previous_passport_string)
     @document_content.sub!("conviction", conviction)
     @document_content.sub!("courtobligations", court_obligations)
 

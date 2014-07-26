@@ -32,8 +32,8 @@
     <td><%= @client.visa_data.nationality_at_birth %></td>
   </tr>
   <tr>
-    <td> !maritalstat </td>
-    <td><%= @client.visa_data.marital_status %></td>
+    <td> Семейное положение </td>
+    <td><%= @client.visa_data.marital_status_string %></td>
   </tr>
   <tr>
     <td> Семейное положение: другое </td>
@@ -48,8 +48,8 @@
     <td><%= @client.visa_data.national_id %></td>
   </tr>
   <tr>
-    <td> !travdoc </td>
-    <td><%= @client.visa_data.travel_document_type %></td>
+    <td> Тип проездного документа </td>
+    <td><%= @client.visa_data.travel_document_type_string %></td>
   </tr>
   <tr>
     <td> Тип проездного документа: другое </td>
@@ -80,8 +80,8 @@
     <td><%= @client.visa_data.phone %></td>
   </tr>
   <tr>
-    <td> Страна пребывания!!!! </td>
-    <td><%= @client.visa_data.residence_other_country %></td>
+    <td> Вид на жительство </td>
+    <td><%= @client.visa_data.residence_other_country_string %></td>
   </tr>
   <tr>
     <td> Вид на жительство: вид </td>
@@ -104,8 +104,8 @@
     <td><%= @client.visa_data.employer_data %></td>
   </tr>
   <tr>
-    <td> !цель!!! </td>
-    <td><%= @client.visa_data.visa_aim %></td>
+    <td> Цель поездки </td>
+    <td><%= @client.visa_data.visa_aim_string %></td>
   </tr>
   <tr>
     <td> Цель поездки: другое </td>
@@ -121,15 +121,15 @@
   </tr>
   <tr>
     <td> Количество въездов </td>
-    <td><%= @client.visa_data.quantity_of_entries %></td>
+    <td><%= @client.visa_data.quantity_of_entries_string %></td>
   </tr>
   <tr>
     <td> Продолжительность пребвания </td>
     <td><%= @client.visa_data.duration_of_stay %></td>
   </tr>
   <tr>
-    <td> !!Виза выдана!!!! </td>
-    <td><%= @client.visa_data.visa_given %></td>
+    <td> Выдавалась ли виза ранее </td>
+    <td><%= @client.visa_data.visa_given_string %></td>
   </tr>
   <tr>
     <td> Выдана 1-й раз: с </td>
@@ -164,8 +164,8 @@
     <td><%= @client.visa_data.visa_given4_to %></td>
   </tr>
   <tr>
-    <td> !!!fings!!! </td>
-    <td><%= @client.visa_data.fingerprints %></td>
+    <td> Отпечатки пальцев </td>
+    <td><%= @client.visa_data.fingerprints_string %></td>
   </tr>
   <tr>
     <td> Дата снятия отпечатков пальцов </td>
@@ -208,24 +208,24 @@
     <td><%= @client.visa_data.inviter_company_name_and_address %></td>
   </tr>
   <tr>
-    <td> !!спонсор!!! </td>
-    <td><%= @client.visa_data.sponsor %></td>
+    <td> Спонсор </td>
+    <td><%= @client.visa_data.sponsor_string %></td>
   </tr>
   <tr>
     <td> Спонсор: другое </td>
     <td><%= @client.visa_data.sponsor_other %></td>
   </tr>
   <tr>
-    <td> !!!Средства1!!!! </td>
-    <td><%= @client.visa_data.means1 %></td>
+    <td> Средства1 </td>
+    <td><%= @client.visa_data.means1_string %></td>
   </tr>
   <tr>
     <td> Средства1: другое </td>
     <td><%= @client.visa_data.means1_other %></td>
   </tr>
   <tr>
-    <td> !!!Средства2!!!! </td>
-    <td><%= @client.visa_data.means2 %></td>
+    <td> Средства2 </td>
+    <td><%= @client.visa_data.means2_string %></td>
   </tr>
   <tr>
     <td> Средства2: другое </td>
@@ -252,8 +252,8 @@
     <td><%= @client.visa_data.nearest_passport_number %></td>
   </tr>
   <tr>
-    <td> !!!Близкий!! </td>
-    <td><%= @client.visa_data.nearest %></td>
+    <td> Близкий </td>
+    <td><%= @client.visa_data.nearest_string %></td>
   </tr>
   <tr>
     <td> Место </td>
