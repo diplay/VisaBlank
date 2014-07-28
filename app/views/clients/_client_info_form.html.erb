@@ -252,7 +252,7 @@
     <%= data.label :p_date_of_birth, "Дата рождения представителя",
       class: "control-label col-sm-2"%>
     <div class="col-sm-2" >
-        <%= data.date_field :p_date_of_birth, class: "form-control" %>
+        <%= data.date_field :p_date_of_birth, class: "form-control input-sm" %>
     </div>
   </div>
   <div class="form-group" >
@@ -646,7 +646,7 @@
       <%= visa.label :fingerprints_date, "Дата отпечатков",
         class: "control-label col-sm-2"%>
       <div class="col-sm-2" >
-          <%= visa.date_field :fingerprints_date, class: "form-control" %>
+          <%= visa.date_field :fingerprints_date, class: "form-control input-sm" %>
       </div>
     </div>
     <div class="form-group" >
@@ -660,24 +660,24 @@
       <%= visa.label :entry_permit_from, "Выдано с",
         class: "control-label col-sm-2"%>
       <div class="col-sm-2" >
-          <%= visa.date_field :entry_permit_from, class: "form-control" %>
+          <%= visa.date_field :entry_permit_from, class: "form-control input-sm" %>
       </div>
       <%= visa.label :entry_permit_to, "Выдано по",
         class: "control-label col-sm-2"%>
       <div class="col-sm-2" >
-          <%= visa.date_field :entry_permit_to, class: "form-control" %>
+          <%= visa.date_field :entry_permit_to, class: "form-control input-sm" %>
       </div>
     </div>
     <div class="form-group" >
       <%= visa.label :entry_date, "Дата въезда",
         class: "control-label col-sm-2"%>
       <div class="col-sm-2" >
-          <%= visa.date_field :entry_date, class: "form-control" %>
+          <%= visa.date_field :entry_date, class: "form-control input-sm" %>
       </div>
       <%= visa.label :departure_date, "Дата выезда",
         class: "control-label col-sm-2"%>
       <div class="col-sm-2" >
-          <%= visa.date_field :departure_date, class: "form-control" %>
+          <%= visa.date_field :departure_date, class: "form-control input-sm" %>
       </div>
     </div>
     <div class="form-group" >
@@ -786,7 +786,7 @@
       <%= visa.label :nearest_date_of_birth, "Дата рождения близкого",
         class: "control-label col-sm-2"%>
       <div class="col-sm-10" >
-          <%= visa.date_field :nearest_date_of_birth, class: "form-control" %>
+          <%= visa.date_field :nearest_date_of_birth, class: "form-control input-sm" %>
       </div>
     </div>
     <div class="form-group" >
@@ -826,7 +826,7 @@
      <%= visa.label :date, "Дата",
         class: "control-label col-sm-2"%>
       <div class="col-sm-10" >
-          <%= visa.date_field :date, class: "form-control" %>
+          <%= visa.date_field :date, class: "form-control input-sm" %>
       </div>
     </div>
   <% end %>
