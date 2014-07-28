@@ -7,7 +7,6 @@
       <thead>
         <tr>
           <th>ФИО</td>
-          <th>Прибыль</td>
           <th>Менеджер</th>
         </tr>
       </thead>
@@ -15,7 +14,6 @@
       <% @company.clients.each do |client| %>
       <tr>
         <td><%= link_to client.fio, client_path(client) %></td>
-        <td>0</td>
         <td><%= link_to client.manager.name, manager_path(client.manager) %></td>
       </tr>
       <% end %>

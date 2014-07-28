@@ -28,6 +28,7 @@ class ManagersController < ApplicationController
   end
 
   def show
+    @document_templates = DocumentTemplate.all
   end
 
   def edit
