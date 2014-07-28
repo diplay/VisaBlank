@@ -7,16 +7,20 @@
       <thead>
         <tr>
           <th>ФИО</td>
-          <th>Прибыль за месяц</td>
           <th>Клиентов</th>
+          <th>Активен</th>
         </tr>
       </thead>
       <tbody>
       <% @company.managers.each do |manager| %>
       <tr>
         <td><%= link_to manager.name, manager_path(manager) %></td>
-        <td><%= manager.month_profit %></td>
         <td><%= manager.clients.length %></td>
+        <% if manager.user.active %>
+          <td><span class="text-success glyphicon glyphicon-ok" ></span></td>
+        <% else %>
+          <td><span class="text-danger glyphicon glyphicon-remove" ></span></td>
+        <% end %>
       </tr>
       <% end %>
       </tbody>
