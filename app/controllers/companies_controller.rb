@@ -52,7 +52,7 @@ class CompaniesController < ApplicationController
 
   private
   def company_params
-    params[:company].permit(:name, :email, :phone, :address, :tin, :bank_details, :paid_before)
+    params[:company].permit(:name, :email, :phone, :address, :tin, :bank_details, :paid_before, :repr_i, :repr_r)
   end
 
   def company_creation_params
