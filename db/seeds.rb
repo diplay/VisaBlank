@@ -10,7 +10,17 @@
 DocumentTemplate.create(name: "Загранпаспорт", template_path: "#{Rails.root}/public/pdf_templates/foreign.pdf",
                        document_type: "foreign_passport")
 DocumentTemplate.create(name: "Виза Австрия", template_path: "#{Rails.root}/public/pdf_templates/austria.pdf",
+                       document_type: "visa", description_link:"austriainfo.docx")
+DocumentTemplate.create(name: "Виза Дания", template_path: "#{Rails.root}/public/pdf_templates/dania.pdf",
                        document_type: "visa")
+DocumentTemplate.create(name: "Виза Латвия", template_path: "#{Rails.root}/public/pdf_templates/latvia.pdf",
+                       document_type: "visa")
+DocumentTemplate.create(name: "Виза Литва", template_path: "#{Rails.root}/public/pdf_templates/litva.pdf",
+                       document_type: "visa")
+DocumentTemplate.create(name: "Виза Швеция", template_path: "#{Rails.root}/public/pdf_templates/shvecia.pdf",
+                       document_type: "visa")
+DocumentTemplate.create(name: "Виза Мальта", template_path: "#{Rails.root}/public/pdf_templates/malta.pdf",
+                       document_type: "visa")                       
 
 company = Company.create(name: "ООО \"Рога и Копыта\"",
                         paid_before: Date.today << 1,
