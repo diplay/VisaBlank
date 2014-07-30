@@ -28,10 +28,11 @@ Visa::Application.routes.draw do
   end
 
   root 'application#index'
-  get 'file' => 'application#file'
 
   post 'auth/authenticate', as: 'authenticate'
   post 'auth/logout', as: 'logout'
+
+  get 'application/get_country_data'
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'

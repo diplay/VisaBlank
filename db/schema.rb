@@ -87,7 +87,7 @@ ActiveRecord::Schema.define(version: 20140728124007) do
     t.text     "document_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "description_link"
+    t.string   "description"
   end
 
   create_table "foreign_passport_data", force: true do |t|

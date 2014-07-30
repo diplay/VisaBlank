@@ -8,8 +8,17 @@ class ApplicationController < ActionController::Base
   def index #главная страница
   end
 
-  def file
-    send_file "#{Rails.root}/public/pdftk.tar.gz", type: 'application/tar.gz' 
+  def get_country_data #получение информации о заполнении(некуда было пихнуть)
+    if params[:doc] != nil
+      doc = DocumentTemplate.find(params[:doc])
+      if doc.description != nil
+        render text: open("#{Rails.root}/public/info/#{doc.description}", &:read)
+      else
+        render text: "Описание недоступно"
+      end
+    else
+      render text: "Wrong request"
+    end
   end
 
   protected

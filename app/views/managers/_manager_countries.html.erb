@@ -3,10 +3,16 @@
     <h2 class="panel-title" >Страны</h2>
   </div>
   <div class="panel-body" >
-    <select class="form-control" onchange="" >
-      <% @document_templates.each do |doc| %>
-        <option><%= doc.name %></option>
-      <% end %>
-    </select>
+    <div class="panel" >
+      <div class="panel-heading">
+        <select class="form-control" onchange="get_country_data(this.options[this.selectedIndex].value)" >
+          <% @document_templates.each do |doc| %>
+            <option value="<%= doc.id %>" ><%= doc.name %></option>
+        <% end %>
+        </select>
+      </div>
+      <div id="info" class="panel-body" >
+      </div>
+    </div>
   </div>
 </div>
