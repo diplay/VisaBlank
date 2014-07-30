@@ -3,25 +3,10 @@
     <h2 class="panel-title" >Страны</h2>
   </div>
   <div class="panel-body" >
-    <table class="table table-hover" >
-      <thead>
-        <tr>
-          <th>Страна</td>
-          <th>Справочная информация</td>
-        </tr>
-      </thead>
-      <tbody>
+    <select class="form-control" onchange="" >
       <% @document_templates.each do |doc| %>
-      <tr>
-        <td><%= doc.name %></td>
-        <% if doc.description_link != nil %>
-          <td><%= link_to "Скачать", "/info/#{doc.description_link}" %></td>
-        <% else %>
-          <td>Недоступно</td>
-        <% end %>
-      </tr>
+        <option><%= doc.name %></option>
       <% end %>
-      </tbody>
-    </table>
+    </select>
   </div>
 </div>
