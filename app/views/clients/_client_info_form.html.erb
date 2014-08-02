@@ -718,7 +718,7 @@
         29.Предполагаемая дата въезда в шенгенскую зону
       </div>
       <div class="panel-body" >
-        
+        <%= visa.date_field :entry_date, class: "form-control input-sm" %>
       </div>
     </div>
     <div class="panel panel-info" >
@@ -726,143 +726,148 @@
         30. Предполагаемая дата выезда из шенгенской зоны
       </div>
       <div class="panel-body" >
-        
+        <%= visa.date_field :departure_date, class: "form-control input-sm" %>
+      </div>
+    </div>
+    <div class="panel panel-info" >
+      <div class="panel-heading" >
+        31. Фамилия/-и, имя (имена) лица, приглашающего в государство/-а – член(-ы) Шенгенского соглашения. В случае отсутствия такового –название гостиницы (гостиниц) или адрес /-а временного пребывания на территории государств-участников Шенгенского соглашения
+      </div>
+      <div class="panel-body" >
+        <div class="form-group" >
+          <div class="col-sm-12" >
+              <%= visa.text_field :inviter_name, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :inviter_address_and_email, "Адрес и адрес электронной почты приглашающего лица (лиц) / гостиницы (гостиниц) / места (мест) временного пребывания",
+            class: "control-label col-sm-12"%>
+        </div>
+        <div class="form-group" >
+          <div class="col-sm-12" >
+              <%= visa.text_field :inviter_address_and_email, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :inviter_phone, "Телефон и факс",
+            class: "control-label col-sm-2"%>
+          <div class="col-sm-10" >
+              <%= visa.text_field :inviter_phone, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info" >
+      <div class="panel-heading" >
+        32. Название и адрес приглашающего предприятия/организации
+      </div>
+      <div class="panel-body" >
+        <div class="form-group" >
+          <%= visa.label :inviter_company_name_and_address, "Приглашающая компания",
+            class: "control-label col-sm-2"%>
+          <div class="col-sm-10" >
+              <%= visa.text_field :inviter_company_name_and_address, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :inviter_company_phone, "Телефон и факс предприятия/организации ",
+            class: "control-label col-sm-2"%>
+          <div class="col-sm-10" >
+              <%= visa.text_field :inviter_company_phone, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :inviter_company_contact_face, "Фамилия, имя, адрес, телефон, факс и адрес электронной почты контактного лица предприятия / организации",
+            class: "control-label col-sm-12"%>
+        </div>
+        <div class="form-group" >
+          <div class="col-sm-12" >
+              <%= visa.text_field :inviter_company_contact_face, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-info" >
+      <div class="panel-heading" >
+        33. Расходы заявителя на проезд и во время пребывания оплачивает
+      </div>
+      <div class="panel-body" >
+        <div class="form-group" >
+          <div class="col-sm-12" >
+            <%= visa.select :sponsor, options_for_select([ 
+              ["Заявитель", 1],
+              ["Спонсор", 2],
+              ["Упомянутые в 31 и 32", 3],
+              ["Иные", 0]], visa.object.sponsor.to_s), {},
+              {class: "form-control"} %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :sponsor_other, "Иное:",
+            class: "control-label col-sm-2"%>
+          <div class="col-sm-10" >
+              <%= visa.text_field :sponsor_other, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :means1, "Свои средства",
+            class: "control-label col-sm-2" %>
+          <div class="col-sm-10" >
+            <%= visa.select :means1, options_for_select([ 
+              ["Наличные деньги", 1],
+              ["Дорожные чеки", 2],
+              ["Кредитная карточка", 3],
+              ["Предоплачено место проживания", 4],
+              ["Оплачивается транспорт", 5],
+              ["Иное", 0]], visa.object.means1.to_s), {},
+              {class: "form-control"} %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :means1_other, "Свои средства: иное",
+            class: "control-label col-sm-2"%>
+          <div class="col-sm-10" >
+              <%= visa.text_field :means1_other, class: "form-control" %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :means2, "Cпонсорские средства",
+            class: "control-label col-sm-2" %>
+          <div class="col-sm-10" >
+            <%= visa.select :means2, options_for_select([ 
+              ["Наличные деньги", 1],
+              ["Обеспечивается место проживания", 2],
+              ["Оплачиваются все расходы", 3],
+              ["Оплачивается транспорт", 4],
+              ["Иное", 0]], visa.object.means2.to_s), {},
+              {class: "form-control"} %>
+          </div>
+        </div>
+        <div class="form-group" >
+          <%= visa.label :means2_other, "Cпонсорские средства: иное",
+            class: "control-label col-sm-2"%>
+          <div class="col-sm-10" >
+              <%= visa.text_field :means2_other, class: "form-control" %>
+          </div>
+        </div>
       </div>
     </div>
     
-    
-    <div class="form-group" >
-      <%= visa.label :entry_permit, "Разрешение на въезд выдано",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :entry_permit, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :entry_permit_from, "Выдано с",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-2" >
-          <%= visa.date_field :entry_permit_from, class: "form-control input-sm" %>
-      </div>
-      <%= visa.label :entry_permit_to, "Выдано по",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-2" >
-          <%= visa.date_field :entry_permit_to, class: "form-control input-sm" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :entry_date, "Дата въезда",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-2" >
-          <%= visa.date_field :entry_date, class: "form-control input-sm" %>
-      </div>
-      <%= visa.label :departure_date, "Дата выезда",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-2" >
-          <%= visa.date_field :departure_date, class: "form-control input-sm" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :inviter_name, "Пригласивший",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :inviter_name, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :inviter_address_and_email, "Адресс пригласившего",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :inviter_address_and_email, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :inviter_phone, "Телефон пригласившего",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :inviter_phone, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :inviter_company_name_and_address, "Приглашающая компания",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :inviter_company_name_and_address, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :sponsor, "Спонсор",
-        class: "control-label col-sm-2" %>
-      <div class="col-sm-5" >
-        <%= visa.select :sponsor, options_for_select([ 
-          ["Заявитель", 1],
-          ["Спонсор", 2],
-          ["Упомянутые в 31 и 32", 3],
-          ["Иные", 0]], visa.object.sponsor.to_s), {},
-          {class: "form-control"} %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :sponsor_other, "Спонсор: другое",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :sponsor_other, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :means1, "Свои средства",
-        class: "control-label col-sm-2" %>
-      <div class="col-sm-10" >
-        <%= visa.select :means1, options_for_select([ 
-          ["Наличные деньги", 1],
-          ["Дорожные чеки", 2],
-          ["Кредитная карточка", 3],
-          ["Предоплачено место проживания", 4],
-          ["Оплачивается транспорт", 5],
-          ["Иное", 0]], visa.object.means1.to_s), {},
-          {class: "form-control"} %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :means1_other, "Свои средства: другое",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :means1_other, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :means2, "Cпонсорские средства",
-        class: "control-label col-sm-2" %>
-      <div class="col-sm-10" >
-        <%= visa.select :means2, options_for_select([ 
-          ["Наличные деньги", 1],
-          ["Обеспечивается место проживания", 2],
-          ["Оплачиваются все расходы", 3],
-          ["Оплачивается транспорт", 4],
-          ["Иное", 0]], visa.object.means2.to_s), {},
-          {class: "form-control"} %>
-      </div>
-    </div>
-    <div class="form-group" >
-      <%= visa.label :means2_other, "Cпонсорские средства: другое",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :means2_other, class: "form-control" %>
-      </div>
-    </div>
-    
-    <div class="form-group">
-     <%= visa.label :place, "Место",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.text_field :place, class: "form-control" %>
-      </div>
-    </div>
-    <div class="form-group" >
-     <%= visa.label :date, "Дата",
-        class: "control-label col-sm-2"%>
-      <div class="col-sm-10" >
-          <%= visa.date_field :date, class: "form-control input-sm" %>
+    <div class="panel panel-info" >
+      <div class="panel-body" >
+       <div class="form-group">
+         <%= visa.label :place, "Место",
+            class: "control-label col-sm-1"%>
+          <div class="col-sm-6" >
+              <%= visa.text_field :place, class: "form-control" %>
+          </div>
+       
+         <%= visa.label :date, "Дата",
+            class: "control-label col-sm-1"%>
+          <div class="col-sm-2" >
+              <%= visa.date_field :date, class: "form-control input-sm" %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
