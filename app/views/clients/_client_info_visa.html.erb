@@ -1,218 +1,215 @@
 <table class="table" >
   <tr>
-    <td> Фамилия </td>
+    <td width="50%"> 1. Фамилия/и (x) </td>
     <td><%= @client.visa_data.surname %></td>
   </tr>
   <tr>
-    <td> Фамилия при рождении </td>
+    <td> 2 Фамилия при рождении (девичья, предыдущие фамилии) (x) </td>
     <td><%= @client.visa_data.surname_at_birth %></td>
   </tr>
   <tr>
-    <td> Имя </td>
+    <td> 3. Имя/имена (x) </td>
     <td><%= @client.visa_data.name %></td>
   </tr>
   <tr>
-    <td> Отчество </td>
-    <td><%= @client.visa_data.patronymic_name %></td>
-  </tr>
-  <tr>
-    <td> Место рождения </td>
+    <td> 5. Место рождения </td>
     <td><%= @client.visa_data.place_of_birth %></td>
   </tr>
   <tr>
-    <td> Страна рождения </td>
+    <td> 6. Страна рождения </td>
     <td><%= @client.visa_data.country_of_birth %></td>
   </tr>
   <tr>
-    <td> Гражданство </td>
+    <td> 7. Гражданство в настоящее время </td>
     <td><%= @client.visa_data.current_nationality %></td>
   </tr>
   <tr>
-    <td> Гражданство при рождении </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Гражданство при рождении </td>
     <td><%= @client.visa_data.nationality_at_birth %></td>
   </tr>
   <tr>
-    <td> Семейное положение </td>
+    <td> 9. Семейное положение </td>
     <td><%= @client.visa_data.marital_status_string %></td>
   </tr>
   <tr>
-    <td> Семейное положение: другое </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Семейное положение: другое </td>
     <td><%= @client.visa_data.marital_status_other %></td>
   </tr>
   <tr>
-    <td> Информация об опекуне </td>
-    <td><%= @client.visa_data.guardian_data %></td>
-  </tr>
-  <tr>
-    <td> national_id </td>
-    <td><%= @client.visa_data.national_id %></td>
-  </tr>
-  <tr>
-    <td> Тип проездного документа </td>
+    <td> 12. Тип проездного документа </td>
     <td><%= @client.visa_data.travel_document_type_string %></td>
   </tr>
   <tr>
-    <td> Тип проездного документа: другое </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Тип проездного документа: другое </td>
     <td><%= @client.visa_data.travel_document_type_other %></td>
   </tr>
   <tr>
-    <td> Номер проездного документа </td>
+    <td> 13. &#8470; проездного документа </td>
     <td><%= @client.visa_data.travel_document_number %></td>
   </tr>
   <tr>
-    <td> Дата выдачи проездного документа </td>
+    <td> 14. Дата выдачи </td>
     <td><%= @client.visa_data.travel_document_date_of_issue.to_s %></td>
   </tr>
   <tr>
-    <td> Проездной документ действителен до </td>
+    <td> 15. Действителен до </td>
     <td><%= @client.visa_data.travel_document_valid_until.to_s %></td>
   </tr>
   <tr>
-    <td> Проездной документ выдан </td>
+    <td> 16. Кем выдан </td>
     <td><%= @client.visa_data.travel_document_issued_by %></td>
   </tr>
   <tr>
-    <td> Домашний адресс и e-mail </td>
+    <td> 17. Домашний адрес и адрес электронной почты заявителя </td>
     <td><%= @client.visa_data.home_address_and_email %></td>
   </tr>
   <tr>
-    <td> Телефон </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Номер/-а телефона </td>
     <td><%= @client.visa_data.phone %></td>
   </tr>
   <tr>
-    <td> Вид на жительство </td>
+    <td> 18. Страна постоянного жительства в случае, что Вы живете в другой стране </td>
     <td><%= @client.visa_data.residence_other_country_string %></td>
   </tr>
   <tr>
-    <td> Вид на жительство: вид </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Вид на жительство или равноценный документ  </td>
     <td><%= @client.visa_data.residence_document_type %></td>
   </tr>
   <tr>
-    <td> Вид на жительство: номер </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;&#8470; </td>
     <td><%= @client.visa_data.residence_document_number %></td>
   </tr>
   <tr>
-    <td> Вид на жительство: действителен до </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Действителен по </td>
     <td><%= @client.visa_data.valid_until.to_s%></td>
   </tr>
   <tr>
-    <td> Занимаемая должность </td>
+    <td> 19. Профессия в настоящее время </td>
     <td><%= @client.visa_data.current_occupation %></td>
   </tr>
   <tr>
-    <td> Данные работодателя </td>
+    <td> 20. Работодатель-название, адрес и телефон. Для студентов–название и адрес учебного заведения. </td>
     <td><%= @client.visa_data.employer_data %></td>
   </tr>
   <tr>
-    <td> Цель поездки </td>
+    <td> 21. Главная цель/-и поездки </td>
     <td><%= @client.visa_data.visa_aim_string %></td>
   </tr>
   <tr>
-    <td> Цель поездки: другое </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Цель поездки: другое </td>
     <td><%= @client.visa_data.visa_aim_other %></td>
   </tr>
   <tr>
-    <td> Страна назначения </td>
+    <td> 22. Страна/ы следования  </td>
     <td><%= @client.visa_data.country_of_destination %></td>
   </tr>
   <tr>
-    <td> Страна первого вьезда </td>
+    <td> 23. Шенгенская страна первого въезда </td>
     <td><%= @client.visa_data.first_enter_country %></td>
   </tr>
   <tr>
-    <td> Количество въездов </td>
+    <td> 24. Виза запрашивается для </td>
     <td><%= @client.visa_data.quantity_of_entries_string %></td>
   </tr>
   <tr>
-    <td> Продолжительность пребвания </td>
+    <td> 25. Продолжительность пребывания или транзита. Указать количество дней </td>
     <td><%= @client.visa_data.duration_of_stay %></td>
   </tr>
   <tr>
-    <td> Выдавалась ли виза ранее </td>
+    <td> 26. Шенгенские визы, выданные за последние три года </td>
     <td><%= @client.visa_data.visa_given_string %></td>
   </tr>
   <tr>
-    <td> Выдана 1-й раз: с </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Выдана 1-й раз: с </td>
     <td><%= @client.visa_data.visa_given1_from %></td>
   </tr>
   <tr>
-    <td> Выдана 1-й раз: по </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Выдана 1-й раз: по </td>
     <td><%= @client.visa_data.visa_given1_to %></td>
   </tr>
   <tr>
-    <td> Выдана 2-й раз: с </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Выдана 2-й раз: с </td>
     <td><%= @client.visa_data.visa_given2_from %></td>
   </tr>
   <tr>
-    <td> Выдана 2-й раз: по </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Выдана 2-й раз: по </td>
     <td><%= @client.visa_data.visa_given2_to %></td>
   </tr>
   <tr>
-    <td> Выдана 3-й раз: с </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Выдана 3-й раз: с </td>
     <td><%= @client.visa_data.visa_given3_from %></td>
   </tr>
   <tr>
-    <td> Выдана 3-й раз: по </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Выдана 3-й раз: по </td>
     <td><%= @client.visa_data.visa_given3_to %></td>
   </tr>
   <tr>
-    <td> Выдана 4-й раз: с </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Выдана 4-й раз: с </td>
     <td><%= @client.visa_data.visa_given4_from %></td>
   </tr>
   <tr>
-    <td> Выдана 4-й раз: по </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Выдана 4-й раз: по </td>
     <td><%= @client.visa_data.visa_given4_to %></td>
   </tr>
   <tr>
-    <td> Отпечатки пальцев </td>
+    <td> 27. Отпечатки пальцев, предоставленные ранее при подаче заявки на получение шенгенской визы </td>
     <td><%= @client.visa_data.fingerprints_string %></td>
   </tr>
   <tr>
-    <td> Дата снятия отпечатков пальцов </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Дата, если известна </td>
     <td><%= @client.visa_data.fingerprints_date %></td>
   </tr>
   <tr>
-    <td> Разрешение на въезд </td>
+    <td> 28. Разрешение на въезд в страну конечного следования, если необходимо.Кем выдано </td>
     <td><%= @client.visa_data.entry_permit %></td>
   </tr>
   <tr>
-    <td> Разрешение на въезд: с </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Действительно с </td>
     <td><%= @client.visa_data.entry_permit_from %></td>
   </tr>
   <tr>
-    <td> Разрешение на въезд: по </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;по </td>
     <td><%= @client.visa_data.entry_permit_to %></td>
   </tr>
   <tr>
-    <td> Дата въезда </td>
+    <td> 29.Предполагаемая дата въезда в шенгенскую зону </td>
     <td><%= @client.visa_data.entry_date %></td>
   </tr>
   <tr>
-    <td> Дата выезда </td>
+    <td> 30. Предполагаемая дата выезда из шенгенской зоны </td>
     <td><%= @client.visa_data.departure_date %></td>
   </tr>
   <tr>
-    <td> Имя пригласившего </td>
+    <td> 31. Фамилия/-и, имя (имена) лица, приглашающего в государство/-а – член(-ы) Шенгенского соглашения. В случае отсутствия такового –название гостиницы (гостиниц) или адрес /-а временного пребывания на территории государств-участников Шенгенского соглашения </td>
     <td><%= @client.visa_data.inviter_name %></td>
   </tr>
   <tr>
-    <td> Адресс и email пригласившего </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Адрес и адрес электронной почты приглашающего лица (лиц) / гостиницы (гостиниц) / места (мест) временного пребывания  </td>
     <td><%= @client.visa_data.inviter_address_and_email %></td>
   </tr>
   <tr>
-    <td> Телефон пригласившего </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Телефон и факс </td>
     <td><%= @client.visa_data.inviter_phone %></td>
   </tr>
   <tr>
-    <td> Название и адресс пригласившей компании </td>
+    <td> 32. Название и адрес приглашающего предприятия/организации </td>
     <td><%= @client.visa_data.inviter_company_name_and_address %></td>
   </tr>
   <tr>
-    <td> Спонсор </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Телефон и факс предприятия/организации </td>
+    <td><%= @client.visa_data.inviter_company_phone %></td>
+  </tr>
+  <tr>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Фамилия, имя, адрес, телефон, факс и адрес электронной почты контактного лица предприятия / организации </td>
+    <td><%= @client.visa_data.inviter_company_contact_face %></td>
+  </tr>
+  <tr>
+    <td> 33. Расходы заявителя на проезд и во время пребывания оплачивает
+ </td>
     <td><%= @client.visa_data.sponsor_string %></td>
   </tr>
   <tr>
-    <td> Спонсор: другое </td>
+    <td> &nbsp;&nbsp;&nbsp;&nbsp;Иные </td>
     <td><%= @client.visa_data.sponsor_other %></td>
   </tr>
   <tr>
@@ -230,30 +227,6 @@
   <tr>
     <td> Средства2: другое </td>
     <td><%= @client.visa_data.means2_other %></td>
-  </tr>
-  <tr>
-    <td> Фамилия близкого </td>
-    <td><%= @client.visa_data.nearest_surname %></td>
-  </tr>
-  <tr>
-    <td> Имя близкого </td>
-    <td><%= @client.visa_data.nearest_name %></td>
-  </tr>
-  <tr>
-    <td> Дата рождения близкого </td>
-    <td><%= @client.visa_data.nearest_date_of_birth %></td>
-  </tr>
-  <tr>
-    <td> Национальность близкого </td>
-    <td><%= @client.visa_data.nearest_nationality %></td>
-  </tr>
-  <tr>
-    <td> Номер паспорта близкого </td>
-    <td><%= @client.visa_data.nearest_passport_number %></td>
-  </tr>
-  <tr>
-    <td> Близкий </td>
-    <td><%= @client.visa_data.nearest_string %></td>
   </tr>
   <tr>
     <td> Место </td>

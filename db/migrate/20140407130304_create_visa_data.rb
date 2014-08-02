@@ -65,6 +65,9 @@ class CreateVisaData < ActiveRecord::Migration
       t.text :inviter_phone, default: ""
 
       t.text :inviter_company_name_and_address, default: ""
+      t.text :inviter_company_phone, default: ""
+      t.text :inviter_company_contact_face, default: ""
+      
       t.integer :sponsor, default: 1
       t.text :sponsor_other, default: ""
       t.integer :means1, default: 1
