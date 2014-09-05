@@ -6,6 +6,7 @@
     <div class="panel" >
       <div class="panel-heading">
         <select class="form-control" onchange="get_country_data(this.options[this.selectedIndex].value)" >
+          <option value="" >Выбирите страну</option>
           <% @document_templates.each do |doc| 
 		if doc.document_type == "visa"%>
             <option value="<%= doc.id %>" ><%= doc.name %></option>

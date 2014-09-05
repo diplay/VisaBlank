@@ -30,6 +30,18 @@ DocumentTemplate.create(name: "Виза Мальта", template_path: "#{Rails.r
 DocumentTemplate.create(name: "Виза Исландия", template_path: "#{Rails.root}/public/pdf_templates/iseland.pdftodo",
                	document_type: "visa",
 	      	description: "info_iseland.html")
+DocumentTemplate.create(name: "Виза Италия", template_path: "#{Rails.root}/public/pdf_templates/italy.pdftodo",
+               	document_type: "visa",
+	      	description: "info_italy.html")
+DocumentTemplate.create(name: "Виза Люксимбург", template_path: "#{Rails.root}/public/pdf_templates/luxemburg.pdftodo",
+               	document_type: "visa",
+	      	description: "info_luxemburg.html")
+DocumentTemplate.create(name: "Виза Нидерланды", template_path: "#{Rails.root}/public/pdf_templates/niderland.pdftodo",
+               	document_type: "visa",
+	      	description: "info_niderland.html")
+DocumentTemplate.create(name: "Виза Испания", template_path: "#{Rails.root}/public/pdf_templates/spain.pdftodo",
+               	document_type: "visa",
+	      	description: "info_spain.html")
 
 company = Company.create(name: "ООО \"Рога и Копыта\"",
                         paid_before: Date.today << 1,

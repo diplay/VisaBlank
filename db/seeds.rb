@@ -23,25 +23,56 @@ DocumentTemplate.create(name: "Виза Литва", template_path: "#{Rails.roo
 			description: "info_litva.html")
 DocumentTemplate.create(name: "Виза Швеция", template_path: "#{Rails.root}/public/pdf_templates/shvecia.pdf",
                        document_type: "visa",
-			description: "info_shvecia.html")
+			description: "info_shvecia.htmltodo")
 DocumentTemplate.create(name: "Виза Мальта", template_path: "#{Rails.root}/public/pdf_templates/malta.pdf",
                        document_type: "visa",
 			description: "info_malta.html")
-DocumentTemplate.create(name: "Виза Исландия", template_path: "#{Rails.root}/public/pdf_templates/iseland.pdftodo",
+DocumentTemplate.create(name: "Виза Исландия", template_path: "#{Rails.root}/public/pdf_templates/iseland.pdf",
                	document_type: "visa",
 	      	description: "info_iseland.html")
 DocumentTemplate.create(name: "Виза Италия", template_path: "#{Rails.root}/public/pdf_templates/italy.pdftodo",
                	document_type: "visa",
 	      	description: "info_italy.html")
-DocumentTemplate.create(name: "Виза Люксимбург", template_path: "#{Rails.root}/public/pdf_templates/luxemburg.pdftodo",
+DocumentTemplate.create(name: "Виза Люксимбург", template_path: "#{Rails.root}/public/pdf_templates/luxemburg.pdf",
                	document_type: "visa",
 	      	description: "info_luxemburg.html")
-DocumentTemplate.create(name: "Виза Нидерланды", template_path: "#{Rails.root}/public/pdf_templates/niderland.pdftodo",
+DocumentTemplate.create(name: "Виза Нидерланды", template_path: "#{Rails.root}/public/pdf_templates/niderland.pdf",
                	document_type: "visa",
 	      	description: "info_niderland.html")
 DocumentTemplate.create(name: "Виза Испания", template_path: "#{Rails.root}/public/pdf_templates/spain.pdftodo",
                	document_type: "visa",
 	      	description: "info_spain.html")
+DocumentTemplate.create(name: "Виза Бельгия", template_path: "#{Rails.root}/public/pdf_templates/belgia.pdf",
+               	document_type: "visa",
+	      	description: "info_belgia.htmltodo")
+DocumentTemplate.create(name: "Виза Франция", template_path: "#{Rails.root}/public/pdf_templates/france.pdf",
+               	document_type: "visa",
+	      	description: "info_france.htmltodo")
+DocumentTemplate.create(name: "Виза Германия", template_path: "#{Rails.root}/public/pdf_templates/germany.pdf",
+               	document_type: "visa",
+	      	description: "info_germany.htmltodo")
+DocumentTemplate.create(name: "Виза Карибские Нидерланды", template_path: "#{Rails.root}/public/pdf_templates/niderland_karibian.pdf",
+               	document_type: "visa",
+	      	description: "info_niderland_karibian.htmltodo")
+DocumentTemplate.create(name: "Виза Греция", template_path: "#{Rails.root}/public/pdf_templates/greece.pdf",
+               	document_type: "visa",
+	      	description: "info_greece.htmltodo")
+DocumentTemplate.create(name: "Виза Норвегия", template_path: "#{Rails.root}/public/pdf_templates/norvegia.pdf",
+               	document_type: "visa",
+	      	description: "info_norvegia.html")
+DocumentTemplate.create(name: "Виза Португалия", template_path: "#{Rails.root}/public/pdf_templates/portugaly.pdf",
+               	document_type: "visa",
+	      	description: "info_portugaly.html")
+DocumentTemplate.create(name: "Виза Венгрия", template_path: "#{Rails.root}/public/pdf_templates/vengria.pdf",
+               	document_type: "visa",
+	      	description: "info_vengria.htmltodo")
+DocumentTemplate.create(name: "Виза Польша", template_path: "#{Rails.root}/public/pdf_templates/poland.pdftodo",
+               	document_type: "visa",
+	      	description: "info_poland.html")
+DocumentTemplate.create(name: "Виза Словения", template_path: "#{Rails.root}/public/pdf_templates/slovenia.pdftodo",
+               	document_type: "visa",
+	      	description: "info_slovenia.html")
+
 
 company = Company.create(name: "ООО \"Рога и Копыта\"",
                         paid_before: Date.today << 1,
