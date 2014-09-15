@@ -14,7 +14,7 @@ DocumentTemplate.create(name: "Виза Австрия", template_path: "#{Rails
 		description:"info_austria.txt")
 DocumentTemplate.create(name: "Виза Дания", template_path: "#{Rails.root}/public/pdf_templates/dania.pdf",
                		document_type: "visa",
-			description: "info_dania.htmltodo")
+			description: "info_dania.html")
 DocumentTemplate.create(name: "Виза Латвия", template_path: "#{Rails.root}/public/pdf_templates/latvia.pdf",
                        document_type: "visa",
 			description: "info_latvia.htmltodo")
