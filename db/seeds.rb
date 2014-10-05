@@ -14,16 +14,16 @@ DocumentTemplate.create(name: "Виза Австрия", template_path: "#{Rails
 		description:"info_austria.txt")
 DocumentTemplate.create(name: "Виза Дания", template_path: "#{Rails.root}/public/pdf_templates/dania.pdf",
                		document_type: "visa",
-			description: "info_dania.html")
+			description: "бельinfo_dania.html")
 DocumentTemplate.create(name: "Виза Латвия", template_path: "#{Rails.root}/public/pdf_templates/latvia.pdf",
                        document_type: "visa",
-			description: "info_latvia.htmltodo")
+			description: "info_latvia.html")
 DocumentTemplate.create(name: "Виза Литва", template_path: "#{Rails.root}/public/pdf_templates/litva.pdf",
                        document_type: "visa",
 			description: "info_litva.html")
 DocumentTemplate.create(name: "Виза Швеция", template_path: "#{Rails.root}/public/pdf_templates/shvecia.pdf",
                        document_type: "visa",
-			description: "info_shvecia.htmltodo")
+			description: "info_shvecia.html")
 DocumentTemplate.create(name: "Виза Мальта", template_path: "#{Rails.root}/public/pdf_templates/malta.pdf",
                        document_type: "visa",
 			description: "info_malta.html")
@@ -44,19 +44,19 @@ DocumentTemplate.create(name: "Виза Испания", template_path: "#{Rails
 	      	description: "info_spain.html")
 DocumentTemplate.create(name: "Виза Бельгия", template_path: "#{Rails.root}/public/pdf_templates/belgia.pdf",
                	document_type: "visa",
-	      	description: "info_belgia.htmltodo")
+	      	description: "info_belgia.html")
 DocumentTemplate.create(name: "Виза Франция", template_path: "#{Rails.root}/public/pdf_templates/france.pdf",
                	document_type: "visa",
 	      	description: "info_france.htmltodo")
 DocumentTemplate.create(name: "Виза Германия", template_path: "#{Rails.root}/public/pdf_templates/germany.pdf",
                	document_type: "visa",
-	      	description: "info_germany.htmltodo")
+	      	description: "info_germany.html")
 DocumentTemplate.create(name: "Виза Карибские Нидерланды", template_path: "#{Rails.root}/public/pdf_templates/niderland_karibian.pdf",
                	document_type: "visa",
-	      	description: "info_niderland_karibian.htmltodo")
+	      	description: "info_niderland_karibian.html")
 DocumentTemplate.create(name: "Виза Греция", template_path: "#{Rails.root}/public/pdf_templates/greece.pdf",
                	document_type: "visa",
-	      	description: "info_greece.htmltodo")
+	      	description: "info_greece.html")
 DocumentTemplate.create(name: "Виза Норвегия", template_path: "#{Rails.root}/public/pdf_templates/norvegia.pdf",
                	document_type: "visa",
 	      	description: "info_norvegia.html")
@@ -65,7 +65,7 @@ DocumentTemplate.create(name: "Виза Португалия", template_path: "#
 	      	description: "info_portugaly.html")
 DocumentTemplate.create(name: "Виза Венгрия", template_path: "#{Rails.root}/public/pdf_templates/vengria.pdf",
                	document_type: "visa",
-	      	description: "info_vengria.htmltodo")
+	      	description: "info_vengria.html")
 DocumentTemplate.create(name: "Виза Польша", template_path: "#{Rails.root}/public/pdf_templates/poland.pdftodo",
                	document_type: "visa",
 	      	description: "info_poland.html")
