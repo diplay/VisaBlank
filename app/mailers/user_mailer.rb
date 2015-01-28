@@ -1,6 +1,6 @@
 #coding: utf-8
 class UserMailer < ActionMailer::Base
-  default from: "admin@visablank.tk"
+  default from: "admin@officevisa.ru"
 
   def new_user_email(user, password)
     @email = user.email

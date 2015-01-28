@@ -1,6 +1,6 @@
 #coding: utf-8
 class ClaimMailer < ActionMailer::Base
-  default from: "from@visablank.com"
+  default from: "admin@officevisa.ru"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
