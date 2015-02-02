@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140728124007) do
+ActiveRecord::Schema.define(version: 20150202190354) do
 
   create_table "clients", force: true do |t|
     t.integer  "manager_id"
@@ -76,6 +76,8 @@ ActiveRecord::Schema.define(version: 20140728124007) do
     t.integer  "document_template_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "client_payed"
+    t.string   "cost_payed"
   end
 
   add_index "document_orders", ["client_id"], name: "index_document_orders_on_client_id"

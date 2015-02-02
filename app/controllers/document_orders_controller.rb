@@ -68,7 +68,7 @@ class DocumentOrdersController < ApplicationController
   end
 
   def order_params
-    params[:document_order].permit(:comments, :document_template_id, :status)
+    params[:document_order].permit(:comments, :document_template_id, :status, :client_price, :client_payed, :cost, :cost_payed)
   end
 
 end

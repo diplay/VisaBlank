@@ -29,6 +29,30 @@
     </td>
   </tr>
 </table>
+<div class="form-group" >
+      <%= f.label :comments, "Цена для клиента:",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-3" >
+          <%= f.text_field :client_price, class: "form-control"%>
+      </div>
+      <%= f.label :comments, "Оплачено:",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-3" >
+          <%= f.text_field :client_payed, class: "form-control"%>
+      </div>
+    </div>
+    <div class="form-group" >
+      <%= f.label :comments, "Цена для компании:",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-3" >
+          <%= f.text_field :cost, class: "form-control"%>
+      </div>
+      <%= f.label :comments, "Оплачено:",
+        class: "control-label col-sm-2" %>
+      <div class="col-sm-3" >
+          <%= f.text_field :cost_payed, class: "form-control"%>
+      </div>
+    </div>
 <%= link_to "Удалить документ", document_order_path(@order),
     method: :delete, class: "btn btn-danger", confirm: "Вы точно уверены?"%>
 <%= f.submit "Сохранить", class: "btn btn-success pull-right" %>
