@@ -1,0 +1,26 @@
+<div class="panel panel-info" >
+  <div class="panel-heading" >
+    <h2 class="panel-title" >Платежи</h2>
+  </div>
+  <div class="panel-body" >
+    <table class="table table-hover" >
+      <thead>
+        <tr>
+          <th>Клиент</td>
+          <th>Документ</td>
+          <th>Крайний срок выполнения</td>
+        </tr>
+      </thead>
+      <tbody>
+      <% @manager.document_orders.order(deadline: :asc).each do |order| %>
+          <tr>
+            <% client = @manager.clients.where(document_orders_id = order.id).first %>
+            <td><%= link_to client.fio, client_path(client) %></td>
+            <td><%= link_to order.document_template.name, document_order_path(order) %></td>
+            <td><%= order.deadline %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

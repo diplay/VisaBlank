@@ -19,6 +19,7 @@
     <li><a href="#clients" data-toggle="tab" >Клиенты</a></li>
     <li class="active" ><a href="#docs" data-toggle="tab" >Документы</a></li>
     <li><a href="#pays" data-toggle="tab" >Платежи</a></li>
+    <li><a href="#calendar" data-toggle="tab" >Сроки</a></li>
   </ul>
   <div class="tab-content" id="tabMenuContent" >
     <div class="tab-pane fade" id="countries" >
@@ -32,6 +33,9 @@
     </div>
     <div class="tab-pane fade" id="pays" >
       <%= render 'manager_pays' %>
+    </div>
+    <div class="tab-pane fade" id="calendar" >
+      <%= render 'manager_calendar' %>
     </div>
     
   </div>

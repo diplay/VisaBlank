@@ -78,6 +78,7 @@ ActiveRecord::Schema.define(version: 20150202190354) do
     t.datetime "updated_at"
     t.string   "client_payed"
     t.string   "cost_payed"
+    t.date     "deadline"
   end
 
   add_index "document_orders", ["client_id"], name: "index_document_orders_on_client_id"
